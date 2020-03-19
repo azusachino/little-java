@@ -1,9 +1,6 @@
 package cn.az.java.basic.demo2;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
 
 public class UnmodifiableInterfaceDemo {
 
@@ -29,6 +26,6 @@ public class UnmodifiableInterfaceDemo {
     }
 
     public static Collection<Integer> unmodifiable(Integer... values) {
-        return List.of(values);
+        return Collections.unmodifiableList(Arrays.asList(values));
     }
 }

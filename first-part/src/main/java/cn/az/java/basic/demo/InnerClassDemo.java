@@ -24,7 +24,7 @@ public class InnerClassDemo {
 
     // 实例块
     {
-        new Callable<>() {
+        new Callable<Object>() {
             @Override
             public Object call() {
                 return null;
@@ -34,7 +34,7 @@ public class InnerClassDemo {
 
     // 构造器
     public InnerClassDemo() {
-        new Comparable<>() {
+        new Comparable<Object>() {
 
             @Override
             public int compareTo(Object o) {

@@ -10,11 +10,19 @@
     <relativePath/>
   </parent>
 
-  <artifactId>basic-project</artifactId>
-  <name>basic-project</name>
+  <artifactId>first-part</artifactId>
+  <name>first-part</name>
   <description>basic java project</description>
 
   <dependencies>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>cn.hutool</groupId>
+      <artifactId>hutool-all</artifactId>
+    </dependency>
   </dependencies>
 
   <build>

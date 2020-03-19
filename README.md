@@ -1,2 +1,4 @@
 # little-java
-learn java 
+
+## Learn Java from mercy blitz
+ 
