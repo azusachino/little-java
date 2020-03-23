@@ -2,11 +2,14 @@ package cn.az.java.modular;
 
 import java.lang.module.ModuleDescriptor;
 
+/**
+ * @author az
+ */
 public class ModuleReflectionDemo {
 
     public static void main(String[] args) {
 
-        Class klass = ModuleReflectionDemo.class;
+        Class<?> klass = ModuleReflectionDemo.class;
 
         Module module = klass.getModule();
 
@@ -16,12 +19,12 @@ public class ModuleReflectionDemo {
 
         ModuleDescriptor moduleDescriptor = module.getDescriptor();
 
-        moduleDescriptor.requires().stream().forEach(requires -> {
+        moduleDescriptor.requires().forEach(requires -> {
                     System.out.printf("requires 模块名称 %s，修饰符定义： %s \n", requires.name(), requires.modifiers());
                 }
         );
 
-        moduleDescriptor.exports().stream().forEach(exports -> {
+        moduleDescriptor.exports().forEach(exports -> {
             System.out.printf("exports 包名称 %s，targets： %s \n", exports.source(), exports.targets());
         });
     }

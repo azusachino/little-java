@@ -28,16 +28,32 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <hutool.version>5.2.3</hutool.version>
+    <commons-collections.version>3.2.2</commons-collections.version>
   </properties>
 
   <dependencyManagement>
     <dependencies>
       <dependency>
         <groupId>cn.hutool</groupId>
-        <artifactId>hutool-all</artifactId>
+        <artifactId>hutool-core</artifactId>
         <version>${hutool.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>commons-collections</groupId>
+        <artifactId>commons-collections</artifactId>
+        <version>${commons-collections.version}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+      </plugin>
+    </plugins>
+  </build>
 
 </project>
