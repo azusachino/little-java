@@ -4,7 +4,10 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
-public class ReentrantReadWriteLockDemo {
+/**
+ * @author az
+ */
+public class ReenteringReadWriteLockDemo {
 
     public static void main(String[] args) {
 

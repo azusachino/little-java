@@ -5,7 +5,7 @@ public class ThreadInterruptDemo {
     public static void main(String[] args) throws InterruptedException {
         // Thread 实现 Runnable
         // 如果没有传递 Runnable 对象实现，空执行
-        Thread thread = new Thread(ThreadInterruptDemo::sayHelloWorld); // 方法引用
+        Thread thread = new Thread(ThreadInterruptDemo::sayHelloWorld);
         // thread.interrupt() 方法在 start() 调用之前是没有效果
         thread.start(); // 启动线程
         thread.interrupt(); // main 线程 interrupt 子线程

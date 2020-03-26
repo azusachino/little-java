@@ -1,9 +1,5 @@
 package cn.az.java.collections;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.ToString;
-
 import java.util.Arrays;
 
 /**
@@ -59,11 +55,28 @@ public class ImmutableArrayDemo {
         return users;
     }
 
-    @Data
-    @ToString
-    @AllArgsConstructor
+
     private static class User {
         private Long id;
+
+        public User(Long id) {
+            this.id = id;
+        }
+
+        public Long getId() {
+            return id;
+        }
+
+        public void setId(Long id) {
+            this.id = id;
+        }
+
+        @Override
+        public String toString() {
+            return "User{" +
+                    "id=" + id +
+                    '}';
+        }
     }
 
     private static Integer[] of(Integer... values) { // Integer... == Integer[]

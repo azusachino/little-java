@@ -1,5 +1,3 @@
-/*
-
 module second.part {
     // requires 内部依赖
     // 命名模块
@@ -9,12 +7,11 @@ module second.part {
     requires java.compiler;  // exports 控制可访问的 API 包
 
     // 非命名模块
-    requires transitive spring.context;
-    requires transitive org.apache.commons.lang3;  // 规律：
+    requires spring.context;
+    requires org.apache.commons.lang3;  // 规律：
     // Maven artifactId（jar或者war文件）中横划（画）线 "-"
     // 在模块化名称使用 "."
-    requires transitive commons.collections;
-    requires transitive lombok;
+    requires commons.collections;
 
 //    uses cn.az.java.MySpi; // JAVA SPI 实现
 
@@ -22,4 +19,3 @@ module second.part {
     exports cn.az.java.modular;
 }
 
-*/

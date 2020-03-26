@@ -1,28 +1,37 @@
 package cn.az.java.concurrency;
 
+import cn.hutool.core.thread.ThreadUtil;
+
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
+/**
+ * @author az
+ */
 public class CountDownLatchDemo {
 
     public static void main(String[] args) throws InterruptedException {
         // 4 -> 3 -> 2 -> 1
-        CountDownLatch latch = new CountDownLatch(4); // 4 个计数
-        ExecutorService executorService = Executors.newFixedThreadPool(3); // 线程数 3
+        // 4 个计数
+        CountDownLatch latch = new CountDownLatch(4);
+        // 线程数 3
+        ExecutorService executorService = ThreadUtil.newExecutor(3);
 
-        for (int i = 0; i < 3; i++) { // 启动3个线程
+        // 启动3个线程
+        for (int i = 0; i < 5; i++) {
             executorService.submit(() -> {
                 try {
-                    echoThread();
-                    latch.countDown(); // -1
+                    echoThread(latch.getCount());
                 } catch (Exception e) {
                     e.printStackTrace();
+                } finally {
+                    // -1
+                    latch.countDown();
                 }
             });
         }
 
-        Thread.sleep(5 * 100);
+        Thread.sleep(5 * 100L);
 
         // 当 count 数量等于 0，才会释放
         // 4-3 == 1 !=0
@@ -34,7 +43,7 @@ public class CountDownLatchDemo {
 
     }
 
-    private static void echoThread() {
-        System.out.printf("当前线程[%s]正在执行...\n", Thread.currentThread().getName());
+    private static void echoThread(long count) {
+        System.out.printf("当前线程[%s]正在执行, count is [%d]\n", Thread.currentThread().getName(), count);
     }
 }

@@ -8,8 +8,8 @@ public class CollectionRemoveDemoInJava8 {
 
     public static void main(String[] args) {
 
-        List<Integer> values = new ArrayList(List.of(1, 2, 3));
-//        List<Integer> values = Collections.singletonList(1);
+        List<Integer> values = new ArrayList<>(List.of(1, 2, 3));
+        List<Integer> vals = Collections.singletonList(1);
         for (int i = 0; i < values.size(); i++) {
             Object value = values.get(i);
             values.remove(value);

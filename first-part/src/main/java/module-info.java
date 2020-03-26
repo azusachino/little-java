@@ -5,6 +5,7 @@ module first.part {
     requires java.logging;
     requires java.desktop;
     requires java.net.http;
+    requires spring.core;
     exports cn.az.java.basic.demo;
     exports cn.az.java.basic; // must contain at least one Class
 }

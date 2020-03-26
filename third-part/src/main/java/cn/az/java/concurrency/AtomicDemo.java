@@ -7,6 +7,8 @@ import java.lang.reflect.Field;
 import java.security.AccessController;
 import java.security.PrivilegedActionException;
 import java.security.PrivilegedExceptionAction;
+import java.util.Collections;
+import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -16,11 +18,12 @@ import java.util.concurrent.atomic.AtomicLong;
 public class AtomicDemo {
 
     public static void main(String[] args) throws Exception {
-        // CAS 是一种相对（MB）较重的比较，轻量级的锁（标量）
+        // CAS 是一种相对（MB 内存屏障）较重的比较，轻量级的锁（标量）
 
         getUnsafe();
-
+        var kuma = Map.of(Collections.emptyMap(), Collections.emptyList());
         // volatile 修饰复杂对象类型时，不具备被传递到字段安全
+        System.out.println(kuma);
     }
 
     private static void demoAtomicLong() {
@@ -60,7 +63,6 @@ public class AtomicDemo {
         };
 
         Unsafe unsafe = AccessController.doPrivileged(action);
-
         if (unsafe == null) {
             throw new NullPointerException();
         }

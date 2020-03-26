@@ -1,17 +1,22 @@
 package cn.az.java.concurrency;
 
+import cn.hutool.core.thread.ThreadUtil;
+
 import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+/**
+ * @author az
+ */
 public class CyclicBarrierDemo {
 
     public static void main(String[] args) throws BrokenBarrierException, InterruptedException {
 
         CyclicBarrier cb = new CyclicBarrier(4);
 
-        ExecutorService executorService = Executors.newFixedThreadPool(3);
+        ExecutorService executorService = ThreadUtil.newExecutor(3);
 
         for (int i = 0; i < 3; i++) {
             executorService.submit(() -> {

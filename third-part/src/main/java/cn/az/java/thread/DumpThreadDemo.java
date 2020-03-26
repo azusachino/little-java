@@ -1,5 +1,8 @@
 package cn.az.java.thread;
 
+/**
+ * @author az
+ */
 public class DumpThreadDemo {
 
     public static void main(String[] args) {
