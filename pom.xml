@@ -12,9 +12,9 @@
   </parent>
 
   <groupId>cn.az.java</groupId>
-  <name>little-java</name>
   <artifactId>little-java</artifactId>
   <version>1.0.0</version>
+  <name>little-java</name>
   <packaging>pom</packaging>
   <description>learn java from mercy blitz</description>
 
@@ -29,7 +29,7 @@
     <maven.compiler.target>11</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <hutool.version>5.2.3</hutool.version>
+    <hutool.version>5.2.4</hutool.version>
     <commons-collections.version>3.2.2</commons-collections.version>
     <guava.version>28.2-jre</guava.version>
   </properties>
