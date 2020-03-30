@@ -21,3 +21,8 @@
 3. synchronized & Lock
 4. Atomic* & *Adder
 5. Semaphore & CountDownLatch & CyclicBarrier
+
+### fourth-part
+
+1. pthread
+2. JMM & Sequential Consistent & Happens Before
