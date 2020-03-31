@@ -26,3 +26,4 @@
 
 1. pthread
 2. JMM & Sequential Consistent & Happens Before
+3. AbstractQueuedSynchronizer
