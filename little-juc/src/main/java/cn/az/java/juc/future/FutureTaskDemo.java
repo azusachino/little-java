@@ -1,13 +1,11 @@
 package cn.az.java.juc.future;
 
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.FutureTask;
+import java.util.concurrent.*;
 
 /**
  * 描述：     演示FutureTask的用法
+ *
+ * @author az
  */
 public class FutureTaskDemo {
 
@@ -19,27 +17,27 @@ public class FutureTaskDemo {
         service.submit(integerFutureTask);
 
         try {
-            System.out.println("task运行结果："+integerFutureTask.get());
+            System.out.println("task运行结果：" + integerFutureTask.get());
 
-        } catch (InterruptedException e) {
+        } catch (InterruptedException | ExecutionException e) {
             e.printStackTrace();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
+        }
+    }
+
+    static class Task implements Callable<Integer> {
+
+        @Override
+        public Integer call() throws Exception {
+            System.out.println("子线程正在计算");
+            Thread.sleep(3000);
+            int sum = 0;
+            for (int i = 0; i < 100; i++) {
+                sum += i;
+            }
+            return sum;
         }
     }
 }
 
-class Task implements Callable<Integer> {
 
-    @Override
-    public Integer call() throws Exception {
-        System.out.println("子线程正在计算");
-        Thread.sleep(3000);
-        int sum = 0;
-        for (int i = 0; i < 100; i++) {
-            sum += i;
-        }
-        return sum;
-    }
-}
 

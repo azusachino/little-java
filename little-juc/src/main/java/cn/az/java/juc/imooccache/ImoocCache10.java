@@ -1,17 +1,10 @@
 package cn.az.java.juc.imooccache;
 
-import imooccache.computable.Computable;
-import imooccache.computable.MayFail;
+import cn.az.java.juc.imooccache.computable.Computable;
+import cn.az.java.juc.imooccache.computable.MayFail;
+
 import java.util.Map;
-import java.util.concurrent.Callable;
-import java.util.concurrent.CancellationException;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
-import java.util.concurrent.FutureTask;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 
 /**
  * 描述：     出于安全性考虑，缓存需要设置有效期，到期自动失效，否则如果缓存一直不失效，那么带来缓存不一致等问题
@@ -69,7 +62,7 @@ public class ImoocCache10<A, V> implements Computable<A, V> {
     public final static ScheduledExecutorService executor = Executors.newScheduledThreadPool(5);
 
     public V compute(A arg, long expire) throws ExecutionException, InterruptedException {
-        if (expire>0) {
+        if (expire > 0) {
             executor.schedule(new Runnable() {
                 @Override
                 public void run() {
@@ -91,6 +84,7 @@ public class ImoocCache10<A, V> implements Computable<A, V> {
             cache.remove(key);
         }
     }
+
     public static void main(String[] args) throws Exception {
         ImoocCache10<String, Integer> expensiveComputer = new ImoocCache10<>(
                 new MayFail());
@@ -98,7 +92,7 @@ public class ImoocCache10<A, V> implements Computable<A, V> {
             @Override
             public void run() {
                 try {
-                    Integer result = expensiveComputer.compute("666",5000L);
+                    Integer result = expensiveComputer.compute("666", 5000L);
                     System.out.println("第一次的计算结果：" + result);
                 } catch (Exception e) {
                     e.printStackTrace();

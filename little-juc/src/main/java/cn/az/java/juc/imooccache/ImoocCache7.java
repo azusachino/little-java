@@ -1,7 +1,8 @@
 package cn.az.java.juc.imooccache;
 
-import imooccache.computable.Computable;
-import imooccache.computable.ExpensiveFunction;
+import cn.az.java.juc.imooccache.computable.Computable;
+import cn.az.java.juc.imooccache.computable.ExpensiveFunction;
+
 import java.util.Map;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ConcurrentHashMap;
@@ -10,6 +11,8 @@ import java.util.concurrent.FutureTask;
 
 /**
  * 描述：     利用Future，避免重复计算
+ *
+ * @author az
  */
 public class ImoocCache7<A, V> implements Computable<A, V> {
 
@@ -25,12 +28,7 @@ public class ImoocCache7<A, V> implements Computable<A, V> {
     public V compute(A arg) throws Exception {
         Future<V> f = cache.get(arg);
         if (f == null) {
-            Callable<V> callable = new Callable<V>() {
-                @Override
-                public V call() throws Exception {
-                    return c.compute(arg);
-                }
-            };
+            Callable<V> callable = () -> c.compute(arg);
             FutureTask<V> ft = new FutureTask<>(callable);
             f = ft;
             cache.put(arg, ft);
@@ -40,7 +38,7 @@ public class ImoocCache7<A, V> implements Computable<A, V> {
         return f.get();
     }
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         ImoocCache7<String, Integer> expensiveComputer = new ImoocCache7<>(
                 new ExpensiveFunction());
         new Thread(new Runnable() {

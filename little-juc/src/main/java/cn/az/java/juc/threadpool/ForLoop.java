@@ -1,9 +1,9 @@
 package cn.az.java.juc.threadpool;
 
-import java.util.concurrent.Executors;
-
 /**
- * 描述：     TODO
+ * 描述：
+ *
+ * @author az
  */
 public class ForLoop {
 

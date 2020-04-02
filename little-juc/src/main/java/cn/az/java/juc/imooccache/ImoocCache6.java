@@ -1,7 +1,8 @@
 package cn.az.java.juc.imooccache;
 
-import imooccache.computable.Computable;
-import imooccache.computable.ExpensiveFunction;
+import cn.az.java.juc.imooccache.computable.Computable;
+import cn.az.java.juc.imooccache.computable.ExpensiveFunction;
+
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 

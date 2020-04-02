@@ -16,7 +16,7 @@
   <version>1.0.0</version>
   <name>little-java</name>
   <packaging>pom</packaging>
-  <description>learn java from mercy blitz</description>
+  <description>learn java</description>
 
   <modules>
     <module>first-part</module>

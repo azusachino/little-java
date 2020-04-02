@@ -1,12 +1,13 @@
 package cn.az.java.juc.imooccache.computable;
 
 import java.io.IOException;
-import java.util.concurrent.ThreadPoolExecutor;
 
 /**
  * 描述：     耗时计算的实现类，有概率计算失败
+ *
+ * @author az
  */
-public class MayFail implements Computable<String, Integer>{
+public class MayFail implements Computable<String, Integer> {
 
     @Override
     public Integer compute(String arg) throws Exception {

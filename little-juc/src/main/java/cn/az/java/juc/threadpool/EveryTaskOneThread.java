@@ -1,7 +1,9 @@
 package cn.az.java.juc.threadpool;
 
 /**
- * 描述：     TODO
+ * Task
+ *
+ * @author az
  */
 public class EveryTaskOneThread {
 

@@ -1,11 +1,6 @@
 package cn.az.java.juc.threadpool;
 
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.RejectedExecutionHandler;
-import java.util.concurrent.ThreadFactory;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -20,26 +15,26 @@ public class PauseableThreadPool extends ThreadPoolExecutor {
 
 
     public PauseableThreadPool(int corePoolSize, int maximumPoolSize, long keepAliveTime,
-            TimeUnit unit,
-            BlockingQueue<Runnable> workQueue) {
+                               TimeUnit unit,
+                               BlockingQueue<Runnable> workQueue) {
         super(corePoolSize, maximumPoolSize, keepAliveTime, unit, workQueue);
     }
 
     public PauseableThreadPool(int corePoolSize, int maximumPoolSize, long keepAliveTime,
-            TimeUnit unit, BlockingQueue<Runnable> workQueue,
-            ThreadFactory threadFactory) {
+                               TimeUnit unit, BlockingQueue<Runnable> workQueue,
+                               ThreadFactory threadFactory) {
         super(corePoolSize, maximumPoolSize, keepAliveTime, unit, workQueue, threadFactory);
     }
 
     public PauseableThreadPool(int corePoolSize, int maximumPoolSize, long keepAliveTime,
-            TimeUnit unit, BlockingQueue<Runnable> workQueue,
-            RejectedExecutionHandler handler) {
+                               TimeUnit unit, BlockingQueue<Runnable> workQueue,
+                               RejectedExecutionHandler handler) {
         super(corePoolSize, maximumPoolSize, keepAliveTime, unit, workQueue, handler);
     }
 
     public PauseableThreadPool(int corePoolSize, int maximumPoolSize, long keepAliveTime,
-            TimeUnit unit, BlockingQueue<Runnable> workQueue,
-            ThreadFactory threadFactory, RejectedExecutionHandler handler) {
+                               TimeUnit unit, BlockingQueue<Runnable> workQueue,
+                               ThreadFactory threadFactory, RejectedExecutionHandler handler) {
         super(corePoolSize, maximumPoolSize, keepAliveTime, unit, workQueue, threadFactory,
                 handler);
     }
@@ -81,15 +76,12 @@ public class PauseableThreadPool extends ThreadPoolExecutor {
     public static void main(String[] args) throws InterruptedException {
         PauseableThreadPool pauseableThreadPool = new PauseableThreadPool(10, 20, 10l,
                 TimeUnit.SECONDS, new LinkedBlockingQueue<>());
-        Runnable runnable = new Runnable() {
-            @Override
-            public void run() {
-                System.out.println("我被执行");
-                try {
-                    Thread.sleep(10);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+        Runnable runnable = () -> {
+            System.out.println("我被执行");
+            try {
+                Thread.sleep(10);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
         };
         for (int i = 0; i < 10000; i++) {

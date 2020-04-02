@@ -3,10 +3,11 @@ package cn.az.java.juc.threadpool;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
 
 /**
  * 描述：     演示关闭线程池
+ *
+ * @author az
  */
 public class ShutDown {
 
@@ -16,9 +17,9 @@ public class ShutDown {
             executorService.execute(new ShutDownTask());
         }
         Thread.sleep(1500);
-//        List<Runnable> runnableList = executorService.shutdownNow();
+        List<Runnable> runnableList = executorService.shutdownNow();
 
-        executorService.shutdown();
+//        executorService.shutdown();
         executorService.execute(new ShutDownTask());
 //        boolean b = executorService.awaitTermination(7L, TimeUnit.SECONDS);
 //        System.out.println(b);
@@ -31,18 +32,19 @@ public class ShutDown {
 
 //        executorService.execute(new ShutDownTask());
     }
-}
 
-class ShutDownTask implements Runnable {
+    static class ShutDownTask implements Runnable {
 
-
-    @Override
-    public void run() {
-        try {
-            Thread.sleep(500);
-            System.out.println(Thread.currentThread().getName());
-        } catch (InterruptedException e) {
-            System.out.println(Thread.currentThread().getName() + "被中断了");
+        @Override
+        public void run() {
+            try {
+                Thread.sleep(500);
+                System.out.println(Thread.currentThread().getName());
+            } catch (InterruptedException e) {
+                System.out.println(Thread.currentThread().getName() + "被中断了");
+            }
         }
     }
+
 }
+

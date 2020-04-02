@@ -1,8 +1,5 @@
 package cn.az.java.juc.future;
 
-import java.util.concurrent.Callable;
-import java.util.concurrent.Future;
-
 /**
  * 描述：     在run方法中无法抛出checked Exception
  */

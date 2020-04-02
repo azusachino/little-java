@@ -1,6 +1,5 @@
 package cn.az.java.juc.lock.lock;
 
-import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -10,20 +9,22 @@ import java.util.concurrent.locks.ReentrantLock;
 public class LockInterruptibly implements Runnable {
 
     private Lock lock = new ReentrantLock();
-public static void main(String[] args) {
-    LockInterruptibly lockInterruptibly = new LockInterruptibly();
-    Thread thread0 = new Thread(lockInterruptibly);
-    Thread thread1 = new Thread(lockInterruptibly);
-    thread0.start();
-    thread1.start();
 
-    try {
-        Thread.sleep(2000);
-    } catch (InterruptedException e) {
-        e.printStackTrace();
+    public static void main(String[] args) {
+        LockInterruptibly lockInterruptibly = new LockInterruptibly();
+        Thread thread0 = new Thread(lockInterruptibly);
+        Thread thread1 = new Thread(lockInterruptibly);
+        thread0.start();
+        thread1.start();
+
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        thread1.interrupt();
     }
-    thread1.interrupt();
-}
+
     @Override
     public void run() {
         System.out.println(Thread.currentThread().getName() + "尝试获取锁");

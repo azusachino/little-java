@@ -6,9 +6,10 @@ package cn.az.java.juc.immutable;
 public class Person {
 
     final int age = 18;
-      String alice = new String("Alice");
+    String alice = "Alice";
     final String name = alice;
     final TestFinal testFinal = new TestFinal();
+
     public static void main(String[] args) {
         Person person = new Person();
         person.alice = "44";

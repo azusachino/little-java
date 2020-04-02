@@ -46,15 +46,15 @@ public class NonfairBargeDemo {
     }
 
     public static void main(String[] args) {
-        new Thread(()->write(),"Thread1").start();
-        new Thread(()->read(),"Thread2").start();
-        new Thread(()->read(),"Thread3").start();
-        new Thread(()->write(),"Thread4").start();
-        new Thread(()->read(),"Thread5").start();
+        new Thread(() -> write(), "Thread1").start();
+        new Thread(() -> read(), "Thread2").start();
+        new Thread(() -> read(), "Thread3").start();
+        new Thread(() -> write(), "Thread4").start();
+        new Thread(() -> read(), "Thread5").start();
         new Thread(new Runnable() {
             @Override
             public void run() {
-                Thread thread[] = new Thread[1000];
+                Thread[] thread = new Thread[1000];
                 for (int i = 0; i < 1000; i++) {
                     thread[i] = new Thread(() -> read(), "子线程创建的Thread" + i);
                 }

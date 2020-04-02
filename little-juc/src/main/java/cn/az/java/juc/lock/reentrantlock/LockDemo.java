@@ -58,7 +58,7 @@ public class LockDemo {
                 for (int i = 0; i < len; i++) {
                     System.out.print(name.charAt(i));
                 }
-                System.out.println("");
+                System.out.println();
             } finally {
                 lock.unlock();
             }

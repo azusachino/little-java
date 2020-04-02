@@ -1,10 +1,6 @@
 package cn.az.java.juc.collections.predecessor;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * 描述：     演示Collections.synchronizedList(new ArrayList<E>())

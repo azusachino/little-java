@@ -1,18 +1,19 @@
 package cn.az.java.juc.imooccache;
 
-import imooccache.computable.Computable;
-import imooccache.computable.ExpensiveFunction;
+import cn.az.java.juc.imooccache.computable.Computable;
+import cn.az.java.juc.imooccache.computable.ExpensiveFunction;
+
 import java.util.HashMap;
 import java.util.Map;
 
 /**
  * 描述：     用装饰者模式，给计算器自动添加缓存功能
  */
-public class ImoocCache3<A,V> implements Computable<A,V> {
+public class ImoocCache3<A, V> implements Computable<A, V> {
 
-    private final Map<A, V> cache = new HashMap();
+    private final Map<A, V> cache = new HashMap<>(8);
 
-    private  final Computable<A,V> c;
+    private final Computable<A, V> c;
 
     public ImoocCache3(Computable<A, V> c) {
         this.c = c;
@@ -37,7 +38,7 @@ public class ImoocCache3<A,V> implements Computable<A,V> {
             public void run() {
                 try {
                     Integer result = expensiveComputer.compute("666");
-                    System.out.println("第一次的计算结果："+result);
+                    System.out.println("第一次的计算结果：" + result);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -48,7 +49,7 @@ public class ImoocCache3<A,V> implements Computable<A,V> {
             public void run() {
                 try {
                     Integer result = expensiveComputer.compute("666");
-                    System.out.println("第三次的计算结果："+result);
+                    System.out.println("第三次的计算结果：" + result);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -59,7 +60,7 @@ public class ImoocCache3<A,V> implements Computable<A,V> {
             public void run() {
                 try {
                     Integer result = expensiveComputer.compute("667");
-                    System.out.println("第二次的计算结果："+result);
+                    System.out.println("第二次的计算结果：" + result);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

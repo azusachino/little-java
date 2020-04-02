@@ -1,6 +1,5 @@
 package cn.az.java.juc.lock.readwrite;
 
-import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 /**

@@ -2,6 +2,7 @@ package cn.az.java.juc.immutable;
 
 /**
  * 描述：     final的方法
+ * @author az
  */
 public class FinalMethodDemo {
 
@@ -16,20 +17,22 @@ public class FinalMethodDemo {
     public static void sleep() {
 
     }
-}
 
-class SubClass extends FinalMethodDemo {
+    static class SubClass extends FinalMethodDemo {
 
-    @Override
-    public void drink() {
-        super.drink();
-        eat();
-    }
+        @Override
+        public void drink() {
+            super.drink();
+            eat();
+        }
 
-//    public final void eat() {
+        //    public final void eat() {
 //
 //    }
-    public static void sleep() {
+        public static void sleep() {
 
+        }
     }
+
 }
+

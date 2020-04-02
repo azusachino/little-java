@@ -5,6 +5,8 @@ import java.util.concurrent.Executors;
 
 /**
  * 描述：     演示newFixedThreadPool
+ *
+ * @author az
  */
 public class FixedThreadPoolTest {
 
@@ -14,18 +16,19 @@ public class FixedThreadPoolTest {
             executorService.execute(new Task());
         }
     }
-}
 
-class Task implements Runnable {
+    static class Task implements Runnable {
 
 
-    @Override
-    public void run() {
-        try {
-            Thread.sleep(500);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+        @Override
+        public void run() {
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            System.out.println(Thread.currentThread().getName());
         }
-        System.out.println(Thread.currentThread().getName());
     }
+
 }

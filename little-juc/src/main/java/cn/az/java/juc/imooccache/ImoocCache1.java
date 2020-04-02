@@ -1,15 +1,16 @@
 package cn.az.java.juc.imooccache;
 
 import java.util.HashMap;
-import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 /**
  * 描述：     最简单的缓存形式：HashMap
+ *
+ * @author az
  */
 public class ImoocCache1 {
 
-    private final HashMap<String,Integer> cache = new HashMap<>();
+    private final HashMap<String, Integer> cache = new HashMap<>();
 
     public synchronized Integer computer(String userId) throws InterruptedException {
         Integer result = cache.get(userId);
@@ -24,16 +25,16 @@ public class ImoocCache1 {
 
     private Integer doCompute(String userId) throws InterruptedException {
         TimeUnit.SECONDS.sleep(5);
-        return new Integer(userId);
+        return Integer.parseInt(userId);
     }
 
     public static void main(String[] args) throws InterruptedException {
         ImoocCache1 imoocCache1 = new ImoocCache1();
         System.out.println("开始计算了");
         Integer result = imoocCache1.computer("13");
-        System.out.println("第一次计算结果："+result);
+        System.out.println("第一次计算结果：" + result);
         result = imoocCache1.computer("13");
-        System.out.println("第二次计算结果："+result);
+        System.out.println("第二次计算结果：" + result);
 
     }
 }
