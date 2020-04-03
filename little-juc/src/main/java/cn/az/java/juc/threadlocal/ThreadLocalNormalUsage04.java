@@ -6,22 +6,21 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
- * 描述：     加锁来解决线程安全问题
+ * 描述: 加锁来解决线程安全问题
+ *
+ * @author az
  */
 public class ThreadLocalNormalUsage04 {
 
     public static ExecutorService threadPool = Executors.newFixedThreadPool(10);
     static SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
         for (int i = 0; i < 1000; i++) {
             int finalI = i;
-            threadPool.submit(new Runnable() {
-                @Override
-                public void run() {
-                    String date = new ThreadLocalNormalUsage04().date(finalI);
-                    System.out.println(date);
-                }
+            threadPool.submit(() -> {
+                String date = new ThreadLocalNormalUsage04().date(finalI);
+                System.out.println(date);
             });
         }
         threadPool.shutdown();

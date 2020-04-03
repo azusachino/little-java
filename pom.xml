@@ -24,6 +24,7 @@
     <module>third-part</module>
     <module>fourth-part</module>
     <module>little-juc</module>
+    <module>little-mp</module>
   </modules>
 
   <properties>
@@ -34,6 +35,7 @@
     <hutool.version>5.2.4</hutool.version>
     <commons-collections.version>3.2.2</commons-collections.version>
     <guava.version>28.2-jre</guava.version>
+    <mybatis-plus.version>3.3.1</mybatis-plus.version>
   </properties>
 
   <dependencyManagement>
@@ -52,6 +54,11 @@
         <groupId>com.google.guava</groupId>
         <artifactId>guava</artifactId>
         <version>${guava.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.baomidou</groupId>
+        <artifactId>mybatis-plus-boot-starter</artifactId>
+        <version>${mybatis-plus.version}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>

@@ -1,7 +1,8 @@
 package cn.az.java.juc.threadlocal;
 
 /**
- * 描述：     演示ThreadLocal用法2：避免传递参数的麻烦
+ * 描述: 演示ThreadLocal用法2：避免传递参数的麻烦
+ *
  * @author az
  */
 public class ThreadLocalNormalUsage06 {
@@ -24,7 +25,6 @@ public class ThreadLocalNormalUsage06 {
 
         public void process() {
             User user = UserContextHolder.holder.get();
-            ThreadLocalNormalUsage05.ThreadSafeFormatter.dateFormatThreadLocal.get();
             System.out.println("Service2拿到用户名：" + user.name);
             new Service3().process();
         }
@@ -40,7 +40,7 @@ public class ThreadLocalNormalUsage06 {
     }
 
     static class UserContextHolder {
-        public static ThreadLocal<User> holder = new ThreadLocal<>();
+        public static ThreadLocal<User> holder = ThreadLocal.withInitial(User::new);
     }
 
     static class User {
@@ -50,6 +50,8 @@ public class ThreadLocalNormalUsage06 {
         public User(String name) {
             this.name = name;
         }
+
+        public User() { }
     }
 
 }

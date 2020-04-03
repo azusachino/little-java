@@ -3,7 +3,7 @@ package cn.az.java.juc.lock.readwrite;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 /**
- * 描述：     TODO
+ * @author az
  */
 public class CinemaReadWrite {
 

@@ -3,7 +3,8 @@ package cn.az.java.juc.collections.predecessor;
 import java.util.Hashtable;
 
 /**
- * 描述：     TODO
+ *
+ * @author az
  */
 public class HashtableDemo {
     public static void main(String[] args) {

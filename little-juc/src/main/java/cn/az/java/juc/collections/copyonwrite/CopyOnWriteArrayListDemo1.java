@@ -5,6 +5,7 @@ import java.util.Iterator;
 
 /**
  * 描述：演示CopyOnWriteArrayList可以在迭代的过程中修改数组内容，但是ArrayList不行，对比
+ * @author az
  */
 public class CopyOnWriteArrayListDemo1 {
 
@@ -18,17 +19,14 @@ public class CopyOnWriteArrayListDemo1 {
         list.add("4");
         list.add("5");
 
-        Iterator<String> iterator = list.iterator();
-
-        while (iterator.hasNext()) {
+        for (String s : list) {
             System.out.println("list is" + list);
-            String next = iterator.next();
-            System.out.println(next);
+            System.out.println(s);
 
-            if (next.equals("2")) {
+            if (s.equals("2")) {
                 list.remove("5");
             }
-            if (next.equals("3")) {
+            if (s.equals("3")) {
                 list.add("3 found");
             }
         }

@@ -3,7 +3,7 @@ package cn.az.java.juc.lock.lock;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * 描述：     TODO
+ * @author az
  */
 public class PessimismOptimismLock {
 

@@ -2,25 +2,24 @@ package cn.az.java.juc.threadlocal;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.concurrent.*;
 
 /**
- * 描述：     1000个打印日期的任务，用线程池来执行
+ * 描述: 1000个打印日期的任务，用线程池来执行
+ *
+ * @author az
  */
 public class ThreadLocalNormalUsage02 {
 
-    public static ExecutorService threadPool = Executors.newFixedThreadPool(10);
+    public static void main(String[] args) {
+        ExecutorService threadPool = new ThreadPoolExecutor(10, 10, 60,
+                TimeUnit.SECONDS, new ArrayBlockingQueue<>(30), Executors.privilegedThreadFactory());
 
-    public static void main(String[] args) throws InterruptedException {
         for (int i = 0; i < 1000; i++) {
             int finalI = i;
-            threadPool.submit(new Runnable() {
-                @Override
-                public void run() {
-                    String date = new ThreadLocalNormalUsage02().date(finalI);
-                    System.out.println(date);
-                }
+            threadPool.submit(() -> {
+                String date = new ThreadLocalNormalUsage02().date(finalI);
+                System.out.println(date);
             });
         }
         threadPool.shutdown();

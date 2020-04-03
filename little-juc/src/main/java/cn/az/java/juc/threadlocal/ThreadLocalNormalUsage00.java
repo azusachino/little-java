@@ -4,24 +4,20 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * 描述：     两个线程打印日期
+ * 描述: 两个线程打印日期
+ *
+ * @author az
  */
 public class ThreadLocalNormalUsage00 {
 
     public static void main(String[] args) {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                String date = new ThreadLocalNormalUsage00().date(10);
-                System.out.println(date);
-            }
+        new Thread(() -> {
+            String date = new ThreadLocalNormalUsage00().date(10);
+            System.out.println(date);
         }).start();
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                String date = new ThreadLocalNormalUsage00().date(104707);
-                System.out.println(date);
-            }
+        new Thread(() -> {
+            String date = new ThreadLocalNormalUsage00().date(104707);
+            System.out.println(date);
         }).start();
     }
 

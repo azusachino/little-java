@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    url: jdbc://mysql:127.0.0.1:3306/azusa
+    username: root
+    password: azusa520
+mybatis-plus:
+  global-config:
+    db-config:
+      logic-not-delete-value: 0
+      logic-delete-value: 1
+      logic-delete-field: deleted

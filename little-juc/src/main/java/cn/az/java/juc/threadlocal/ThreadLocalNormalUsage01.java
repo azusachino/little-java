@@ -4,19 +4,18 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * 描述：     10个线程打印日期
+ * 描述: 10个线程打印日期
+ *
+ * @author az
  */
 public class ThreadLocalNormalUsage01 {
 
     public static void main(String[] args) throws InterruptedException {
         for (int i = 0; i < 30; i++) {
             int finalI = i;
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    String date = new ThreadLocalNormalUsage01().date(finalI);
-                    System.out.println(date);
-                }
+            new Thread(() -> {
+                String date = new ThreadLocalNormalUsage01().date(finalI);
+                System.out.println(date);
             }).start();
             Thread.sleep(100);
         }

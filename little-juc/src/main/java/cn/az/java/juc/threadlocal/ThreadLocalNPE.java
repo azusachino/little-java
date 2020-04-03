@@ -1,11 +1,11 @@
 package cn.az.java.juc.threadlocal;
 
 /**
- * 描述：     TODO
+ * @author az
  */
 public class ThreadLocalNPE {
 
-    ThreadLocal<Long> longThreadLocal = new ThreadLocal<Long>();
+    ThreadLocal<Long> longThreadLocal = new ThreadLocal<>();
 
     public void set() {
         longThreadLocal.set(Thread.currentThread().getId());
@@ -18,13 +18,11 @@ public class ThreadLocalNPE {
     public static void main(String[] args) {
         ThreadLocalNPE threadLocalNPE = new ThreadLocalNPE();
         System.out.println(threadLocalNPE.get());
-        Thread thread1 = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                threadLocalNPE.set();
-                System.out.println(threadLocalNPE.get());
-            }
-        });
+        Thread thread1 = new Thread(() -> {
+            threadLocalNPE.set();
+            System.out.println(threadLocalNPE.get());
+        }
+        );
         thread1.start();
     }
 }

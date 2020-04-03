@@ -3,7 +3,7 @@ package cn.az.java.juc.lock.reentrantlock;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * 描述：     TODO
+ * @author az
  */
 public class GetHoldCount {
     private static ReentrantLock lock = new ReentrantLock();

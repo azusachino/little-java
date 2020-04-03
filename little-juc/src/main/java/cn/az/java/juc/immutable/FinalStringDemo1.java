@@ -1,7 +1,7 @@
 package cn.az.java.juc.immutable;
 
 /**
- * 描述：     TODO
+ * @author az
  */
 public class FinalStringDemo1 {
 
