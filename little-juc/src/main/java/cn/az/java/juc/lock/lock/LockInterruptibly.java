@@ -18,6 +18,7 @@ public class LockInterruptibly implements Runnable {
         thread1.start();
 
         try {
+            // Causes the currently executing thread to sleep
             Thread.sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();

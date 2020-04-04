@@ -3,7 +3,8 @@ package cn.az.java.juc.lock.readwrite;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 /**
- * 描述：     演示ReentrantReadWriteLock可以降级，不能升级
+ * 描述: 演示ReentrantReadWriteLock可以降级，不能升级
+ * @author az
  */
 public class Upgrading {
 
