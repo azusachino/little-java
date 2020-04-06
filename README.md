@@ -28,6 +28,15 @@
 2. JMM & Sequential Consistent & Happens Before
 3. AbstractQueuedSynchronizer
 
+### little-mp
+
+1. Mapper
+2. `AbstractMethod`
+3. `DynamicTableNameParser`
+4. `TenantSqlParser`
+
 ### little-juc
 
 1. ThreadPoolExecutor
+2. ThreadLocal
+3. Lock

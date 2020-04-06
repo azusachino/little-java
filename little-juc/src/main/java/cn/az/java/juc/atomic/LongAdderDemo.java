@@ -1,24 +1,30 @@
 package cn.az.java.juc.atomic;
 
+import cn.hutool.core.thread.ThreadUtil;
+
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.LongAdder;
 
 /**
- * 描述：     演示高并发场景下，LongAdder比AtomicLong性能好
+ * 描述: 演示高并发场景下，LongAdder比AtomicLong性能好
+ *
+ * @author az
  */
 public class LongAdderDemo {
 
-    public static void main(String[] args) throws InterruptedException {
+    private static int MAX_COUNT = 10000;
+
+    public static void main(String[] args) {
         LongAdder counter = new LongAdder();
-        ExecutorService service = Executors.newFixedThreadPool(20);
+        ExecutorService service = ThreadUtil.newExecutor(20);
         long start = System.currentTimeMillis();
-        for (int i = 0; i < 10000; i++) {
+        for (int i = 0; i < MAX_COUNT; i++) {
             service.submit(new Task(counter));
         }
         service.shutdown();
         while (!service.isTerminated()) {
-
+            // spinlock
         }
         long end = System.currentTimeMillis();
         System.out.println(counter.sum());
@@ -35,7 +41,7 @@ public class LongAdderDemo {
 
         @Override
         public void run() {
-            for (int i = 0; i < 10000; i++) {
+            for (int i = 0; i < MAX_COUNT; i++) {
                 counter.increment();
             }
         }
