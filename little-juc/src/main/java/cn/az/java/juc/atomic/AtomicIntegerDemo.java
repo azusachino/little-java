@@ -7,12 +7,12 @@ import java.util.concurrent.atomic.AtomicInteger;
  *
  * @author az
  */
-public class AtomicIntegerDemo1 implements Runnable {
+public class AtomicIntegerDemo implements Runnable {
 
-    private static final AtomicInteger atomicInteger = new AtomicInteger();
+    private static final AtomicInteger ATOMIC_INTEGER = new AtomicInteger();
 
     public void incrementAtomic() {
-        atomicInteger.getAndAdd(-90);
+        ATOMIC_INTEGER.getAndAdd(1);
     }
 
     private static volatile int basicCount = 0;
@@ -22,14 +22,14 @@ public class AtomicIntegerDemo1 implements Runnable {
     }
 
     public static void main(String[] args) throws InterruptedException {
-        AtomicIntegerDemo1 r = new AtomicIntegerDemo1();
+        AtomicIntegerDemo r = new AtomicIntegerDemo();
         Thread t1 = new Thread(r);
         Thread t2 = new Thread(r);
         t1.start();
         t2.start();
         t1.join();
         t2.join();
-        System.out.println("原子类的结果：" + atomicInteger.get());
+        System.out.println("原子类的结果：" + ATOMIC_INTEGER.get());
         System.out.println("普通变量的结果：" + basicCount);
     }
 

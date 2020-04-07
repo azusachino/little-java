@@ -1,7 +1,9 @@
 package cn.az.java.juc.cas;
 
 /**
- * 描述：     模拟CAS操作，等价代码
+ * 描述： 模拟CAS操作，等价代码
+ *
+ * @author az
  */
 public class TwoThreadsCompetition implements Runnable {
 
@@ -24,11 +26,10 @@ public class TwoThreadsCompetition implements Runnable {
         t2.start();
         t1.join();
         t2.join();
-        System.out.println(r.value);
     }
 
     @Override
     public void run() {
-        compareAndSwap(0, 1);
+        System.out.println(Thread.currentThread().getName() +" : "+ compareAndSwap(0, 1));
     }
 }
