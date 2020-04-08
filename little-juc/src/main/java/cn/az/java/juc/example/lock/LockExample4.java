@@ -2,9 +2,16 @@ package cn.az.java.juc.example.lock;
 
 import java.util.concurrent.locks.StampedLock;
 
+/**
+ * @author az
+ */
 public class LockExample4 {
 
-    class Point {
+    public static void main(String[] args) {
+        Point p = new Point();
+    }
+
+    static class Point {
         private double x, y;
         private final StampedLock sl = new StampedLock();
 

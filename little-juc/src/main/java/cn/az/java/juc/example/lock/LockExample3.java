@@ -8,6 +8,9 @@ import java.util.TreeMap;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
+/**
+ * @author az
+ */
 @Slf4j
 public class LockExample3 {
 
@@ -46,7 +49,7 @@ public class LockExample3 {
         }
     }
 
-    class Data {
+    static class Data {
 
     }
 }

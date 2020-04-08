@@ -9,6 +9,7 @@ import lombok.extern.slf4j.Slf4j;
  * td1睡眠结束后需要锁定o2才能继续执行，而此时o2已被td2锁定；
  * td2睡眠结束后需要锁定o1才能继续执行，而此时o1已被td1锁定；
  * td1、td2相互等待，都需要得到对方锁定的资源才能继续执行，从而死锁。
+ * @author az
  */
 
 @Slf4j
