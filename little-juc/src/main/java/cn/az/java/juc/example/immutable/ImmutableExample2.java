@@ -7,6 +7,9 @@ import lombok.extern.slf4j.Slf4j;
 import java.util.Collections;
 import java.util.Map;
 
+/**
+ * @author az
+ */
 @Slf4j
 @ThreadSafe
 public class ImmutableExample2 {

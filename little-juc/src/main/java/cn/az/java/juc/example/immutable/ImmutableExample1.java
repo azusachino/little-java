@@ -6,12 +6,15 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.util.Map;
 
+/**
+ * @author az
+ */
 @Slf4j
 @NotThreadSafe
 public class ImmutableExample1 {
 
-    private final static Integer a = 1;
-    private final static String b = "2";
+    private final static Integer A = 1;
+    private final static String B = "2";
     private final static Map<Integer, Integer> map = Maps.newHashMap();
 
     static {

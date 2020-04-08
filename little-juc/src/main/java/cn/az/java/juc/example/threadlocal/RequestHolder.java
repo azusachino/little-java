@@ -1,5 +1,8 @@
 package cn.az.java.juc.example.threadlocal;
 
+/**
+ * @author az
+ */
 public class RequestHolder {
 
     private final static ThreadLocal<Long> requestHolder = new ThreadLocal<>();

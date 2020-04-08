@@ -4,6 +4,9 @@ import cn.az.java.juc.annoations.NotThreadSafe;
 
 import java.util.Vector;
 
+/**
+ * @author az
+ */
 @NotThreadSafe
 public class VectorExample2 {
 
@@ -17,21 +20,17 @@ public class VectorExample2 {
                 vector.add(i);
             }
 
-            Thread thread1 = new Thread() {
-                public void run() {
-                    for (int i = 0; i < vector.size(); i++) {
-                        vector.remove(i);
-                    }
+            Thread thread1 = new Thread(() -> {
+                for (int i = 0; i < vector.size(); i++) {
+                    vector.remove(i);
                 }
-            };
+            });
 
-            Thread thread2 = new Thread() {
-                public void run() {
-                    for (int i = 0; i < vector.size(); i++) {
-                        vector.get(i);
-                    }
+            Thread thread2 = new Thread(() -> {
+                for (int i = 0; i < vector.size(); i++) {
+                    vector.get(i);
                 }
-            };
+            });
             thread1.start();
             thread2.start();
         }

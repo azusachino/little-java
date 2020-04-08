@@ -5,12 +5,15 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 
+/**
+ * @author az
+ */
 @ThreadSafe
 public class ImmutableExample3 {
 
-    private final static ImmutableList<Integer> list = ImmutableList.of(1, 2, 3);
+    private final static ImmutableList<?> list = ImmutableList.of(1, 2, 3);
 
-    private final static ImmutableSet set = ImmutableSet.copyOf(list);
+    private final static ImmutableSet<?> set = ImmutableSet.copyOf(list);
 
     private final static ImmutableMap<Integer, Integer> map = ImmutableMap.of(1, 2, 3, 4);
 

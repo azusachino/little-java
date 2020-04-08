@@ -3,6 +3,9 @@ package cn.az.java.juc.example.container;
 import java.util.Iterator;
 import java.util.Vector;
 
+/**
+ * @author az
+ */
 public class VectorExample3 {
 
     // java.util.ConcurrentModificationException
@@ -40,6 +43,6 @@ public class VectorExample3 {
         vector.add(1);
         vector.add(2);
         vector.add(3);
-        test1(vector);
+        test2(vector);
     }
 }
