@@ -7,6 +7,9 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
+/**
+ * @author az
+ */
 @Slf4j
 public class FutureExample {
 
@@ -27,5 +30,7 @@ public class FutureExample {
         Thread.sleep(1000);
         String result = future.get();
         log.info("result：{}", result);
+
+        executorService.shutdown();
     }
 }
