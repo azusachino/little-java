@@ -7,6 +7,9 @@ import lombok.extern.slf4j.Slf4j;
 import java.util.concurrent.Callable;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * @author az
+ */
 @Slf4j
 public class GuavaCacheExample2 {
 
@@ -25,19 +28,9 @@ public class GuavaCacheExample2 {
         log.info("{}", cache.getIfPresent("key1")); // null
 
         try {
-            log.info("{}", cache.get("key2", new Callable<Integer>() {
-                @Override
-                public Integer call() throws Exception {
-                    return -1;
-                }
-            })); // -1
+            log.info("{}", cache.get("key2", () -> -1)); // -1
             cache.put("key2", 2);
-            log.info("{}", cache.get("key2", new Callable<Integer>() {
-                @Override
-                public Integer call() throws Exception {
-                    return -1;
-                }
-            })); // 2
+            log.info("{}", cache.get("key2", () -> -1)); // 2
 
             log.info("{}", cache.size()); // 1
 
@@ -50,12 +43,7 @@ public class GuavaCacheExample2 {
 
             Thread.sleep(11000);
 
-            log.info("{}", cache.get("key5", new Callable<Integer>() {
-                @Override
-                public Integer call() throws Exception {
-                    return -1;
-                }
-            })); // -1
+            log.info("{}", cache.get("key5", () -> -1)); // -1
 
             log.info("{},{}", cache.stats().hitCount(), cache.stats().missCount());
 

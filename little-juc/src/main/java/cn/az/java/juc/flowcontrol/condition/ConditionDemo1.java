@@ -5,6 +5,8 @@ import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * 描述：     演示Condition的基本用法
+ *
+ * @author az
  */
 public class ConditionDemo1 {
     private ReentrantLock lock = new ReentrantLock();

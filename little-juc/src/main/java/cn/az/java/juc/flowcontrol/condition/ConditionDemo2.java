@@ -7,11 +7,13 @@ import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * 描述：     演示用Condition实现生产者消费者模式
+ *
+ * @author az
  */
 public class ConditionDemo2 {
 
     private int queueSize = 10;
-    private PriorityQueue<Integer> queue = new PriorityQueue<Integer>(queueSize);
+    private PriorityQueue<Integer> queue = new PriorityQueue<>(queueSize);
     private Lock lock = new ReentrantLock();
     private Condition notFull = lock.newCondition();
     private Condition notEmpty = lock.newCondition();

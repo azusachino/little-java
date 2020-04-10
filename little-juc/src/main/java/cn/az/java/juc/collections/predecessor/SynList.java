@@ -4,10 +4,11 @@ import java.util.*;
 
 /**
  * 描述：     演示Collections.synchronizedList(new ArrayList<E>())
+ * @author az
  */
 public class SynList {
     public static void main(String[] args) {
-        List<Integer> list = Collections.synchronizedList(new ArrayList<Integer>());
+        List<Integer> list = Collections.synchronizedList(new ArrayList<>());
         list.add(5);
         System.out.println(list.get(0));
 

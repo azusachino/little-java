@@ -7,6 +7,9 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.util.concurrent.TimeUnit;
 
+/**
+ * @author az
+ */
 @Slf4j
 public class GuavaCacheExample1 {
 
@@ -16,7 +19,7 @@ public class GuavaCacheExample1 {
                 .maximumSize(10) // 最多存放10个数据
                 .expireAfterWrite(10, TimeUnit.SECONDS) // 缓存10秒
                 .recordStats() // 开启记录状态数据功能
-                .build(new CacheLoader<String, Integer>() {
+                .build(new CacheLoader<>() {
                     @Override
                     public Integer load(String key) throws Exception {
                         return -1;

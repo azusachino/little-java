@@ -6,6 +6,8 @@ import java.util.concurrent.Executors;
 
 /**
  * 描述：     模拟100米跑步，5名选手都准备好了，只等裁判员一声令下，所有人同时开始跑步。
+ *
+ * @author az
  */
 public class CountDownLatchDemo2 {
 
@@ -14,16 +16,13 @@ public class CountDownLatchDemo2 {
         ExecutorService service = Executors.newFixedThreadPool(5);
         for (int i = 0; i < 5; i++) {
             final int no = i + 1;
-            Runnable runnable = new Runnable() {
-                @Override
-                public void run() {
-                    System.out.println("No." + no + "准备完毕，等待发令枪");
-                    try {
-                        begin.await();
-                        System.out.println("No." + no + "开始跑步了");
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
+            Runnable runnable = () -> {
+                System.out.println("No." + no + "准备完毕，等待发令枪");
+                try {
+                    begin.await();
+                    System.out.println("No." + no + "开始跑步了");
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
             };
             service.submit(runnable);
@@ -32,5 +31,7 @@ public class CountDownLatchDemo2 {
         Thread.sleep(5000);
         System.out.println("发令枪响，比赛开始！");
         begin.countDown();
+
+        service.shutdown();
     }
 }

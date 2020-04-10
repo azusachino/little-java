@@ -6,6 +6,8 @@ import java.util.concurrent.Semaphore;
 
 /**
  * 描述：     演示Semaphore用法
+ *
+ * @author az
  */
 public class SemaphoreDemo {
 

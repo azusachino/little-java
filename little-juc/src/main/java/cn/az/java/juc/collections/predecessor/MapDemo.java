@@ -5,12 +5,14 @@ import java.util.Map;
 
 /**
  * 描述：     演示Map的基本用法
+ *
+ * @author az
  */
 public class MapDemo {
     public static void main(String[] args) {
         Map<String, Integer> map = new HashMap<>();
-        System.out.println(map.isEmpty());
         map.put("东哥", 38);
+        System.out.println(map.isEmpty());
         map.put("西哥", 28);
         System.out.println(map.keySet());
         System.out.println(map.get("西哥"));
