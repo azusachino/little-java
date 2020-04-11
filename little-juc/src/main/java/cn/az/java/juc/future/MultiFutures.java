@@ -6,12 +6,13 @@ import java.util.concurrent.*;
 
 /**
  * 描述：     演示批量提交任务时，用List来批量接收结果
+ * @author az
  */
 public class MultiFutures {
 
     public static void main(String[] args) throws InterruptedException {
         ExecutorService service = Executors.newFixedThreadPool(20);
-        ArrayList<Future> futures = new ArrayList<>();
+        ArrayList<Future<Integer>> futures = new ArrayList<>();
         for (int i = 0; i < 20; i++) {
             Future<Integer> future = service.submit(new CallableTask());
             futures.add(future);
@@ -22,12 +23,11 @@ public class MultiFutures {
             try {
                 Integer integer = future.get();
                 System.out.println(integer);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            } catch (ExecutionException e) {
+            } catch (InterruptedException | ExecutionException e) {
                 e.printStackTrace();
             }
         }
+        service.shutdown();
     }
 
     static class CallableTask implements Callable<Integer> {

@@ -1,21 +1,22 @@
-package cn.az.java.juc.imooccache;
+package cn.az.java.juc.cache;
 
-import cn.az.java.juc.imooccache.computable.Computable;
-import cn.az.java.juc.imooccache.computable.ExpensiveFunction;
+import cn.az.java.juc.cache.computable.Computable;
+import cn.az.java.juc.cache.computable.ExpensiveFunction;
 
+import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * 描述：     缩小了synchronized的粒度，提高性能，但是依然并发不安全
+ * @author az
  */
-public class ImoocCache5<A, V> implements Computable<A, V> {
+public class ImoocCache4<A, V> implements Computable<A, V> {
 
-    private final Map<A, V> cache = new ConcurrentHashMap<>();
+    private final Map<A, V> cache = new HashMap<>(8);
 
     private final Computable<A, V> c;
 
-    public ImoocCache5(Computable<A, V> c) {
+    public ImoocCache4(Computable<A, V> c) {
         this.c = c;
     }
 
@@ -25,13 +26,15 @@ public class ImoocCache5<A, V> implements Computable<A, V> {
         V result = cache.get(arg);
         if (result == null) {
             result = c.compute(arg);
-            cache.put(arg, result);
+            synchronized (this) {
+                cache.put(arg, result);
+            }
         }
         return result;
     }
 
     public static void main(String[] args) throws Exception {
-        ImoocCache5<String, Integer> expensiveComputer = new ImoocCache5<>(
+        ImoocCache4<String, Integer> expensiveComputer = new ImoocCache4<>(
                 new ExpensiveFunction());
         Integer result = expensiveComputer.compute("666");
         System.out.println("第一次计算结果：" + result);

@@ -5,6 +5,7 @@ import java.util.concurrent.*;
 
 /**
  * 描述：     演示一个Future的使用方法
+ * @author az
  */
 public class OneFuture {
 
@@ -13,9 +14,7 @@ public class OneFuture {
         Future<Integer> future = service.submit(new CallableTask());
         try {
             System.out.println(future.get());
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
+        } catch (InterruptedException | ExecutionException e) {
             e.printStackTrace();
         }
         service.shutdown();

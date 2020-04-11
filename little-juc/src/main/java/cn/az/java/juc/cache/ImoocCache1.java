@@ -1,4 +1,4 @@
-package cn.az.java.juc.imooccache;
+package cn.az.java.juc.cache;
 
 import java.util.HashMap;
 import java.util.concurrent.TimeUnit;

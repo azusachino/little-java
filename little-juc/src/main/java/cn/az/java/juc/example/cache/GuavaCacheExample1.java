@@ -21,7 +21,7 @@ public class GuavaCacheExample1 {
                 .recordStats() // 开启记录状态数据功能
                 .build(new CacheLoader<>() {
                     @Override
-                    public Integer load(String key) throws Exception {
+                    public Integer load(String key) {
                         return -1;
                     }
                 });

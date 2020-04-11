@@ -1,4 +1,4 @@
-package cn.az.java.juc.imooccache.computable;
+package cn.az.java.juc.cache.computable;
 
 /**
  * 描述：     耗时计算的实现类，实现了Computable接口，但是本身不具备缓存能力，不需要考虑缓存的事情

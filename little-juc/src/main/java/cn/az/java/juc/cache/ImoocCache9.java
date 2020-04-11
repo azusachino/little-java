@@ -1,8 +1,7 @@
-package cn.az.java.juc.imooccache;
+package cn.az.java.juc.cache;
 
-
-import cn.az.java.juc.imooccache.computable.Computable;
-import cn.az.java.juc.imooccache.computable.MayFail;
+import cn.az.java.juc.cache.computable.Computable;
+import cn.az.java.juc.cache.computable.MayFail;
 
 import java.util.Map;
 import java.util.concurrent.*;

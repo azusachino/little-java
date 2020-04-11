@@ -3,7 +3,7 @@ package cn.az.java.juc.future;
 /**
  * 描述：     在run方法中无法抛出checked Exception
  */
-public class RunnableCantThrowsException {
+public class RunnableCanotThrowsException {
 
     public void ddd() throws Exception {
     }

@@ -1,50 +1,37 @@
-package cn.az.java.juc.imooccache;
+package cn.az.java.juc.cache;
 
-import cn.az.java.juc.imooccache.computable.Computable;
-import cn.az.java.juc.imooccache.computable.ExpensiveFunction;
+import cn.az.java.juc.cache.computable.Computable;
+import cn.az.java.juc.cache.computable.ExpensiveFunction;
 
+import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.Callable;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.Future;
-import java.util.concurrent.FutureTask;
 
 /**
- * 描述：     利用Future，避免重复计算
+ * 描述：     用装饰者模式，给计算器自动添加缓存功能
  */
-public class ImoocCache8<A, V> implements Computable<A, V> {
+public class ImoocCache3<A, V> implements Computable<A, V> {
 
-    private final Map<A, Future<V>> cache = new ConcurrentHashMap<>();
+    private final Map<A, V> cache = new HashMap<>(8);
 
     private final Computable<A, V> c;
 
-    public ImoocCache8(Computable<A, V> c) {
+    public ImoocCache3(Computable<A, V> c) {
         this.c = c;
     }
 
     @Override
-    public V compute(A arg) throws Exception {
-        Future<V> f = cache.get(arg);
-        if (f == null) {
-            Callable<V> callable = new Callable<V>() {
-                @Override
-                public V call() throws Exception {
-                    return c.compute(arg);
-                }
-            };
-            FutureTask<V> ft = new FutureTask<>(callable);
-            f = cache.putIfAbsent(arg, ft);
-            if (f == null) {
-                f = ft;
-                System.out.println("从FutureTask调用了计算函数");
-                ft.run();
-            }
+    public synchronized V compute(A arg) throws Exception {
+        System.out.println("进入缓存机制");
+        V result = cache.get(arg);
+        if (result == null) {
+            result = c.compute(arg);
+            cache.put(arg, result);
         }
-        return f.get();
+        return result;
     }
 
     public static void main(String[] args) throws Exception {
-        ImoocCache8<String, Integer> expensiveComputer = new ImoocCache8<>(
+        ImoocCache3<String, Integer> expensiveComputer = new ImoocCache3<>(
                 new ExpensiveFunction());
         new Thread(new Runnable() {
             @Override
@@ -79,7 +66,5 @@ public class ImoocCache8<A, V> implements Computable<A, V> {
                 }
             }
         }).start();
-
-
     }
 }

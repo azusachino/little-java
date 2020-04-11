@@ -1,13 +1,12 @@
-package cn.az.java.juc.imooccache;
+package cn.az.java.juc.cache;
 
-import cn.az.java.juc.imooccache.computable.ExpensiveFunction;
+import cn.az.java.juc.cache.computable.ExpensiveFunction;
+import cn.hutool.core.thread.ThreadUtil;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 /**
  * 描述：
@@ -33,8 +32,7 @@ public class ImoocCache12 {
      * @throws InterruptedException the interrupted exception
      */
     public static void main(String[] args) throws InterruptedException {
-        ExecutorService service = Executors.newFixedThreadPool(100);
-        long start = System.currentTimeMillis();
+        ExecutorService service = ThreadUtil.newExecutor(100);
         for (int i = 0; i < 100; i++) {
             service.submit(() -> {
                 Integer result = null;
@@ -45,7 +43,7 @@ public class ImoocCache12 {
                     String time = dateFormat.format(new Date());
                     System.out.println(Thread.currentThread().getName() + "   " + time + "被放行");
                     result = expensiveComputer.compute("666");
-                } catch (InterruptedException | ExecutionException e) {
+                } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
                 System.out.println(result);

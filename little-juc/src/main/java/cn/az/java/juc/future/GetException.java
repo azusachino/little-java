@@ -4,6 +4,7 @@ import java.util.concurrent.*;
 
 /**
  * 描述：     演示get方法过程中抛出异常，for循环为了演示抛出Exception的时机：并不是说一产生异常就抛出，直到我们get执行时，才会抛出。
+ * @author az
  */
 public class GetException {
 
@@ -19,12 +20,9 @@ public class GetException {
             }
             System.out.println(future.isDone());
             future.get();
-        } catch (InterruptedException e) {
+        } catch (InterruptedException | ExecutionException e) {
             e.printStackTrace();
-            System.out.println("InterruptedException异常");
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-            System.out.println("ExecutionException异常");
+            System.out.println(e.getClass().getName() + "异常");
         }
     }
 
@@ -32,7 +30,7 @@ public class GetException {
     static class CallableTask implements Callable<Integer> {
 
         @Override
-        public Integer call() throws Exception {
+        public Integer call() {
             throw new IllegalArgumentException("Callable抛出异常");
         }
     }

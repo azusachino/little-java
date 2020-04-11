@@ -1,7 +1,7 @@
-package cn.az.java.juc.imooccache;
+package cn.az.java.juc.cache;
 
-import cn.az.java.juc.imooccache.computable.Computable;
-import cn.az.java.juc.imooccache.computable.MayFail;
+import cn.az.java.juc.cache.computable.Computable;
+import cn.az.java.juc.cache.computable.MayFail;
 
 import java.util.Map;
 import java.util.concurrent.*;
@@ -20,16 +20,11 @@ public class ImoocCache10<A, V> implements Computable<A, V> {
     }
 
     @Override
-    public V compute(A arg) throws InterruptedException, ExecutionException {
+    public V compute(A arg) throws InterruptedException {
         while (true) {
             Future<V> f = cache.get(arg);
             if (f == null) {
-                Callable<V> callable = new Callable<V>() {
-                    @Override
-                    public V call() throws Exception {
-                        return c.compute(arg);
-                    }
-                };
+                Callable<V> callable = () -> c.compute(arg);
                 FutureTask<V> ft = new FutureTask<>(callable);
                 f = cache.putIfAbsent(arg, ft);
                 if (f == null) {
@@ -54,21 +49,16 @@ public class ImoocCache10<A, V> implements Computable<A, V> {
         }
     }
 
-    public V computeRandomExpire(A arg) throws ExecutionException, InterruptedException {
+    public V computeRandomExpire(A arg) throws InterruptedException {
         long randomExpire = (long) (Math.random() * 10000);
         return compute(arg, randomExpire);
     }
 
     public final static ScheduledExecutorService executor = Executors.newScheduledThreadPool(5);
 
-    public V compute(A arg, long expire) throws ExecutionException, InterruptedException {
+    public V compute(A arg, long expire) throws InterruptedException {
         if (expire > 0) {
-            executor.schedule(new Runnable() {
-                @Override
-                public void run() {
-                    expire(arg);
-                }
-            }, expire, TimeUnit.MILLISECONDS);
+            executor.schedule(() -> expire(arg), expire, TimeUnit.MILLISECONDS);
         }
         return compute(arg);
     }
@@ -88,37 +78,28 @@ public class ImoocCache10<A, V> implements Computable<A, V> {
     public static void main(String[] args) throws Exception {
         ImoocCache10<String, Integer> expensiveComputer = new ImoocCache10<>(
                 new MayFail());
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    Integer result = expensiveComputer.compute("666", 5000L);
-                    System.out.println("第一次的计算结果：" + result);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+        new Thread(() -> {
+            try {
+                Integer result = expensiveComputer.compute("666", 5000L);
+                System.out.println("第一次的计算结果：" + result);
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }).start();
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    Integer result = expensiveComputer.compute("666");
-                    System.out.println("第三次的计算结果：" + result);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+        new Thread(() -> {
+            try {
+                Integer result = expensiveComputer.compute("666");
+                System.out.println("第三次的计算结果：" + result);
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }).start();
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    Integer result = expensiveComputer.compute("667");
-                    System.out.println("第二次的计算结果：" + result);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+        new Thread(() -> {
+            try {
+                Integer result = expensiveComputer.compute("667");
+                System.out.println("第二次的计算结果：" + result);
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }).start();
 

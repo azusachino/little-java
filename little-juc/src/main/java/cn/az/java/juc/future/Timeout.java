@@ -4,11 +4,11 @@ import java.util.concurrent.*;
 
 /**
  * 描述：     演示get的超时方法，需要注意超时后处理，调用future.cancel()。演示cancel传入true和false的区别，代表是否中断正在执行的任务。
+ * @author az
  */
 public class Timeout {
 
-    private static final Ad DEFAULT_AD = new Ad("无网络时候的默认广告");
-    private static final ExecutorService exec = Executors.newFixedThreadPool(10);
+    private static final ExecutorService SERVICE = Executors.newFixedThreadPool(10);
 
     static class Ad {
 
@@ -30,7 +30,7 @@ public class Timeout {
     static class FetchAdTask implements Callable<Ad> {
 
         @Override
-        public Ad call() throws Exception {
+        public Ad call() {
             try {
                 Thread.sleep(3000);
             } catch (InterruptedException e) {
@@ -43,7 +43,7 @@ public class Timeout {
 
 
     public void printAd() {
-        Future<Ad> f = exec.submit(new FetchAdTask());
+        Future<Ad> f = SERVICE.submit(new FetchAdTask());
         Ad ad;
         try {
             ad = f.get(2000, TimeUnit.MILLISECONDS);
@@ -57,7 +57,7 @@ public class Timeout {
             boolean cancel = f.cancel(true);
             System.out.println("cancel的结果：" + cancel);
         }
-        exec.shutdown();
+        SERVICE.shutdown();
         System.out.println(ad);
     }
 

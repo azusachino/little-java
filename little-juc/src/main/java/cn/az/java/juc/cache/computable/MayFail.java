@@ -1,4 +1,6 @@
-package cn.az.java.juc.imooccache.computable;
+package cn.az.java.juc.cache.computable;
+
+import cn.hutool.core.util.RandomUtil;
 
 import java.io.IOException;
 
@@ -11,8 +13,8 @@ public class MayFail implements Computable<String, Integer> {
 
     @Override
     public Integer compute(String arg) throws Exception {
-        double random = Math.random();
-        if (random > 0.5) {
+
+        if (RandomUtil.randomInt() > 0) {
             throw new IOException("读取文件出错");
         }
         Thread.sleep(3000);

@@ -19,7 +19,7 @@ public class OneShotLatch {
         sync.acquireShared(0);
     }
 
-    private class Sync extends AbstractQueuedSynchronizer {
+    private static class Sync extends AbstractQueuedSynchronizer {
 
         @Override
         protected int tryAcquireShared(int arg) {

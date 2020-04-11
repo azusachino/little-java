@@ -12,7 +12,6 @@ public class FutureTaskDemo {
     public static void main(String[] args) {
         Task task = new Task();
         FutureTask<Integer> integerFutureTask = new FutureTask<>(task);
-//        new Thread(integerFutureTask).start();
         ExecutorService service = Executors.newCachedThreadPool();
         service.submit(integerFutureTask);
 
@@ -22,6 +21,7 @@ public class FutureTaskDemo {
         } catch (InterruptedException | ExecutionException e) {
             e.printStackTrace();
         }
+        service.shutdown();
     }
 
     static class Task implements Callable<Integer> {

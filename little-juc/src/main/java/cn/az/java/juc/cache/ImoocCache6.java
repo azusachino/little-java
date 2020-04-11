@@ -1,45 +1,37 @@
-package cn.az.java.juc.imooccache;
+package cn.az.java.juc.cache;
 
-import cn.az.java.juc.imooccache.computable.Computable;
-import cn.az.java.juc.imooccache.computable.ExpensiveFunction;
+import cn.az.java.juc.cache.computable.Computable;
+import cn.az.java.juc.cache.computable.ExpensiveFunction;
 
 import java.util.Map;
-import java.util.concurrent.Callable;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.Future;
-import java.util.concurrent.FutureTask;
 
 /**
- * 描述：     利用Future，避免重复计算
- *
- * @author az
+ * 描述：     缩小了synchronized的粒度，提高性能，但是依然并发不安全
  */
-public class ImoocCache7<A, V> implements Computable<A, V> {
+public class ImoocCache6<A, V> implements Computable<A, V> {
 
-    private final Map<A, Future<V>> cache = new ConcurrentHashMap<>();
+    private final Map<A, V> cache = new ConcurrentHashMap<>();
 
     private final Computable<A, V> c;
 
-    public ImoocCache7(Computable<A, V> c) {
+    public ImoocCache6(Computable<A, V> c) {
         this.c = c;
     }
 
     @Override
     public V compute(A arg) throws Exception {
-        Future<V> f = cache.get(arg);
-        if (f == null) {
-            Callable<V> callable = () -> c.compute(arg);
-            FutureTask<V> ft = new FutureTask<>(callable);
-            f = ft;
-            cache.put(arg, ft);
-            System.out.println("从FutureTask调用了计算函数");
-            ft.run();
+        V result = cache.get(arg);
+        if (result == null) {
+            System.out.println("进入缓存机制");
+            result = c.compute(arg);
+            cache.put(arg, result);
         }
-        return f.get();
+        return result;
     }
 
     public static void main(String[] args) {
-        ImoocCache7<String, Integer> expensiveComputer = new ImoocCache7<>(
+        ImoocCache6<String, Integer> expensiveComputer = new ImoocCache6<>(
                 new ExpensiveFunction());
         new Thread(new Runnable() {
             @Override
@@ -74,7 +66,5 @@ public class ImoocCache7<A, V> implements Computable<A, V> {
                 }
             }
         }).start();
-
-
     }
 }
