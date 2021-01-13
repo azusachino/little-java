@@ -1,0 +1,19 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.az.boot.mybatis.dao.UserDao">
+
+  <resultMap id="DefaultResultMap" type="cn.az.boot.mybatis.domain.User">
+    <id property="id" column="ID"/>
+    <result property="name" column="NAME"/>
+    <result property="age" column="AGE"/>
+    <result property="email" column="EMAIL"/>
+    <result property="operator" column="OPERATOR"/>
+  </resultMap>
+
+  <select id="selectOneUser" resultMap="DefaultResultMap" parameterType="int">
+    SELECT *
+    from user
+    WHERE id = ${id}
+  </select>
+</mapper>

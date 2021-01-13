@@ -1,0 +1,41 @@
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+  <properties resource="application.properties" />
+
+  <settings>
+    <setting name="cacheEnabled" value="true"/>
+  </settings>
+
+  <typeAliases>
+    <typeAlias type="cn.az.boot.mybatis.mapping.MyVendorDatabaseIdProvider" alias="MY_DB_VENDOR"/>
+  </typeAliases>
+
+  <environments default="dev">
+    <environment id="dev">
+      <transactionManager type="JDBC"/>
+      <dataSource type="POOLED">
+        <property name="url" value="${jdbc.url}"/>
+        <property name="driver" value="${jdbc.driverClassName}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+        <property name="driver.encoding" value="utf8"/>
+      </dataSource>
+    </environment>
+  </environments>
+
+  <databaseIdProvider type="MY_DB_VENDOR">
+    <property name="SQL SERVER" value="sqlServer"/>
+    <property name="ORACLE" value="oracle"/>
+    <property name="MYSQL" value="mysql"/>
+  </databaseIdProvider>
+
+  <mappers>
+    <mapper class="cn.az.boot.mybatis.dao.UserMapper"/>
+<!--    <package name="cn.az.boot.mybatis.dao"/>-->
+    <mapper resource="mapper/UserMapper.xml" />
+
+  </mappers>
+
+</configuration>

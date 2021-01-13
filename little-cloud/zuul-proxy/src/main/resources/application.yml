@@ -1,0 +1,16 @@
+server:
+  port: 8201
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+
+zuul:
+  routes:
+    user-service:
+      path: /userService/**
+    feign-service:
+      path: /feignService/**
+  ignored-services: ribbon-service # close default routes
+  prefix: proxy

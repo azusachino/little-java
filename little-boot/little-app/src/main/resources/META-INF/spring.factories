@@ -1,0 +1,8 @@
+# Application Context Initializers
+org.springframework.context.ApplicationContextInitializer=\
+  cn.az.boot.app.config.HelloWorldApplicationContextInitializer,\
+  cn.az.boot.app.config.AfterHelloWorldApplicationContextInitializer
+# My SPI with implement
+cn.az.boot.app.spi.SaySomething=\
+  cn.az.boot.app.spi.impl.SayBadImpl,\
+  cn.az.boot.app.spi.impl.SayGoodImpl

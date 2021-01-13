@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>cn.az.java</groupId>
+        <artifactId>little-java</artifactId>
+        <version>1.0.0</version>
+        <relativePath/>
+    </parent>
+
+    <artifactId>little-spring</artifactId>
+    <packaging>pom</packaging>
+    <description>spring project</description>
+
+    <modules>
+        <module>spring-bean</module>
+        <module>spring-ioc</module>
+        <module>spring-bean-lifecycle</module>
+        <module>spring-demo</module>
+        <module>spring-bean-scope</module>
+        <module>spring-config-metadata</module>
+        <module>spring-resource</module>
+        <module>spring-i18n</module>
+        <module>spring-validation</module>
+        <module>spring-conversion</module>
+        <module>spring-generic</module>
+        <module>spring-event</module>
+    </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>cn.az.java</groupId>
+                <artifactId>spring-ioc</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+</project>

@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: little-security
+  thymeleaf:
+    cache: false
+  security:
+    user:
+      name: az
+      password: 123

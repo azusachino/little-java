@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.az.boot.mapper.UserMapper">
+
+  <resultMap id="userChildrenMap" type="cn.az.boot.model.UserChildren">
+    <id column="id" property="id"/>
+    <result column="age" property="age"/>
+    <result column="email" property="email"/>
+    <result column="name" property="name"/>
+    <collection property="children" ofType="cn.az.boot.entity.Child" columnPrefix="c_">
+      <id column="id" property="id"/>
+      <result column="name" property="name"/>
+      <result column="user_id" property="userId"/>
+    </collection>
+  </resultMap>
+
+  <select id="mySelectPage" resultType="cn.az.boot.entity.User">
+    select *
+    from user
+    where (age = #{page.selectInt} and name = #{page.selectStr})
+       or (age = #{param.age} and name = #{param.name})
+  </select>
+
+  <select id="mySelectPageMap" resultType="cn.az.boot.entity.User">
+    select * from user
+    <where>
+      <if test="map.name!=null and map.name!=''">
+        name like #{map.name}
+      </if>
+    </where>
+  </select>
+
+  <select id="mySelectMap" resultType="cn.az.boot.entity.User">
+    select * from user
+    <where>
+      <if test="name!=null and name!=''">
+        name like #{name}
+      </if>
+    </where>
+  </select>
+
+  <select id="myPageSelect" resultType="cn.az.boot.entity.User">
+    select * from user
+    <where>
+      <if test="name!=null and name!=''">
+        name like '%'||#{name}||'%'
+      </if>
+    </where>
+  </select>
+
+  <select id="iPageSelect" resultType="cn.az.boot.entity.User">
+    select * from user
+    <where>
+      <if test="name!=null and name!=''">
+        name like #{name}
+      </if>
+    </where>
+  </select>
+
+  <select id="rowBoundList" resultType="cn.az.boot.entity.User">
+    select * from user
+    <where>
+      <if test="name!=null and name!=''">
+        name like #{name}
+      </if>
+    </where>
+  </select>
+</mapper>

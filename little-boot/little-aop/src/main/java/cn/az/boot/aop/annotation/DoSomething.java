@@ -1,0 +1,23 @@
+package cn.az.boot.aop.annotation;
+
+import java.lang.annotation.Documented;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Inherited;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+
+/**
+ * @author az
+ * @since 2020-04-20
+ */
+@Inherited
+@Documented
+@Target(ElementType.METHOD)
+@Retention(RetentionPolicy.RUNTIME)
+public @interface DoSomething {
+
+    String before() default "";
+
+    String after() default "";
+}

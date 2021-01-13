@@ -1,0 +1,4 @@
+person:
+  name:
+    prefix:
+      message: the prefix of name must be {value}

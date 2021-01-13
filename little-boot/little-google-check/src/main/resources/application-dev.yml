@@ -1,0 +1,19 @@
+spring:
+  thymeleaf:
+    encoding: UTF-8
+    mode: HTML5
+
+mybatis-plus:
+  mapper-locations: classpath:mapper/*Mapper.xml
+  type-aliases-package: cn.az.boot.model
+  global-config:
+    db-config:
+      id-type: auto
+  configuration:
+    cache-enabled: false
+    map-underscore-to-camel-case: true
+
+logging:
+  level:
+    cn.az.boot.service: info
+    cn.az.boot.controller: info

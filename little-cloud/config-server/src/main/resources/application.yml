@@ -1,0 +1,17 @@
+server:
+  port: 8101
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: ${user.dir}/config-server/src/main/resources/config  # local file system
+#          uri: https://github.com/mercyblitz/tmp
+#          force-pull: true
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8001/eureka/

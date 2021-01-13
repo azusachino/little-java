@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>登录</title>
+  <link rel="stylesheet" th:href="@{/css/login.css}" type="text/css">
+  <script th:src="@{/js/Jquery-3.4.1.js}"></script>
+</head>
+<body>
+<div class="login-page">
+  <div class="form">
+    <input type="text" placeholder="用户名" name="username" required="required"/>
+    <input type="password" placeholder="密码" name="password" required="required"/>
+    <p><input type="checkbox" name="rememberMe"/>记住我</p>
+    <button onclick="login()">登录</button>
+  </div>
+</div>
+</body>
+<script th:inline="javascript">
+    function login() {
+        let username = $("input[name='username']").val();
+        let password = $("input[name='password']").val();
+        let rememberMe = $("input[name='rememberMe']").is(':checked');
+        $.ajax({
+            type: "post",
+            url: "/login",
+            data: {"username": username, "password": password, "rememberMe": rememberMe},
+            dataType: "json",
+            success: function (data) {
+                if (data.code === 200) {
+                    location.href = "/index";
+                } else {
+                    alert(data.message);
+                }
+            }
+        });
+    }
+</script>
+</html>

@@ -1,0 +1,7 @@
+nacos:
+  discovery:
+    server-addr: 180.76.169.35:8848
+
+spring:
+  application:
+    name: nacos-discovery-boot

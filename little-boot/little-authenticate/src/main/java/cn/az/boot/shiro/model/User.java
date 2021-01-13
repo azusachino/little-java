@@ -1,0 +1,33 @@
+package cn.az.boot.shiro.model;
+
+import lombok.Data;
+
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.Date;
+
+/**
+ * <h3>MySpringBoot</h3>
+ *
+ * @author : azchino
+ * @date : 2019-07-20 10:21
+ **/
+@Data
+@Entity
+public class User implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
+    @Column(nullable = false)
+    private String username;
+    @Column(nullable = false)
+    private String password;
+    @Column
+    private Date createTime;
+    @Column
+    private String status;
+}

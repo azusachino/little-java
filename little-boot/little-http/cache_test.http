@@ -1,0 +1,16 @@
+POST http://localhost:8080/person/save
+Content-Type: application/json
+
+{
+    "id": "2",
+    "name": "azz",
+    "age": 23
+}
+
+###
+GET http://localhost:8080/person/2
+Content-Type: text/plain
+
+id=2
+
+###

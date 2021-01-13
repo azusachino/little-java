@@ -1,0 +1,10 @@
+mybatis-plus:
+    mapper-locations: classpath:mapper/*.xml
+    type-aliases-package: cn.az.aop.entity
+    global-config:
+        db-config:
+            id-type: auto
+        banner: false
+    configuration:
+        cache-enabled: false
+        map-underscore-to-camel-case: true

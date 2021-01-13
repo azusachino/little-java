@@ -1,0 +1,13 @@
+spring:
+    application:
+        name: Little Mail
+    mail:
+        host: smtp.163.com
+        username: kon1395025963@163.com
+        password: azusa520
+        default-encoding: UTF-8
+
+mail:
+    fromMail:
+        addr: azusachino@yahoo.com
+

@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: user-service-provider
+
+  cloud:
+    stream:
+      bindings:
+        user-message:
+          destination: az-users
+
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: az-group
+      client-id: ${spring.application.name}
+
+server:
+  port: 8301
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8001/eureka

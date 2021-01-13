@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+        xmlns="http://www.springframework.org/schema/beans"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        https://www.springframework.org/schema/beans/spring-context.xsd">
+
+  <!--    <context:annotation-config/>-->
+
+  <!--    <context:component-scan base-package="org.acme" />-->
+
+  <!-- Root BeanDefinition 不需要合并，不存在 parent -->
+  <!-- 普通 beanDefinition GenericBeanDefinition -->
+  <!-- 经过合并后 GenericBeanDefinition 变成 RootBeanDefinition -->
+  <bean id="user" class="cn.az.java.spring.ioc.domain.User">
+    <property name="id" value="1"/>
+    <property name="name" value="az"/>
+    <property name="city" value="BEIJING"/>
+    <property name="workCities" value="BEIJING, SHANGHAI"/>
+    <property name="lifeCities">
+      <list>
+        <value>SHANGHAI</value>
+        <value>BEIJING</value>
+      </list>
+    </property>
+    <property name="configFileLocation" value="classpath:/META-INF/user-config.properties"/>
+  </bean>
+
+  <bean id="superUser" class="cn.az.java.spring.ioc.domain.SuperUser" parent="user" primary="true">
+    <property name="id" value="2"/>
+    <property name="name" value="ky"/>
+    <property name="address" value="LONDON"/>
+  </bean>
+
+  <bean id="objectFactory" class="org.springframework.beans.factory.config.ObjectFactoryCreatingFactoryBean">
+    <property name="targetBeanName" value="user"/>
+  </bean>
+</beans>

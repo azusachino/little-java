@@ -1,0 +1,17 @@
+POST http://127.0.0.1:8088/add/props
+Content-Type: text/properties
+
+id:123
+name:az
+
+###
+POST http://127.0.0.1:8088/echo/user
+Content-Type: application/xml
+Accept: application/json
+
+<user>
+    <id>123</id>
+    <name>az</name>
+</user>
+
+###

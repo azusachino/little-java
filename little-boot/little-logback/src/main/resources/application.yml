@@ -1,0 +1,8 @@
+server:
+  port: 8080
+
+logging:
+  file:
+    path: classpath:/logs
+  level:
+    cn.az.boot: info

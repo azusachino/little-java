@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+  <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+    <property name="location" value="classpath:/application.properties"/>
+    <property name="fileEncoding" value="UTF-8"/>
+  </bean>
+
+  <bean id="person3" class="cn.az.boot.configure.domain.Person">
+    <property name="id" value="${person.id}"/>
+    <property name="name" value="az"/>
+    <property name="age" value="${person.age}"/>
+  </bean>
+
+</beans>

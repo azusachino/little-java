@@ -1,0 +1,2 @@
+activemq=\
+  cn.az.java.cloud.stream.ActiveMqStreamBinderAutoConfiguration

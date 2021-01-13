@@ -1,0 +1,3 @@
+org.springframework.context.ApplicationListener=\
+  cn.az.boot.configure.context.CustomizedSpringBootApplicationListener,\
+  cn.az.boot.configure.listener.ExtendPropertySourceEventListener

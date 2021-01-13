@@ -1,0 +1,47 @@
+<form id='upload' action='http://localhost:8080/uploadSign' method='post' enctype='multipart/form-data'>
+  <div class="demo">
+    <div class="btn">
+      <span>addFile</span>
+      <input id="fileupload" type="file" name="file1"></div>
+    <div class="progress">
+      <span class="bar"></span>
+      <span class="percent">0%</span></div>
+    <div class="files"></div>
+    <div class="show_img"></div>
+  </div>
+  <input type="submit" onclick="submit()"/></form>
+<script src="../static/Jquery-3.4.1.js"></script>
+<script type="text/javascript">
+    let bar = $('.bar');
+    let percent = $('.percent');
+    let showImg = $('.show_img');
+    let progress = $('.progress');
+    let files = $('.files');
+    let btn = $('.btn span');
+
+    function submit() {
+        $("#upload").ajaxSubmit({
+            dataType: 'json',
+            beforeSend: function () {
+                showImg.empty();
+                progress.show();
+                let percentVal = '0%';
+                bar.width(percentVal);
+                percent.html(percentVal);
+                btn.html('uploading...');
+            },
+            uploadProgress: function (event, position, total, percentComplete) {
+                let percentVal = percentComplete + '%';
+                bar.width(percentVal);
+                percent.html(percentVal);
+            },
+            success: function (data) {
+                alert(data.name + "," + data.pic + "," + data.size);
+            },
+            error: function (xhr) {
+                btn.html("upload failed");
+                bar.width('0');
+                files.html(xhr.responseText);
+            }
+        });
+    }</script>
