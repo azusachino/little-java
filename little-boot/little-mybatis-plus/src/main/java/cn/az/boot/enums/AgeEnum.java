@@ -1,6 +1,6 @@
 package cn.az.boot.enums;
 
-import com.baomidou.mybatisplus.core.enums.IEnum;
+import com.baomidou.mybatisplus.annotation.IEnum;
 import lombok.Getter;
 
 /**
