@@ -1,4 +1,4 @@
-package cn.az.java.metrics.config;
+package cn.az.boot.metrics.config;
 
 import io.micrometer.core.instrument.MeterRegistry;
 import org.springframework.beans.factory.annotation.Value;

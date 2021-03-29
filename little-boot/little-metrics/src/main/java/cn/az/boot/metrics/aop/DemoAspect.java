@@ -1,4 +1,4 @@
-package cn.az.java.metrics.aop;
+package cn.az.boot.metrics.aop;
 
 import io.micrometer.core.instrument.Counter;
 import io.micrometer.core.instrument.MeterRegistry;
@@ -32,7 +32,7 @@ public class DemoAspect {
         this.counter = meterRegistry.counter("requests_total", "status", "success");
     }
 
-    @Pointcut("execution(public * cn.az.java.metrics.controller.*.*(..))")
+    @Pointcut("execution(public * cn.az.boot.metrics.controller.*.*(..))")
     public void pointCut() {
     }
 

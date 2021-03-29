@@ -1,4 +1,4 @@
-package cn.az.java.metrics.controller;
+package cn.az.boot.metrics.controller;
 
 import io.micrometer.core.annotation.Timed;
 import io.micrometer.core.instrument.Counter;

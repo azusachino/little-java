@@ -1,56 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+  <modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <groupId>cn.az.java</groupId>
-        <artifactId>little-java</artifactId>
-        <version>1.0.0</version>
-        <relativePath/>
-    </parent>
+  <parent>
+    <groupId>cn.az.java</groupId>
+    <artifactId>little-java</artifactId>
+    <version>1.0.0</version>
+    <relativePath/>
+  </parent>
 
-    <artifactId>little-boot</artifactId>
-    <name>little-boot</name>
-    <packaging>pom</packaging>
-    <description>my little boot projects</description>
+  <artifactId>little-boot</artifactId>
+  <name>little-boot</name>
+  <packaging>pom</packaging>
+  <description>my little boot projects</description>
 
-    <modules>
-        <module>little-aop</module>
-        <module>little-app</module>
-        <module>little-async-cors</module>
-        <module>little-auth</module>
-        <module>little-authenticate</module>
-        <module>little-authorize</module>
-        <module>little-cache</module>
-        <module>little-configure</module>
-        <module>little-es</module>
-        <module>little-fileupload</module>
-        <module>little-google-check</module>
-        <module>little-jpa</module>
-        <module>little-kafka</module>
-        <module>little-log</module>
-        <module>little-logback</module>
-        <module>little-mail</module>
-        <module>little-management</module>
-        <module>little-mongo</module>
-        <module>little-mvc</module>
-        <module>little-mybatis</module>
-        <module>little-mybatis-plus</module>
-        <module>little-quartz</module>
-        <module>little-redis</module>
-        <module>little-redisson</module>
-        <module>little-security</module>
-        <module>little-service</module>
-        <module>little-socket</module>
-        <module>little-swagger</module>
-        <module>little-test</module>
-        <module>little-validation</module>
-        <module>little-thymeleaf</module>
-        <module>little-servlet</module>
-        <module>little-rest</module>
-        <module>little-reactive</module>
-        <module>little-nacos</module>
-    </modules>
+  <modules>
+    <module>little-aop</module>
+    <module>little-app</module>
+    <module>little-async-cors</module>
+    <module>little-auth</module>
+    <module>little-authenticate</module>
+    <module>little-authorize</module>
+    <module>little-cache</module>
+    <module>little-configure</module>
+    <module>little-es</module>
+    <module>little-fileupload</module>
+    <module>little-google-check</module>
+    <module>little-jpa</module>
+    <module>little-kafka</module>
+    <module>little-log</module>
+    <module>little-logback</module>
+    <module>little-mail</module>
+    <module>little-management</module>
+    <module>little-metrics</module>
+    <module>little-mongo</module>
+    <module>little-mvc</module>
+    <module>little-mybatis</module>
+    <module>little-mybatis-plus</module>
+    <module>little-quartz</module>
+    <module>little-redis</module>
+    <module>little-redisson</module>
+    <module>little-security</module>
+    <module>little-service</module>
+    <module>little-socket</module>
+    <module>little-swagger</module>
+    <module>little-test</module>
+    <module>little-validation</module>
+    <module>little-thymeleaf</module>
+    <module>little-servlet</module>
+    <module>little-rest</module>
+    <module>little-reactive</module>
+    <module>little-nacos</module>
+    <module>little-metrics</module>
+  </modules>
 
 </project>
