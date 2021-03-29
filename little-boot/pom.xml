@@ -53,6 +53,7 @@
     <module>little-reactive</module>
     <module>little-nacos</module>
     <module>little-metrics</module>
+      <module>little-elk</module>
   </modules>
 
 </project>
