@@ -4,6 +4,11 @@ server:
 spring:
   application:
     name: little-metrics
+  security:
+    user:
+      name: admin
+      password: admin
+      roles: ['ENDPOINT_ADMIN']
 
 management:
   endpoints:
