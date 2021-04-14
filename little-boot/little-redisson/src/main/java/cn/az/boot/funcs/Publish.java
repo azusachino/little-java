@@ -10,7 +10,6 @@ import javax.annotation.Resource;
 
 /**
  * @author Liz
- * @date 1/16/2020
  */
 @Component
 public class Publish {
@@ -18,9 +17,9 @@ public class Publish {
     private RedissonClient redissonClient;
 
     //发布
-    public long publish(RedissonObject obj){
+    public long publish(RedissonObject obj) {
         RTopic rTopic = redissonClient.getTopic(Const.TOPIC_NAME);
-        return  rTopic.publish(obj);
+        return rTopic.publish(obj);
     }
 
 }

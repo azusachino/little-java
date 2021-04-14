@@ -5,6 +5,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
  * 描述：     对比两个迭代器
+ *
  * @author az
  */
 public class CopyOnWriteArrayListDemo2 {

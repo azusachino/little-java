@@ -36,10 +36,10 @@ public class CustomizedMessageSourceBeanDemo { // @Configuration Class
     public static void main(String[] args) {
 
         ConfigurableApplicationContext applicationContext =
-                // Primary Configuration Class
-                new SpringApplicationBuilder(CustomizedMessageSourceBeanDemo.class)
-                        .web(WebApplicationType.NONE)
-                        .run(args);
+            // Primary Configuration Class
+            new SpringApplicationBuilder(CustomizedMessageSourceBeanDemo.class)
+                .web(WebApplicationType.NONE)
+                .run(args);
 
         ConfigurableListableBeanFactory beanFactory = applicationContext.getBeanFactory();
 

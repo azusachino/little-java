@@ -26,9 +26,9 @@ public class LittleServletApplication {
 
     public static void main(String[] args) {
         SpringApplication application = new SpringApplicationBuilder(LittleServletApplication.class)
-                .web(WebApplicationType.SERVLET)
-                .bannerMode(Banner.Mode.OFF)
-                .build();
+            .web(WebApplicationType.SERVLET)
+            .bannerMode(Banner.Mode.OFF)
+            .build();
         application.run(args);
     }
 

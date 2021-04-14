@@ -13,7 +13,6 @@ import java.util.Map;
 
 /**
  * @author az
- * @date 2020/4/2
  */
 @Component
 public class RoutingBeanPostProcessor implements BeanPostProcessor {
@@ -34,7 +33,7 @@ public class RoutingBeanPostProcessor implements BeanPostProcessor {
             if (f.isAnnotationPresent(RoutingInject.class)) {
                 if (!f.getType().isInterface()) {
                     throw new BeanCreationException("RoutingInjected field must be declared as an interface:" + f.getName()
-                            + " @Class " + clazz.getName());
+                        + " @Class " + clazz.getName());
                 }
                 try {
                     this.handleRoutingInjected(f, bean, f.getType());

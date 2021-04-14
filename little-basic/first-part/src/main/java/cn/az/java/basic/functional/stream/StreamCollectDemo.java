@@ -13,12 +13,12 @@ public class StreamCollectDemo {
     public static void main(String[] args) {
 
         List<Integer> values = Stream.of(1, 2, 3, 4, 5)
-                .collect(Collectors.toList());
+            .collect(Collectors.toList());
 
         System.out.println(values.getClass());
 
         values = Stream.of(1, 2, 3, 4, 5)
-                .collect(LinkedList::new, List::add, List::addAll);
+            .collect(LinkedList::new, List::add, List::addAll);
 
         System.out.println(values.getClass());
     }

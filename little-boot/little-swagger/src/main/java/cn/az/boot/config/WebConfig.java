@@ -14,7 +14,7 @@ import java.text.SimpleDateFormat;
 public class WebConfig {
 
     @Bean
-    public ObjectMapper objectMapper(){
+    public ObjectMapper objectMapper() {
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.setDateFormat(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"));
         return objectMapper;

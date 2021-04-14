@@ -17,7 +17,7 @@ public class StreamDemo {
         line();
 
         sort((x, y) -> (x < y) ? 1 : ((x == y) ? 0 : -1),
-                6, 4, 7, 9, 8, 1, 3, 2, 5);
+            6, 4, 7, 9, 8, 1, 3, 2, 5);
         line();
 
         parallelSort(1, 2, 3, 4, 5, 6, 7, 8, 9);
@@ -29,9 +29,9 @@ public class StreamDemo {
 
     private static void parallelSort(Integer... numbers) {
         Stream.of(numbers)
-                .sorted()
-                .parallel()
-                .forEach(StreamDemo::println);
+            .sorted()
+            .parallel()
+            .forEach(StreamDemo::println);
     }
 
     private static void println(Object object) {
@@ -41,20 +41,20 @@ public class StreamDemo {
 
     private static void sort(Integer... numbers) {
         Stream.of(numbers)
-                .sorted()
-                .forEach(System.out::println);
+            .sorted()
+            .forEach(System.out::println);
     }
 
     private static void sort(Comparator<Integer> comparator, Integer... numbers) {
         Stream.of(numbers)
-                .sorted(comparator)
-                .forEach(System.out::println);
+            .sorted(comparator)
+            .forEach(System.out::println);
     }
 
     private static void count(Integer... numbers) {
         Stream.of(numbers)
-                .reduce(Integer::sum) // 合并
-                .map(String::valueOf)
-                .ifPresent(System.out::println);
+            .reduce(Integer::sum) // 合并
+            .map(String::valueOf)
+            .ifPresent(System.out::println);
     }
 }

@@ -19,10 +19,8 @@ public class ProcessExecutor {
     /**
      * Constructor
      *
-     * @param processName
-     *         command
-     * @param arguments
-     *         process arguments
+     * @param processName command
+     * @param arguments   process arguments
      */
     public ProcessExecutor(String processName, String... arguments) {
         StringBuilder argumentsBuilder = new StringBuilder();
@@ -40,10 +38,8 @@ public class ProcessExecutor {
      * <p/>
      * //     * @param inputStream  input stream keeps output stream from process
      *
-     * @param outputStream
-     *         output stream for process normal or error input stream.
-     * @throws IOException
-     *         if process execution is failed.
+     * @param outputStream output stream for process normal or error input stream.
+     * @throws IOException if process execution is failed.
      */
     public void execute(OutputStream outputStream) throws IOException {
         try {
@@ -57,14 +53,10 @@ public class ProcessExecutor {
      * <p/>
      * //     * @param inputStream  input stream keeps output stream from process
      *
-     * @param outputStream
-     *         output stream for process normal or error input stream.
-     * @param timeoutInMilliseconds
-     *         milliseconds timeout
-     * @throws IOException
-     *         if process execution is failed.
-     * @throws TimeoutException
-     *         if the execution is timeout over specified <code>timeoutInMilliseconds</code>
+     * @param outputStream          output stream for process normal or error input stream.
+     * @param timeoutInMilliseconds milliseconds timeout
+     * @throws IOException      if process execution is failed.
+     * @throws TimeoutException if the execution is timeout over specified <code>timeoutInMilliseconds</code>
      */
     public void execute(OutputStream outputStream, long timeoutInMilliseconds) throws IOException, TimeoutException {
         Process process = runtime.exec(command);
@@ -107,8 +99,7 @@ public class ProcessExecutor {
     /**
      * Wait for specified seconds
      *
-     * @param seconds
-     *         specified seconds
+     * @param seconds specified seconds
      */
     private void waitFor(long seconds) {
         try {
@@ -128,7 +119,7 @@ public class ProcessExecutor {
     }
 
     public static void main(String[] args) throws IOException, TimeoutException {
-        ProcessExecutor executor = new ProcessExecutor("java","-version");
+        ProcessExecutor executor = new ProcessExecutor("java", "-version");
         executor.execute(System.out, 2000);
     }
 }

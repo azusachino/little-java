@@ -1,12 +1,10 @@
 package cn.az.java.spring.scope;
 
-import cn.hutool.core.map.MapUtil;
 import com.google.common.collect.Maps;
 import org.springframework.beans.factory.ObjectFactory;
 import org.springframework.beans.factory.config.Scope;
 import org.springframework.core.NamedThreadLocal;
 
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 

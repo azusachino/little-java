@@ -40,7 +40,7 @@ public class ImoocCache7<A, V> implements Computable<A, V> {
 
     public static void main(String[] args) {
         ImoocCache7<String, Integer> expensiveComputer = new ImoocCache7<>(
-                new ExpensiveFunction());
+            new ExpensiveFunction());
         new Thread(new Runnable() {
             @Override
             public void run() {

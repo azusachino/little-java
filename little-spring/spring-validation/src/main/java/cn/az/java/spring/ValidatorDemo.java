@@ -1,7 +1,7 @@
 package cn.az.java.spring;
 
-import cn.az.java.spring.validator.UserValidator;
 import cn.az.java.spring.ioc.domain.User;
+import cn.az.java.spring.validator.UserValidator;
 import org.springframework.context.MessageSource;
 import org.springframework.validation.BeanPropertyBindingResult;
 import org.springframework.validation.Errors;

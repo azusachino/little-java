@@ -8,7 +8,11 @@ import org.springframework.web.context.request.async.DeferredResult;
 
 import java.util.Objects;
 import java.util.Random;
-import java.util.concurrent.*;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.Callable;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.CompletionStage;
 
 /**
  * Hello World 异步 {@link RestController}

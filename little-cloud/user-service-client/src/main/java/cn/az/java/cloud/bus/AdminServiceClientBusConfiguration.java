@@ -12,7 +12,6 @@ import org.springframework.context.event.EventListener;
 
 /**
  * @author az
- * @date 2020/4/19
  */
 @Configuration
 @RemoteApplicationEventScan(basePackageClasses = AdminRemoteApplicationEvent.class)
@@ -21,20 +20,20 @@ public class AdminServiceClientBusConfiguration {
     @EventListener
     public void onAdminRemoteApplicationEvent(AdminRemoteApplicationEvent event) {
         System.out.printf("UserRemoteApplicationEvent - " +
-                        " Source : %s , originService : %s , destinationService : %s \n",
-                event.getSource(),
-                event.getOriginService(),
-                event.getDestinationService());
+                " Source : %s , originService : %s , destinationService : %s \n",
+            event.getSource(),
+            event.getOriginService(),
+            event.getDestinationService());
     }
 
     @EventListener
     public void onRefreshRemoteApplicationEvent(RefreshRemoteApplicationEvent event) {
 
         System.out.printf("RefreshRemoteApplicationEvent - " +
-                        " Source : %s , originService : %s , destinationService : %s \n",
-                event.getSource(),
-                event.getOriginService(),
-                event.getDestinationService());
+                " Source : %s , originService : %s , destinationService : %s \n",
+            event.getSource(),
+            event.getOriginService(),
+            event.getDestinationService());
 
     }
 
@@ -42,10 +41,10 @@ public class AdminServiceClientBusConfiguration {
     public void onEnvironmentChangeRemoteApplicationEvent(EnvironmentChangeRemoteApplicationEvent event) {
 
         System.out.printf("EnvironmentChangeRemoteApplicationEvent - " +
-                        " Source : %s , originService : %s , destinationService : %s \n",
-                event.getSource(),
-                event.getOriginService(),
-                event.getDestinationService());
+                " Source : %s , originService : %s , destinationService : %s \n",
+            event.getSource(),
+            event.getOriginService(),
+            event.getDestinationService());
 
     }
 
@@ -53,10 +52,10 @@ public class AdminServiceClientBusConfiguration {
     public void onAckRemoteApplicationEvent(AckRemoteApplicationEvent event) {
 
         System.out.printf("AckRemoteApplicationEvent - " +
-                        " Source : %s , originService : %s , destinationService : %s \n",
-                event.getSource(),
-                event.getOriginService(),
-                event.getDestinationService());
+                " Source : %s , originService : %s , destinationService : %s \n",
+            event.getSource(),
+            event.getOriginService(),
+            event.getDestinationService());
 
     }
 }

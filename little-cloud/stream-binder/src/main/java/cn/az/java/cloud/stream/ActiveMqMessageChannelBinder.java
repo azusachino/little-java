@@ -16,7 +16,6 @@ import javax.jms.*;
 
 /**
  * @author az
- * @date 2020/4/19
  */
 @Component
 public class ActiveMqMessageChannelBinder implements Binder<MessageChannel, ConsumerProperties, ProducerProperties> {
@@ -26,7 +25,6 @@ public class ActiveMqMessageChannelBinder implements Binder<MessageChannel, Cons
 
     /**
      * 接受 ActiveMQ 消息
-     *
      */
     @Override
     public Binding<MessageChannel> bindConsumer(String name, String group, MessageChannel inputChannel, ConsumerProperties consumerProperties) {
@@ -67,13 +65,12 @@ public class ActiveMqMessageChannelBinder implements Binder<MessageChannel, Cons
 
     /**
      * 负责发送消息到 ActiveMQ
-     *
      */
     @Override
     public Binding<MessageChannel> bindProducer(String name, MessageChannel outputChannel, ProducerProperties
-            producerProperties) {
+        producerProperties) {
         Assert.isInstanceOf(SubscribableChannel.class, outputChannel,
-                "Binding is supported only for SubscribableChannel instances");
+            "Binding is supported only for SubscribableChannel instances");
 
         SubscribableChannel subscribableChannel = (SubscribableChannel) outputChannel;
 

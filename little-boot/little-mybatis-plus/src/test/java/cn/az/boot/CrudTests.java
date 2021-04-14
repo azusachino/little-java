@@ -13,7 +13,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import javax.annotation.Resource;
-
 import java.util.List;
 import java.util.Map;
 
@@ -43,7 +42,7 @@ public class CrudTests {
     public void bDelete() {
         Assertions.assertThat(mapper.deleteById(3L)).isGreaterThan(0);
         Assertions.assertThat(mapper.delete(new QueryWrapper<User>()
-                .lambda().eq(User::getName, "qz"))).isGreaterThan(0);
+            .lambda().eq(User::getName, "qz"))).isGreaterThan(0);
     }
 
 
@@ -51,20 +50,20 @@ public class CrudTests {
     public void cUpdate() {
         Assertions.assertThat(mapper.updateById(new User().setId(1L).setEmail("ab@c.c"))).isGreaterThan(0);
         Assertions.assertThat(
-                mapper.update(
-                        new User().setName("mp"),
-                        Wrappers.<User>lambdaUpdate()
-                                .set(User::getAge, 3)
-                                .eq(User::getId, 2)
-                )
+            mapper.update(
+                new User().setName("mp"),
+                Wrappers.<User>lambdaUpdate()
+                    .set(User::getAge, 3)
+                    .eq(User::getId, 2)
+            )
         ).isGreaterThan(0);
         User user = mapper.selectById(2);
         Assertions.assertThat(user.getAge()).isEqualTo(3);
         Assertions.assertThat(user.getName()).isEqualTo("mp");
 
         mapper.update(
-                null,
-                Wrappers.<User>lambdaUpdate().set(User::getEmail, null).eq(User::getId, 2)
+            null,
+            Wrappers.<User>lambdaUpdate().set(User::getEmail, null).eq(User::getId, 2)
         );
         Assertions.assertThat(mapper.selectById(1).getEmail()).isEqualTo("ab@c.c");
         user = mapper.selectById(2);
@@ -72,18 +71,18 @@ public class CrudTests {
         Assertions.assertThat(user.getName()).isEqualTo("mp");
 
         mapper.update(
-                new User().setEmail("miemie@baomidou.com"),
-                new QueryWrapper<User>()
-                        .lambda().eq(User::getId, 2)
+            new User().setEmail("miemie@baomidou.com"),
+            new QueryWrapper<User>()
+                .lambda().eq(User::getId, 2)
         );
         user = mapper.selectById(2);
         Assertions.assertThat(user.getEmail()).isEqualTo("miemie@baomidou.com");
 
         mapper.update(
-                new User().setEmail("miemie2@baomidou.com"),
-                Wrappers.<User>lambdaUpdate()
-                        .set(User::getAge, null)
-                        .eq(User::getId, 2)
+            new User().setEmail("miemie2@baomidou.com"),
+            Wrappers.<User>lambdaUpdate()
+                .set(User::getAge, null)
+                .eq(User::getId, 2)
         );
         user = mapper.selectById(2);
         Assertions.assertThat(user.getEmail()).isEqualTo("miemie2@baomidou.com");
@@ -94,29 +93,29 @@ public class CrudTests {
     @Test
     public void dSelect() {
         mapper.insert(
-                new User().setId(10086L)
-                        .setName("miemie")
-                        .setEmail("miemie@baomidou.com")
-                        .setAge(3));
+            new User().setId(10086L)
+                .setName("miemie")
+                .setEmail("miemie@baomidou.com")
+                .setAge(3));
         Assertions.assertThat(mapper.selectById(10086L).getEmail()).isEqualTo("miemie@baomidou.com");
         User user = mapper.selectOne(new QueryWrapper<User>().lambda().eq(User::getId, 10086));
         Assertions.assertThat(user.getName()).isEqualTo("miemie");
         Assertions.assertThat(user.getAge()).isEqualTo(3);
 
         mapper.selectList(Wrappers.<User>lambdaQuery().select(User::getId))
-                .forEach(x -> {
-                    Assertions.assertThat(x.getId()).isNotNull();
-                    Assertions.assertThat(x.getEmail()).isNull();
-                    Assertions.assertThat(x.getName()).isNull();
-                    Assertions.assertThat(x.getAge()).isNull();
-                });
+            .forEach(x -> {
+                Assertions.assertThat(x.getId()).isNotNull();
+                Assertions.assertThat(x.getEmail()).isNull();
+                Assertions.assertThat(x.getName()).isNull();
+                Assertions.assertThat(x.getAge()).isNull();
+            });
         mapper.selectList(new QueryWrapper<User>().select("id", "name"))
-                .forEach(x -> {
-                    Assertions.assertThat(x.getId()).isNotNull();
-                    Assertions.assertThat(x.getEmail()).isNull();
-                    Assertions.assertThat(x.getName()).isNotNull();
-                    Assertions.assertThat(x.getAge()).isNull();
-                });
+            .forEach(x -> {
+                Assertions.assertThat(x.getId()).isNotNull();
+                Assertions.assertThat(x.getEmail()).isNull();
+                Assertions.assertThat(x.getName()).isNotNull();
+                Assertions.assertThat(x.getAge()).isNull();
+            });
     }
 
     @Test
@@ -162,37 +161,37 @@ public class CrudTests {
     public void testGroup() {
         QueryWrapper<User> wrapper = new QueryWrapper<>();
         wrapper.select("age, count(*)")
-                .groupBy("age");
+            .groupBy("age");
         List<Map<String, Object>> maplist = mapper.selectMaps(wrapper);
         for (Map<String, Object> mp : maplist) {
             System.out.println(mp);
         }
         LambdaQueryWrapper<User> lambdaQueryWrapper = new QueryWrapper<User>().lambda()
-                .select(User::getAge)
-                .groupBy(User::getAge)
-                .orderByAsc(User::getAge);
+            .select(User::getAge)
+            .groupBy(User::getAge)
+            .orderByAsc(User::getAge);
         for (User user : mapper.selectList(lambdaQueryWrapper)) {
             System.out.println(user);
         }
     }
 
     @Test
-    public void testTableFieldExistFalse(){
+    public void testTableFieldExistFalse() {
         QueryWrapper<User> wrapper = new QueryWrapper<>();
         wrapper.select("age, count(age) as count")
-                .groupBy("age");
+            .groupBy("age");
         List<User> list = mapper.selectList(wrapper);
         list.forEach(System.out::println);
-        list.forEach(x->{
+        list.forEach(x -> {
             Assert.assertNull(x.getId());
             Assert.assertNotNull(x.getAge());
             Assert.assertNotNull(x.getCount());
         });
         mapper.insert(
-                new User().setId(10088L)
-                        .setName("miemie")
-                        .setEmail("miemie@baomidou.com")
-                        .setAge(3));
+            new User().setId(10088L)
+                .setName("miemie")
+                .setEmail("miemie@baomidou.com")
+                .setAge(3));
         User miemie = mapper.selectById(10088L);
         Assert.assertNotNull(miemie);
 

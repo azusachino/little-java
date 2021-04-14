@@ -36,10 +36,10 @@ public class ThreadLocalNormalUsage05 {
     static class ThreadSafeFormatter {
 
         public static ThreadLocal<SimpleDateFormat> dateFormatThreadLocal =
-                ThreadLocal.withInitial(() -> new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"));
+            ThreadLocal.withInitial(() -> new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"));
 
         public static ThreadLocal<SimpleDateFormat> dateFormatThreadLocal2 = ThreadLocal
-                .withInitial(() -> new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"));
+            .withInitial(() -> new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"));
     }
 
 }

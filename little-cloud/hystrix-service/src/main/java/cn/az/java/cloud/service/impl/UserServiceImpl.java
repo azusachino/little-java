@@ -42,7 +42,7 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     @HystrixCommand(fallbackMethod = "getDefaultUser", commandProperties = {
-            @HystrixProperty(name= "", value = "")
+        @HystrixProperty(name = "", value = "")
     })
     public RestResponse getUser(Long id) {
         return restTemplate.getForObject(userServiceUrl + "/user/{1}", RestResponse.class, id);
@@ -105,9 +105,9 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     @HystrixCommand(fallbackMethod = "getDefaultUser",
-            commandKey = "getUserCommand",
-            groupKey = "getUserGroup",
-            threadPoolKey = "getUserThreadPool")
+        commandKey = "getUserCommand",
+        groupKey = "getUserGroup",
+        threadPoolKey = "getUserThreadPool")
     public RestResponse getUserCommand(Long id) {
         log.info("getUserCommand id:{}", id);
         return restTemplate.getForObject(userServiceUrl + "/user/{1}", RestResponse.class, id);
@@ -148,7 +148,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @HystrixCollapser(batchMethod = "getUserByIds", collapserProperties = {
-            @HystrixProperty(name = "timerDelayInMilliseconds", value = "100")
+        @HystrixProperty(name = "timerDelayInMilliseconds", value = "100")
     })
     public Future<User> getUserFuture(Long id) {
         return new AsyncResult<User>() {

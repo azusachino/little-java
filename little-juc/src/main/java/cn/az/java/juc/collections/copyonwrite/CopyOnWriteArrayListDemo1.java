@@ -1,10 +1,10 @@
 package cn.az.java.juc.collections.copyonwrite;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 /**
  * 描述：演示CopyOnWriteArrayList可以在迭代的过程中修改数组内容，但是ArrayList不行，对比
+ *
  * @author az
  */
 public class CopyOnWriteArrayListDemo1 {

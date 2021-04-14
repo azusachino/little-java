@@ -94,7 +94,7 @@ public class QrCodeUtil {
      * @throws IOException     the io exception
      */
     public static byte[] createQrCodeToBytes(String content)
-            throws WriterException, IOException {
+        throws WriterException, IOException {
         BufferedImage image = createQrCode(content);
         ByteArrayOutputStream os = new ByteArrayOutputStream();
         ImageIO.write(image, FORMAT, os);
@@ -155,9 +155,9 @@ public class QrCodeUtil {
                 }
                 // 在图片四周形成边框
                 else if ((x > minX - frameWidth && x < minX + frameWidth && y > minY - frameWidth && y < maxY + frameWidth)
-                        || (x > maxX - frameWidth && x < maxX + frameWidth && y > minY - frameWidth && y < maxY + frameWidth)
-                        || (x > minX - frameWidth && x < maxX + frameWidth && y > minY - frameWidth && y < minY + frameWidth)
-                        || (x > minX - frameWidth && x < maxX + frameWidth && y > maxY - frameWidth && y < maxY + frameWidth)) {
+                    || (x > maxX - frameWidth && x < maxX + frameWidth && y > minY - frameWidth && y < maxY + frameWidth)
+                    || (x > minX - frameWidth && x < maxX + frameWidth && y > minY - frameWidth && y < minY + frameWidth)
+                    || (x > minX - frameWidth && x < maxX + frameWidth && y > maxY - frameWidth && y < maxY + frameWidth)) {
                     pixels[y * QRCODE_WIDTH + x] = WHITE;
                 } else {
                     // 这里是其他不属于图标的内容。即为二维码没有被图标遮盖的内容，用矩阵的值来显示颜色。
@@ -281,22 +281,22 @@ public class QrCodeUtil {
                 ratio = (new Integer(width)).doubleValue() / srcImage.getWidth();
             }
             AffineTransformOp op = new AffineTransformOp(
-                    AffineTransform.getScaleInstance(ratio, ratio), null);
+                AffineTransform.getScaleInstance(ratio, ratio), null);
             destImage = op.filter(srcImage, null);
         }
         // 补白
         if (hasFiller) {
             BufferedImage image = new BufferedImage(
-                    width, height, BufferedImage.TYPE_INT_RGB);
+                width, height, BufferedImage.TYPE_INT_RGB);
             Graphics2D graphic = image.createGraphics();
             graphic.setColor(Color.white);
             graphic.fillRect(0, 0, width, height);
             if (width == destImage.getWidth(null)) {
                 graphic.drawImage(destImage, 0, (height - destImage.getHeight(null)) / 2,
-                        destImage.getWidth(null), destImage.getHeight(null), Color.white, null);
+                    destImage.getWidth(null), destImage.getHeight(null), Color.white, null);
             } else {
                 graphic.drawImage(destImage, (width - destImage.getWidth(null)) / 2, 0,
-                        destImage.getWidth(null), destImage.getHeight(null), Color.white, null);
+                    destImage.getWidth(null), destImage.getHeight(null), Color.white, null);
             }
             graphic.dispose();
             destImage = image;

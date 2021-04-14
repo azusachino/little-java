@@ -30,9 +30,9 @@ public class ReentrantLockDemo {
             // times-- load, minus 1
             lock(lock, --times);
             System.out.printf("第%s次在 lock() 方法调用之后的线程[%s]重进入数：%d\n",
-                    times + 1,
-                    Thread.currentThread().getName(),
-                    lock.getHoldCount());
+                times + 1,
+                Thread.currentThread().getName(),
+                lock.getHoldCount());
         } finally {
             lock.unlock();
         }

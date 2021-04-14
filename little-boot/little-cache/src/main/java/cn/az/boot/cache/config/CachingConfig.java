@@ -4,7 +4,6 @@ import org.springframework.boot.autoconfigure.cache.RedisCacheManagerBuilderCust
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.CachingConfigurerSupport;
 import org.springframework.cache.annotation.EnableCaching;
-import org.springframework.cache.interceptor.*;
 import org.springframework.cache.support.SimpleCacheManager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,7 +14,6 @@ import java.util.Arrays;
 
 /**
  * @author az
- * @date 2020-03-11
  */
 @EnableCaching
 @Configuration
@@ -24,10 +22,10 @@ public class CachingConfig extends CachingConfigurerSupport {
     @Bean
     public RedisCacheManagerBuilderCustomizer customizer() {
         return builder -> builder.
-                withCacheConfiguration("cache1",
-                        RedisCacheConfiguration.defaultCacheConfig().entryTtl(Duration.ofSeconds(20)))
-                .withCacheConfiguration("cache2",
-                        RedisCacheConfiguration.defaultCacheConfig().entryTtl(Duration.ofMinutes(1)));
+            withCacheConfiguration("cache1",
+                RedisCacheConfiguration.defaultCacheConfig().entryTtl(Duration.ofSeconds(20)))
+            .withCacheConfiguration("cache2",
+                RedisCacheConfiguration.defaultCacheConfig().entryTtl(Duration.ofMinutes(1)));
     }
 
     @Bean

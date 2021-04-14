@@ -99,7 +99,7 @@ public class LambdaDemo {
     private static void stream() {
 
         Stream.of(1, 2, 3, 4, 5)
-                .map(String::valueOf)
+            .map(String::valueOf)
         ;
 
     }

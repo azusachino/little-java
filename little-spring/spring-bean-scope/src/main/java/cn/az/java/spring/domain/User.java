@@ -135,16 +135,16 @@ public class User implements BeanNameAware {
     @Override
     public String toString() {
         return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", city=" + city +
-                ", workCities=" + Arrays.toString(workCities) +
-                ", lifeCities=" + lifeCities +
-                ", configFileLocation=" + configFileLocation +
-                ", company=" + company +
-                ", context=" + context +
-                ", contextAsText='" + contextAsText + '\'' +
-                ", beanName='" + beanName + '\'' +
-                '}';
+            "id=" + id +
+            ", name='" + name + '\'' +
+            ", city=" + city +
+            ", workCities=" + Arrays.toString(workCities) +
+            ", lifeCities=" + lifeCities +
+            ", configFileLocation=" + configFileLocation +
+            ", company=" + company +
+            ", context=" + context +
+            ", contextAsText='" + contextAsText + '\'' +
+            ", beanName='" + beanName + '\'' +
+            '}';
     }
 }

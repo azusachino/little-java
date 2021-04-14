@@ -11,7 +11,7 @@ import java.util.HashMap;
 public class Dummy {
 
 
-    interface A{
+    interface A {
 
     }
 

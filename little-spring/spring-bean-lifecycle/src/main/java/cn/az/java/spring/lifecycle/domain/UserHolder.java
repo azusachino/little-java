@@ -17,7 +17,13 @@
 package cn.az.java.spring.lifecycle.domain;
 
 import org.springframework.beans.BeansException;
-import org.springframework.beans.factory.*;
+import org.springframework.beans.factory.BeanClassLoaderAware;
+import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.factory.BeanFactoryAware;
+import org.springframework.beans.factory.BeanNameAware;
+import org.springframework.beans.factory.DisposableBean;
+import org.springframework.beans.factory.InitializingBean;
+import org.springframework.beans.factory.SmartInitializingSingleton;
 import org.springframework.context.EnvironmentAware;
 import org.springframework.core.env.Environment;
 
@@ -30,7 +36,7 @@ import javax.annotation.PreDestroy;
  * @author az
  */
 public class UserHolder implements BeanNameAware, BeanClassLoaderAware, BeanFactoryAware, EnvironmentAware,
-        InitializingBean, SmartInitializingSingleton, DisposableBean {
+    InitializingBean, SmartInitializingSingleton, DisposableBean {
 
     private final User user;
 
@@ -102,11 +108,11 @@ public class UserHolder implements BeanNameAware, BeanClassLoaderAware, BeanFact
     @Override
     public String toString() {
         return "UserHolder{" +
-                "user=" + user +
-                ", number=" + number +
-                ", description='" + description + '\'' +
-                ", beanName='" + beanName + '\'' +
-                '}';
+            "user=" + user +
+            ", number=" + number +
+            ", description='" + description + '\'' +
+            ", beanName='" + beanName + '\'' +
+            '}';
     }
 
     @Override

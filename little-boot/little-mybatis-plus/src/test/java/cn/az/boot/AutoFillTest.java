@@ -21,7 +21,7 @@ public class AutoFillTest {
 
     @Test
     public void test() {
-        User user = new User(null, "Tom", 1, "tom@qq.com", null,null);
+        User user = new User(null, "Tom", 1, "tom@qq.com", null, null);
         userMapper.insert(user);
         log.info("query user:{}", userMapper.selectById(user.getId()));
         User beforeUser = userMapper.selectById(1L);

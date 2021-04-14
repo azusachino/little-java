@@ -2,7 +2,6 @@ package cn.az.boot.validation.controller;
 
 import cn.az.boot.validation.domain.Person;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.PostConstruct;
 import java.util.HashMap;

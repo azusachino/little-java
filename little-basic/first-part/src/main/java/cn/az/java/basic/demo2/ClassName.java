@@ -1,8 +1,6 @@
 package cn.az.java.basic.demo2;
 
 import java.io.IOException;
-import java.net.URI;
-import java.time.Duration;
 
 class ClassName {
 

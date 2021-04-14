@@ -32,8 +32,6 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- *
- *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "User", propOrder = {
@@ -50,7 +48,6 @@ public class User {
 
     /**
      * 获取id属性的值。
-     *
      */
     public long getId() {
         return id;
@@ -58,7 +55,6 @@ public class User {
 
     /**
      * 设置id属性的值。
-     *
      */
     public void setId(long value) {
         this.id = value;
@@ -67,10 +63,8 @@ public class User {
     /**
      * 获取name属性的值。
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible object is
+     * {@link String }
      */
     public String getName() {
         return name;
@@ -79,10 +73,8 @@ public class User {
     /**
      * 设置name属性的值。
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setName(String value) {
         this.name = value;
@@ -91,10 +83,8 @@ public class User {
     /**
      * 获取age属性的值。
      *
-     * @return
-     *     possible object is
-     *     {@link Integer }
-     *
+     * @return possible object is
+     * {@link Integer }
      */
     public Integer getAge() {
         return age;
@@ -103,10 +93,8 @@ public class User {
     /**
      * 设置age属性的值。
      *
-     * @param value
-     *     allowed object is
-     *     {@link Integer }
-     *
+     * @param value allowed object is
+     *              {@link Integer }
      */
     public void setAge(Integer value) {
         this.age = value;
@@ -116,9 +104,9 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", age=" + age +
-                '}';
+            "id=" + id +
+            ", name='" + name + '\'' +
+            ", age=" + age +
+            '}';
     }
 }

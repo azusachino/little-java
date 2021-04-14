@@ -3,7 +3,6 @@ package cn.az.boot.shiro.config;
 import org.apache.shiro.cache.CacheManager;
 import org.apache.shiro.cache.MemoryConstrainedCacheManager;
 import org.apache.shiro.codec.Base64;
-import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.spring.LifecycleBeanPostProcessor;
 import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
@@ -21,7 +20,6 @@ import java.util.LinkedHashMap;
  * <h3>MySpringBoot</h3>
  *
  * @author : azchino
- * @date : 2019-07-20 17:43
  **/
 @Configuration
 public class ShiroConfig {

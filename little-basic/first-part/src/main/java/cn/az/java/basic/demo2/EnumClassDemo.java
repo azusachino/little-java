@@ -1,8 +1,5 @@
 package cn.az.java.basic.demo2;
 
-import java.io.Serializable;
-import java.lang.reflect.Field;
-import java.lang.reflect.Member;
 import java.lang.reflect.Modifier;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -20,8 +17,8 @@ public class EnumClassDemo {
 //        println(CountingEnum.ONE);
 //        println(CountingEnum.FIVE);
 //
-       printEnumMeta(CountingEnum.ONE);
-       printEnumMeta(CountingEnum.FIVE);
+        printEnumMeta(CountingEnum.ONE);
+        printEnumMeta(CountingEnum.FIVE);
 
         // 自定义实现 values()
         printCountingMembers();
@@ -50,12 +47,12 @@ public class EnumClassDemo {
 
     public static void printCountingMembers() {
         Stream.of(Counting.values())
-                .forEach(System.out::println);
+            .forEach(System.out::println);
     }
 
     public static void printCountingEnumMembers() {
         Stream.of(CountingEnum.values())
-                .forEach(System.out::println);
+            .forEach(System.out::println);
     }
 
 
@@ -190,17 +187,17 @@ abstract class Counting extends CloneableDemo.Data implements Cloneable {
     public static Counting[] values() {
         // Fields -> filter -> public static final fields -> get
         return Stream.of(Counting.class.getDeclaredFields())
-                .filter(field -> {
-                    int modifiers = field.getModifiers();
-                    return Modifier.isPublic(modifiers) && Modifier.isStatic(modifiers) && Modifier.isFinal(modifiers);
-                }).map(field -> {
-                    // Field -> Counting
-                    try {
-                        return (Counting) field.get(null);
-                    } catch (IllegalAccessException e) {
-                        throw new RuntimeException(e);
-                    }
-                }).collect(Collectors.toList()).toArray(new Counting[0]);
+            .filter(field -> {
+                int modifiers = field.getModifiers();
+                return Modifier.isPublic(modifiers) && Modifier.isStatic(modifiers) && Modifier.isFinal(modifiers);
+            }).map(field -> {
+                // Field -> Counting
+                try {
+                    return (Counting) field.get(null);
+                } catch (IllegalAccessException e) {
+                    throw new RuntimeException(e);
+                }
+            }).collect(Collectors.toList()).toArray(new Counting[0]);
 
     }
 

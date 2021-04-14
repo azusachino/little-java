@@ -30,7 +30,6 @@ public class DiscoveryClientController {
 
     /**
      * 获取当前应用信息
-     *
      */
     @GetMapping("/current/service-instance")
     public ServiceInstance getCurrentServiceInstance() {
@@ -41,7 +40,6 @@ public class DiscoveryClientController {
 
     /**
      * 获取所有的服务名
-     *
      */
     @GetMapping("/list/services")
     public List<String> listServices() {
@@ -50,7 +48,6 @@ public class DiscoveryClientController {
 
     /**
      * 获取所有的服务实例信息
-     *
      */
     @GetMapping("/list/service-instances")
     public List<ServiceInstance> listServiceInstances() {

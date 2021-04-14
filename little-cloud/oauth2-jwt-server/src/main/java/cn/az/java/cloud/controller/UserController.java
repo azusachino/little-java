@@ -12,7 +12,6 @@ import java.nio.charset.StandardCharsets;
 
 /**
  * @author Liz
- * @date 1/8/2020
  */
 @RestController
 @RequestMapping("/user")
@@ -23,8 +22,8 @@ public class UserController {
         String header = request.getHeader("Authorization");
         String token = StrUtil.subAfter(header, "bearer", false);
         return Jwts.parser()
-                .setSigningKey("test_key".getBytes(StandardCharsets.UTF_8))
-                .parseClaimsJws(token)
-                .getBody();
+            .setSigningKey("test_key".getBytes(StandardCharsets.UTF_8))
+            .parseClaimsJws(token)
+            .getBody();
     }
 }

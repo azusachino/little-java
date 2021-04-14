@@ -59,7 +59,7 @@ class MyInstantiationAwareBeanPostProcessor implements InstantiationAwareBeanPos
 
     @Override
     public PropertyValues postProcessProperties(PropertyValues pvs, Object bean, String beanName)
-            throws BeansException {
+        throws BeansException {
         // 对 "userHolder" Bean 进行拦截
         if (ObjectUtils.nullSafeEquals("userHolder", beanName) && UserHolder.class.equals(bean.getClass())) {
             // 假设 <property name="number" value="1" /> 配置的话，那么在 PropertyValues 就包含一个 PropertyValue(number=1)

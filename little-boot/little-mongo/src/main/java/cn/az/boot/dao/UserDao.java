@@ -13,7 +13,7 @@ import java.util.List;
  * @version 2019 /12/09
  */
 @Repository
-public interface UserDao extends MongoRepository<User,String> {
+public interface UserDao extends MongoRepository<User, String> {
 
 
     /**

@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * <h3>MySpringBoot</h3>
  *
  * @author : azchino
- * @date : 2019-07-20 17:30
  **/
 @Controller
 @RequestMapping("/user")

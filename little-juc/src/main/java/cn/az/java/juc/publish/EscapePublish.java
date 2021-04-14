@@ -2,7 +2,6 @@ package cn.az.java.juc.publish;
 
 /**
  * @author az
- * @date 4/5/2020
  */
 public class EscapePublish {
 

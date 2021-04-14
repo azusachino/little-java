@@ -28,12 +28,12 @@ public class AsyncEventHandlerDemo {
 
         // 依赖查找 ApplicationEventMulticaster
         ApplicationEventMulticaster applicationEventMulticaster =
-                context.getBean(AbstractApplicationContext.APPLICATION_EVENT_MULTICASTER_BEAN_NAME, ApplicationEventMulticaster.class);
+            context.getBean(AbstractApplicationContext.APPLICATION_EVENT_MULTICASTER_BEAN_NAME, ApplicationEventMulticaster.class);
 
         // 判断当前 ApplicationEventMulticaster 是否为 SimpleApplicationEventMulticaster
         if (applicationEventMulticaster instanceof SimpleApplicationEventMulticaster) {
             SimpleApplicationEventMulticaster simpleApplicationEventMulticaster =
-                    (SimpleApplicationEventMulticaster) applicationEventMulticaster;
+                (SimpleApplicationEventMulticaster) applicationEventMulticaster;
             // 切换 taskExecutor
             ExecutorService taskExecutor = new ExecutorBuilder().build();
             // 同步 -> 异步

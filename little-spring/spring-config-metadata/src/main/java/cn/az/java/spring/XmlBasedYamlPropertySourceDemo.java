@@ -23,7 +23,6 @@ import java.util.Map;
 
 /**
  * 基于 XML 资源的 YAML 外部化配置示例
- *
  */
 public class XmlBasedYamlPropertySourceDemo {
 
@@ -37,7 +36,7 @@ public class XmlBasedYamlPropertySourceDemo {
         reader.loadBeanDefinitions("classpath:/META-INF/yaml-property-source-context.xml");
         // 获取 Map YAML 对象
         @SuppressWarnings("uncheked")
-        Map<String, Object> yamlMap =(Map<String, Object>) beanFactory.getBean("yamlMap", Map.class);
+        Map<String, Object> yamlMap = (Map<String, Object>) beanFactory.getBean("yamlMap", Map.class);
 
         System.out.println(yamlMap);
     }

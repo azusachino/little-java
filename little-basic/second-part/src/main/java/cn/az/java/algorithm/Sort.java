@@ -5,8 +5,8 @@ package cn.az.java.algorithm;
  * <p>
  * 原地(在地)排序 - In-Place
  *
- * @author az
  * @param <T> the type parameter
+ * @author az
  */
 public interface Sort<T extends Comparable<T>> {
 

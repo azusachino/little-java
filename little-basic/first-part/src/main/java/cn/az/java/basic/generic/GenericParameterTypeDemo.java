@@ -83,7 +83,7 @@ public class GenericParameterTypeDemo {
     }
 
     public static class TClass /** extends C */
-            implements Serializable, I, I2 {
+        implements Serializable, I, I2 {
 
     }
 

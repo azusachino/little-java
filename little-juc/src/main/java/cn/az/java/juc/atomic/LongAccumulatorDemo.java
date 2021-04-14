@@ -8,6 +8,7 @@ import java.util.stream.IntStream;
 
 /**
  * 描述：     演示LongAccumulator的用法
+ *
  * @author az
  */
 public class LongAccumulatorDemo {

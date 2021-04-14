@@ -31,7 +31,7 @@ public class UserService {
     private MongoTemplate template;
 
     public List<User> getUsers() {
-       return userDao.findAll();
+        return userDao.findAll();
     }
 
     public Optional<User> getUser(String id) {
@@ -49,19 +49,19 @@ public class UserService {
 
     public void deleteUser(String id) {
         this.userDao.findById(id)
-                .ifPresent(user -> this.userDao.delete(user));
+            .ifPresent(user -> this.userDao.delete(user));
     }
 
     public void updateUser(String id, User user) {
         this.userDao.findById(id)
-                .ifPresent(
-                        u -> {
-                            u.setName(user.getName());
-                            u.setAge(user.getAge());
-                            u.setDescription(user.getDescription());
-                            this.userDao.save(u);
-                        }
-                );
+            .ifPresent(
+                u -> {
+                    u.setName(user.getName());
+                    u.setAge(user.getAge());
+                    u.setDescription(user.getDescription());
+                    this.userDao.save(u);
+                }
+            );
     }
 
     public List<User> getUserByAge(Integer from, Integer to) {

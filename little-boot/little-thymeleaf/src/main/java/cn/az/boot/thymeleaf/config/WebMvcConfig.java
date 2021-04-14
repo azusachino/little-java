@@ -42,14 +42,14 @@ public class WebMvcConfig extends WebMvcConfigurationSupport {
     @Bean
     public WebServerFactoryCustomizer<TomcatServletWebServerFactory> customizer() {
         return factory -> factory.addContextCustomizers(connector -> {
-                    String relativePath = "little-thymeleaf/src/main/webapp";
-                    // 相对于 user.dir = E:\projects\project-github\little-boot
-                    File docBaseFile = new File(relativePath);
-                    if (docBaseFile.exists()) { // 路径是否存在
-                        // 解决 Maven 多模块 JSP 无法读取的问题
-                        connector.setDocBase(docBaseFile.getAbsolutePath());
-                    }
+                String relativePath = "little-thymeleaf/src/main/webapp";
+                // 相对于 user.dir = E:\projects\project-github\little-boot
+                File docBaseFile = new File(relativePath);
+                if (docBaseFile.exists()) { // 路径是否存在
+                    // 解决 Maven 多模块 JSP 无法读取的问题
+                    connector.setDocBase(docBaseFile.getAbsolutePath());
                 }
+            }
         );
     }
 }

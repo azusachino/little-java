@@ -8,7 +8,6 @@ import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 
 /**
  * @author Liz
- * @date 1/9/2020
  */
 @Configuration
 public class JwtTokenStoreConfig {

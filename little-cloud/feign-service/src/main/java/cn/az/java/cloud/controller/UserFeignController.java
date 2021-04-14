@@ -1,9 +1,8 @@
 package cn.az.java.cloud.controller;
 
 import cn.az.java.cloud.domain.RestResponse;
-import cn.az.java.cloud.service.UserService;
 import cn.az.java.cloud.domain.User;
-import org.springframework.web.bind.annotation.*;
+import cn.az.java.cloud.service.UserService;
 
 import javax.annotation.Resource;
 

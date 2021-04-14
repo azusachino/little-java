@@ -1,8 +1,6 @@
 package cn.az.java.spring.ioc.domain;
 
 import cn.az.java.spring.ioc.enums.City;
-import lombok.Data;
-import lombok.ToString;
 import org.springframework.beans.factory.BeanNameAware;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.lang.NonNull;
@@ -13,7 +11,6 @@ import java.util.Properties;
 
 /**
  * @author az
- * @date 2020/3/25
  */
 public class User implements BeanNameAware {
 
@@ -101,15 +98,15 @@ public class User implements BeanNameAware {
     @Override
     public String toString() {
         return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", beanName='" + beanName + '\'' +
-                ", city=" + city +
-                ", workCities=" + Arrays.toString(workCities) +
-                ", lifeCities=" + lifeCities +
-                ", configFileLocation=" + configFileLocation +
-                ", context=" + context +
-                ", contextAsText='" + contextAsText + '\'' +
-                '}';
+            "id=" + id +
+            ", name='" + name + '\'' +
+            ", beanName='" + beanName + '\'' +
+            ", city=" + city +
+            ", workCities=" + Arrays.toString(workCities) +
+            ", lifeCities=" + lifeCities +
+            ", configFileLocation=" + configFileLocation +
+            ", context=" + context +
+            ", contextAsText='" + contextAsText + '\'' +
+            '}';
     }
 }

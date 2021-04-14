@@ -32,7 +32,7 @@ public class ImoocCache3<A, V> implements Computable<A, V> {
 
     public static void main(String[] args) throws Exception {
         ImoocCache3<String, Integer> expensiveComputer = new ImoocCache3<>(
-                new ExpensiveFunction());
+            new ExpensiveFunction());
         new Thread(new Runnable() {
             @Override
             public void run() {

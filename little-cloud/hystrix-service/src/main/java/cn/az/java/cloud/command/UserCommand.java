@@ -6,6 +6,7 @@ import org.springframework.web.client.RestTemplate;
 
 /**
  * {@link com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand}
+ *
  * @author az
  * @since 2020-04-13
  */

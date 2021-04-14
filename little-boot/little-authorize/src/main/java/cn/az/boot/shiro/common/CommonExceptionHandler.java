@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
  * <h3>MySpringBoot</h3>
  *
  * @author : azchino
- * @date : 2019-07-20 21:48
  **/
 @ControllerAdvice
 @Order(value = Ordered.HIGHEST_PRECEDENCE)

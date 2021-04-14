@@ -4,7 +4,11 @@ import cn.az.boot.validation.bean.validator.PersonNameValidator;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
-import java.lang.annotation.*;
+import java.lang.annotation.Documented;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 
 /**
  * {@link Constraint}
@@ -21,9 +25,9 @@ public @interface PersonNamePrefix {
 
     String message() default "{person.name.prefix.message}";
 
-    Class<?>[] groups() default { };
+    Class<?>[] groups() default {};
 
-    Class<? extends Payload>[] payload() default { };
+    Class<? extends Payload>[] payload() default {};
 
     String value() default "sf-";
 }

@@ -7,7 +7,6 @@ import org.apache.ibatis.annotations.*;
  * The interface User mapper.
  *
  * @author az
- * @date 2020 -03-09
  */
 @Mapper
 public interface UserMapper {

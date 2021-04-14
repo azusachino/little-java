@@ -15,7 +15,6 @@ import java.util.Properties;
 
 /**
  * @author az
- * @date 2020-03-09
  */
 public class MyBatisXmlConfigurationDemo {
 

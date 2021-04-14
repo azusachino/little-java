@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * @author az
- * @date 2020/3/14
  */
 @Controller
 public class SecurityController {

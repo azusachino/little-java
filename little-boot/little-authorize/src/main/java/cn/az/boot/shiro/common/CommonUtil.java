@@ -7,7 +7,6 @@ import org.apache.shiro.util.ByteSource;
  * <h3>MySpringBoot</h3>
  *
  * @author : azchino
- * @date : 2019-07-20 10:22
  **/
 public class CommonUtil {
 
@@ -17,7 +16,7 @@ public class CommonUtil {
 
     public static String encrypt(String username, String password) {
         return new SimpleHash(Constants.ALGORITH, password, ByteSource.Util.bytes(username + Constants.SALT),
-                Constants.HASH_ITERATION).toHex();
+            Constants.HASH_ITERATION).toHex();
     }
 
     public static void main(String[] args) {

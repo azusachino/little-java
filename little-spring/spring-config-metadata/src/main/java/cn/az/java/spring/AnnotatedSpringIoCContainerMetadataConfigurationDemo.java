@@ -18,12 +18,12 @@ package cn.az.java.spring;
 
 import cn.az.java.spring.ioc.domain.User;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.*;
 
 import java.util.Map;
 
 /**
  * 基于 Java 注解 Spring IoC 容器元信息配置示例
+ *
  * @author az
  */
 // 将当前类作为 Configuration Class
@@ -36,7 +36,6 @@ public class AnnotatedSpringIoCContainerMetadataConfigurationDemo {
 
     /**
      * user.name 是 Java Properties 默认存在，当前用户：ycpang，而非配置文件中定义"小马哥"
-     *
      */
     @Bean
     public User configuredUser(@Value("${user.id}") Long id, @Value("${user.name}") String name) {

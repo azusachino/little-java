@@ -35,7 +35,7 @@ public class ThreadWaitAndNotifyDemo {
         // 正确的写法：
         synchronized (monitor) {
             // 为什么 monitor.notify() 不能保证完全释放
-             monitor.notify();
+            monitor.notify();
 //            monitor.notifyAll();
         }
         synchronized (monitor) {

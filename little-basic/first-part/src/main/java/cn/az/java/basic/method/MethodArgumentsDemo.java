@@ -37,6 +37,7 @@ public class MethodArgumentsDemo implements Comparable<MethodArgumentsDemo> {
     }
 
     // 多项传输 - 参数类型非对等
+
     /**
      * @param collection collection
      * @param elements   zero or more elements (0..n)
@@ -46,6 +47,7 @@ public class MethodArgumentsDemo implements Comparable<MethodArgumentsDemo> {
     }
 
     // 多项传输 - 参数类型非对等
+
     /**
      * @param collection collection
      * @param one        one element

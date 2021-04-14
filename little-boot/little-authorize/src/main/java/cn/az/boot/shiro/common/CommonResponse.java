@@ -7,7 +7,6 @@ import java.util.Map;
  * <h3>MySpringBoot</h3>
  *
  * @author : azchino
- * @date : 2019-07-20 10:22
  **/
 public class CommonResponse extends HashMap<String, Object> {
 

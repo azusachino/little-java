@@ -17,6 +17,6 @@ public class RateLimiterExample2 {
     }
 
     private static void handle(int i) {
-       log.info("{}", i);
+        log.info("{}", i);
     }
 }

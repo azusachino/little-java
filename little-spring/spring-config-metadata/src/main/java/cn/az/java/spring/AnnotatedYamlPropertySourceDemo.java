@@ -25,12 +25,13 @@ import org.springframework.context.annotation.PropertySource;
 
 /**
  * 基于 Java 注解的 YAML 外部化配置示例
+ *
  * @author az
  */
 @PropertySource(
-        name = "yamlPropertySource",
-        value = "classpath:/META-INF/user.yaml",
-        factory = YamlPropertySourceFactory.class)
+    name = "yamlPropertySource",
+    value = "classpath:/META-INF/user.yaml",
+    factory = YamlPropertySourceFactory.class)
 public class AnnotatedYamlPropertySourceDemo {
 
     /**

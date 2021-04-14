@@ -10,8 +10,8 @@ Content-Type: application/xml
 Accept: application/json
 
 <user>
-    <id>123</id>
-    <name>az</name>
+  <id>123</id>
+  <name>az</name>
 </user>
 
 ###

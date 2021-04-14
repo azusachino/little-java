@@ -8,7 +8,6 @@ import java.util.concurrent.atomic.AtomicReference;
 
 /**
  * @author az
- * @date 4/4/2020
  */
 public class AtomicReferenceDemo {
 

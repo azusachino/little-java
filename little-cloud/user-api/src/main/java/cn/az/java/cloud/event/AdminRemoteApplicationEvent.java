@@ -5,11 +5,10 @@ import org.springframework.cloud.bus.event.RemoteApplicationEvent;
 
 /**
  * @author az
- * @date 2020/4/19
  */
 public class AdminRemoteApplicationEvent extends RemoteApplicationEvent {
 
-    private AdminRemoteApplicationEvent(){
+    private AdminRemoteApplicationEvent() {
 
     }
 

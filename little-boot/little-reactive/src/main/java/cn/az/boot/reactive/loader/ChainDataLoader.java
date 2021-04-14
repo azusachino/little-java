@@ -4,7 +4,6 @@ import java.util.concurrent.CompletableFuture;
 
 /**
  * @author az
- * @date 2020/4/1
  */
 public class ChainDataLoader extends DataLoader {
 
@@ -16,11 +15,11 @@ public class ChainDataLoader extends DataLoader {
     @Override
     protected void doLoad() {
         CompletableFuture.runAsync(super::loadConfigurations)
-                .thenRun(super::loadUsers)
-                .thenRun(super::loadOrders)
-                .whenComplete((r, t) -> {
-                    System.out.println(Thread.currentThread().getName() + " is completing all tasks");
-                })
-                .join();
+            .thenRun(super::loadUsers)
+            .thenRun(super::loadOrders)
+            .whenComplete((r, t) -> {
+                System.out.println(Thread.currentThread().getName() + " is completing all tasks");
+            })
+            .join();
     }
 }

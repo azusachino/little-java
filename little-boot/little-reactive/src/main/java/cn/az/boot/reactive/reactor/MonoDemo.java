@@ -9,13 +9,12 @@ import java.util.concurrent.CompletableFuture;
 
 /**
  * @author az
- * @date 2020/4/1
  */
 public class MonoDemo {
 
     public static void main(String[] args) {
         Mono.create(MonoSink::success)
-                .block();
+            .block();
     }
 
     public void createMono() {

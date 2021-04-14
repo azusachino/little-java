@@ -19,9 +19,9 @@ public class StringDemo {
         // 合法的写法（会被视作异类）
         String value2 = new String("Hello");
 
-        System.out.println("value :　"+value);
+        System.out.println("value :　" + value);
 
-        System.out.println("value2 :　"+value);
+        System.out.println("value2 :　" + value);
 
         // 从 Java 1.5 开始对象属性可以通过反射修改
         char[] chars = "World".toCharArray();
@@ -33,9 +33,9 @@ public class StringDemo {
         // 把 chars 设置到 value 字段的内容
         valueFiled.set(value2, chars);
 
-        System.out.println("value :　"+value);
+        System.out.println("value :　" + value);
 
-        System.out.println("value2 :　"+value2);
+        System.out.println("value2 :　" + value2);
 
     }
 

@@ -40,7 +40,7 @@ public class ImoocCache8<A, V> implements Computable<A, V> {
 
     public static void main(String[] args) throws Exception {
         ImoocCache8<String, Integer> expensiveComputer = new ImoocCache8<>(
-                new ExpensiveFunction());
+            new ExpensiveFunction());
         new Thread(new Runnable() {
             @Override
             public void run() {

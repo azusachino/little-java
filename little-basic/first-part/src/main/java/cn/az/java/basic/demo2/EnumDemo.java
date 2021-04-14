@@ -24,16 +24,16 @@ public final class EnumDemo {
 
     public EnumDemo[] values() {
         return Stream.of(EnumDemo.class.getDeclaredFields())
-                .filter(field -> {
-                    int modifiers = field.getModifiers();
-                    return Modifier.isPublic(modifiers) && Modifier.isStatic(modifiers) && Modifier.isFinal(modifiers);
-                }).map(field -> {
-                    // Field -> Counting
-                    try {
-                        return (EnumDemo) field.get(null);
-                    } catch (IllegalAccessException e) {
-                        throw new RuntimeException(e);
-                    }
-                }).toArray(EnumDemo[]::new);
+            .filter(field -> {
+                int modifiers = field.getModifiers();
+                return Modifier.isPublic(modifiers) && Modifier.isStatic(modifiers) && Modifier.isFinal(modifiers);
+            }).map(field -> {
+                // Field -> Counting
+                try {
+                    return (EnumDemo) field.get(null);
+                } catch (IllegalAccessException e) {
+                    throw new RuntimeException(e);
+                }
+            }).toArray(EnumDemo[]::new);
     }
 }

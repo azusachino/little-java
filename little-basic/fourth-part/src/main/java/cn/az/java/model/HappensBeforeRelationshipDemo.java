@@ -2,6 +2,7 @@ package cn.az.java.model;
 
 /**
  * happens-before relationship
+ *
  * @author az
  */
 public class HappensBeforeRelationshipDemo {

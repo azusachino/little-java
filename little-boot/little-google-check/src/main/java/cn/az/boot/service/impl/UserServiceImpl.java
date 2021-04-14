@@ -26,7 +26,7 @@ public class UserServiceImpl extends ServiceImpl<UserDao, User> implements UserS
      */
     @Override
     public String getSecretKey(String username) {
-        return getOne(Wrappers.<User>query().eq("username",username)).getSecretKey();
+        return getOne(Wrappers.<User>query().eq("username", username)).getSecretKey();
     }
 
     /**
@@ -39,7 +39,7 @@ public class UserServiceImpl extends ServiceImpl<UserDao, User> implements UserS
      */
     @Override
     public void saveUserCredentials(String username, String secretKey, int validationCode, List<Integer> scratchCodes) {
-        User u = getOne(Wrappers.<User>query().eq("username",username));
+        User u = getOne(Wrappers.<User>query().eq("username", username));
         u.setSecretKey(secretKey);
         u.setValidationCode(validationCode);
         StringBuilder sb = new StringBuilder();
@@ -51,7 +51,7 @@ public class UserServiceImpl extends ServiceImpl<UserDao, User> implements UserS
     @Override
     public boolean login(UserDto u) {
         u.setPassword(CommonUtil.sha256(u.getPassword()));
-        User login = getOne(Wrappers.<User>query().nested(i -> i.eq("username",u.getUsername()).eq("password",u.getPassword())));
+        User login = getOne(Wrappers.<User>query().nested(i -> i.eq("username", u.getUsername()).eq("password", u.getPassword())));
         if (login == null) {
             return false;
         }

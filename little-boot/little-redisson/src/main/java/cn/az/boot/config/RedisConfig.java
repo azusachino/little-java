@@ -22,7 +22,6 @@ import java.util.Set;
 
 /**
  * @author Liz
- * @date 1/16/2020
  */
 @Configuration
 @EnableCaching
@@ -49,7 +48,7 @@ public class RedisConfig extends CachingConfigurerSupport {
     @Override
     public CacheManager cacheManager() {
         RedisCacheManager.RedisCacheManagerBuilder builder = RedisCacheManager.RedisCacheManagerBuilder
-                .fromConnectionFactory(lettuceConnectionFactory);
+            .fromConnectionFactory(lettuceConnectionFactory);
         Set<String> cacheNames = Collections.singleton("codeNameCache");
         builder.initialCacheNames(cacheNames);
         return builder.build();
@@ -60,7 +59,7 @@ public class RedisConfig extends CachingConfigurerSupport {
         // 设置序列化
         Jackson2JsonRedisSerializer<Object> jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer<>(Object.class);
         ObjectMapper om = new ObjectMapper();
-        jackson2JsonRedisSerializer.setObjectMapper( om.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY));
+        jackson2JsonRedisSerializer.setObjectMapper(om.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY));
         RedisTemplate<String, Object> redisTemplate = new RedisTemplate<>();
         redisTemplate.setConnectionFactory(lettuceConnectionFactory);
         RedisSerializer<?> stringSerializer = new StringRedisSerializer();

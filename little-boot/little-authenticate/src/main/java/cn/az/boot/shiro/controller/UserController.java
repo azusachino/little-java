@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * <h3>MySpringBoot</h3>
  *
  * @author : azchino
- * @date : 2019-07-20 10:22
  **/
 @Controller
 public class UserController {

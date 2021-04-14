@@ -1,5 +1,15 @@
 package cn.az.boot.util;
 
+import sun.misc.BASE64Decoder;
+import sun.misc.BASE64Encoder;
+
+import javax.crypto.BadPaddingException;
+import javax.crypto.Cipher;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.KeyGenerator;
+import javax.crypto.NoSuchPaddingException;
+import javax.crypto.SecretKey;
+import javax.crypto.spec.SecretKeySpec;
 import java.nio.charset.StandardCharsets;
 import java.security.InvalidKeyException;
 import java.security.Key;
@@ -20,19 +30,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-import javax.crypto.BadPaddingException;
-import javax.crypto.Cipher;
-import javax.crypto.IllegalBlockSizeException;
-import javax.crypto.KeyGenerator;
-import javax.crypto.NoSuchPaddingException;
-import javax.crypto.SecretKey;
-import javax.crypto.spec.SecretKeySpec;
-
-import sun.misc.BASE64Decoder;
-import sun.misc.BASE64Encoder;
-
 /**
  * 常见的加密解密算法工具类
+ *
  * @author azusachino
  */
 public class EncryptUtil {
@@ -124,7 +124,7 @@ public class EncryptUtil {
 
             return parseByte2HexStr(result);
         } catch (NoSuchPaddingException | NoSuchAlgorithmException
-                | InvalidKeyException | IllegalBlockSizeException | BadPaddingException e) {
+            | InvalidKeyException | IllegalBlockSizeException | BadPaddingException e) {
             e.printStackTrace();
         }
         return null;

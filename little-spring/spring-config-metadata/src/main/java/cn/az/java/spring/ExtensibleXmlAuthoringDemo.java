@@ -22,6 +22,7 @@ import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
 
 /**
  * Spring XML 元素扩展示例
+ *
  * @author az
  */
 public class ExtensibleXmlAuthoringDemo {

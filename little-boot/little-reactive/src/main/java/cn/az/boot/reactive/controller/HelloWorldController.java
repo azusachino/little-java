@@ -39,7 +39,7 @@ public class HelloWorldController {
     @GetMapping("/hello")
     public Mono<ServerResponse> hello(ServerRequest req) {
         return ServerResponse.ok()
-                .contentType(MediaType.TEXT_PLAIN)
-                .body(BodyInserters.fromValue("Hello World"));
+            .contentType(MediaType.TEXT_PLAIN)
+            .body(BodyInserters.fromValue("Hello World"));
     }
 }

@@ -6,6 +6,7 @@ import java.util.List;
 
 /**
  * synchronized-with Relation
+ *
  * @author az
  */
 public class SynchronizedWithRelationDemo {
@@ -109,10 +110,10 @@ public class SynchronizedWithRelationDemo {
         @Override
         public String toString() {
             return "Person{" +
-                    "name='" + name + '\'' +
-                    ", age=" + age +
-                    ", tags=" + tags +
-                    '}';
+                "name='" + name + '\'' +
+                ", age=" + age +
+                ", tags=" + tags +
+                '}';
         }
     }
 
@@ -123,7 +124,7 @@ public class SynchronizedWithRelationDemo {
          * Person 对象初始化完成后，才能被其他线程访问对象属性
          */
         List<String> tags = Arrays.asList("A", "B", "C");
-        var tags2 = List.of("A","B","C");
+        var tags2 = List.of("A", "B", "C");
         /**
          *  Java 方法参数特点
          *  对于对象类型，引用

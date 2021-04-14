@@ -17,7 +17,6 @@
 package cn.az.java.spring.lookup;
 
 import org.springframework.beans.BeanInstantiationException;
-import org.springframework.beans.factory.NoUniqueBeanDefinitionException;
 import org.springframework.beans.factory.support.BeanDefinitionBuilder;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 

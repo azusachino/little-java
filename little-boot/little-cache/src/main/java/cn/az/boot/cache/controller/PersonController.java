@@ -3,13 +3,11 @@ package cn.az.boot.cache.controller;
 import cn.az.boot.cache.entity.Person;
 import cn.az.boot.cache.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
 
 /**
  * The type Person controller.
  *
  * @author az
- * @date 2020-03-11
  */
 @RestController
 @RequestMapping("/person")

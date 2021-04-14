@@ -8,7 +8,6 @@ import java.util.concurrent.ExecutorService;
 
 /**
  * @author az
- * @date 4/4/2020
  */
 public class SynchronizedDemo {
 
@@ -31,7 +30,7 @@ public class SynchronizedDemo {
         synchronized (this) {
             // synchronized(SynchronizedDemo.class) 修饰整个类
             for (int i = 0; i < 10; i++) {
-                log.info("t1 - " + j + " - "+ i);
+                log.info("t1 - " + j + " - " + i);
             }
         }
     }
@@ -39,7 +38,7 @@ public class SynchronizedDemo {
     private synchronized void t2(int j) {
         // 修饰单一方法
         for (int i = 0; i < 10; i++) {
-            log.info("t2 - " + j + " - "+ i);
+            log.info("t2 - " + j + " - " + i);
         }
 
     }

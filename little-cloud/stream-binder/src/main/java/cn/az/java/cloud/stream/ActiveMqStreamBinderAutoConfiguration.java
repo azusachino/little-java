@@ -7,7 +7,6 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * @author az
- * @date 2020/4/19
  */
 @Configuration
 @ConditionalOnMissingBean(Binder.class)

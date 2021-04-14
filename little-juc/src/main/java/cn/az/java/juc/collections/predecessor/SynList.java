@@ -1,9 +1,14 @@
 package cn.az.java.juc.collections.predecessor;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * 描述：     演示Collections.synchronizedList(new ArrayList<E>())
+ *
  * @author az
  */
 public class SynList {

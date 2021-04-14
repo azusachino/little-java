@@ -20,7 +20,7 @@ public class MyMetaObjectHandler implements MetaObjectHandler {
     @Override
     public void insertFill(MetaObject metaObject) {
         log.info("start insert fill ....");
-        this.setFieldValByName("operator","Azusa", metaObject);
+        this.setFieldValByName("operator", "Azusa", metaObject);
     }
 
     /**
@@ -31,7 +31,7 @@ public class MyMetaObjectHandler implements MetaObjectHandler {
     @Override
     public void updateFill(MetaObject metaObject) {
         log.info("start update fill ....");
-        this.setFieldValByName("operator","Chino", metaObject);
+        this.setFieldValByName("operator", "Chino", metaObject);
 
     }
 }

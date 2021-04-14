@@ -12,9 +12,9 @@ import org.springframework.context.ConfigurableApplicationContext;
 @SpringBootApplication
 public class LittleLogbackApplication {
 
-	public static void main(String[] args) {
-        ConfigurableApplicationContext context = SpringApplication.run(LittleLogbackApplication.class,args);
-	    int len = context.getBeanDefinitionNames().length;
+    public static void main(String[] args) {
+        ConfigurableApplicationContext context = SpringApplication.run(LittleLogbackApplication.class, args);
+        int len = context.getBeanDefinitionNames().length;
         log.trace("Spring boot启动初始化了 {} 个 Bean", len);
         log.debug("Spring boot启动初始化了 {} 个 Bean", len);
         log.info("Spring boot启动初始化了 {} 个 Bean", len);
@@ -26,6 +26,6 @@ public class LittleLogbackApplication {
         } catch (Exception e) {
             log.error("【SpringBootDemoLogbackApplication】启动异常：", e);
         }
-	}
+    }
 
 }

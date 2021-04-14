@@ -2,11 +2,15 @@ package cn.az.boot.reactive.loader;
 
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
 
-import java.util.concurrent.*;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.CompletionService;
+import java.util.concurrent.ExecutorCompletionService;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author az
- * @date 2020/4/1
  */
 public class ParallelDataLoader extends DataLoader {
 
@@ -18,7 +22,7 @@ public class ParallelDataLoader extends DataLoader {
     @Override
     protected void doLoad() {
         ExecutorService executorService = new ThreadPoolExecutor(3, 3, 10, TimeUnit.SECONDS,
-                new ArrayBlockingQueue<>(10), new ThreadFactoryBuilder().build());
+            new ArrayBlockingQueue<>(10), new ThreadFactoryBuilder().build());
         CompletionService<?> completionService = new ExecutorCompletionService<>(executorService);
         completionService.submit(super::loadConfigurations, null);
         completionService.submit(super::loadUsers, null);

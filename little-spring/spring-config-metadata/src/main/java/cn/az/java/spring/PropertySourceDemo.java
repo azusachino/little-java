@@ -37,7 +37,6 @@ public class PropertySourceDemo {
 
     /**
      * user.name 是 Java Properties 默认存在，当前用户：mercyblitz，而非配置文件中定义"小马哥"
-     *
      */
     @Bean
     public User user(@Value("${user.id}") Long id, @Value("${user.name}") String name) {

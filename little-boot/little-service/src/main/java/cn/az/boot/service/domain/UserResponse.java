@@ -35,8 +35,8 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-        "user",
-        "timestamp"
+    "user",
+    "timestamp"
 })
 @XmlRootElement(name = "UserResponse")
 public class UserResponse {
@@ -82,8 +82,8 @@ public class UserResponse {
     @Override
     public String toString() {
         return "UserResponse{" +
-                "user=" + user +
-                ", timestamp=" + timestamp +
-                '}';
+            "user=" + user +
+            ", timestamp=" + timestamp +
+            '}';
     }
 }

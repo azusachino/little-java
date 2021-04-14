@@ -28,6 +28,7 @@ import org.springframework.util.ObjectUtils;
 
 /**
  * Bean 配置元信息示例
+ *
  * @author az
  */
 public class BeanConfigurationMetadataDemo {

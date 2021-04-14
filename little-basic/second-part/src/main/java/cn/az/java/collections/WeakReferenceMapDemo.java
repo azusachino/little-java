@@ -54,8 +54,8 @@ public class WeakReferenceMapDemo {
         @Override
         public String toString() {
             return "User{" +
-                    "name='" + name + '\'' +
-                    '}';
+                "name='" + name + '\'' +
+                '}';
         }
     }
 }

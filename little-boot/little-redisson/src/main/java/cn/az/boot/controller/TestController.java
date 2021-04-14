@@ -14,7 +14,6 @@ import javax.annotation.Resource;
  * The type Test controller.
  *
  * @author Liz
- * @date 1 /16/2020
  */
 @RestController
 public class TestController {

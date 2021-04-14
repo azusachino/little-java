@@ -15,12 +15,13 @@ class LittleAsyncCorsApplicationTests {
 
     @Autowired
     private AsyncService asyncService;
+
     @Test
     void contextLoads() {
     }
 
     @Test
-    public String testAsync() throws Exception{
+    public String testAsync() throws Exception {
         long start = System.currentTimeMillis();
         log.info("async start");
         Future<String> stringFuture = asyncService.asyncMethod();

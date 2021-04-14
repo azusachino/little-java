@@ -1,8 +1,8 @@
 package cn.az.boot.shiro.config;
 
-import cn.az.boot.shiro.repository.UserRepository;
 import cn.az.boot.shiro.common.Constants;
 import cn.az.boot.shiro.model.User;
+import cn.az.boot.shiro.repository.UserRepository;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
@@ -13,7 +13,6 @@ import org.springframework.beans.factory.annotation.Autowired;
  * <h3>MySpringBoot</h3>
  *
  * @author : azchino
- * @date : 2019-07-20 10:22
  **/
 public class ShiroRealm extends AuthorizingRealm {
 

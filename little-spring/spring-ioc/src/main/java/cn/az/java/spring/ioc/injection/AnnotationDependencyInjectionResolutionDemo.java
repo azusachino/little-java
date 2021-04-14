@@ -16,13 +16,12 @@
  */
 package cn.az.java.spring.ioc.injection;
 
+import cn.az.java.spring.ioc.domain.User;
 import cn.az.java.spring.ioc.injection.annotation.InjectedUser;
 import cn.az.java.spring.ioc.injection.annotation.MyAutowired;
-import cn.az.java.spring.ioc.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor;
 import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
-import org.springframework.context.annotation.*;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 

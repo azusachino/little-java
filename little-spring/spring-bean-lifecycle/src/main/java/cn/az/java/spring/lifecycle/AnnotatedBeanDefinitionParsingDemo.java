@@ -39,7 +39,7 @@ public class AnnotatedBeanDefinitionParsingDemo {
         // 普通的 Class 作为 Component 注册到 Spring IoC 容器后，通常 Bean 名称为 annotatedBeanDefinitionParsingDemo
         // Bean 名称生成来自于 BeanNameGenerator，注解实现 AnnotationBeanNameGenerator
         AnnotatedBeanDefinitionParsingDemo demo = beanFactory.getBean("annotatedBeanDefinitionParsingDemo",
-                AnnotatedBeanDefinitionParsingDemo.class);
+            AnnotatedBeanDefinitionParsingDemo.class);
         System.out.println(demo);
     }
 }

@@ -12,7 +12,6 @@ import javax.annotation.Resource;
 
 /**
  * @author Liz
- * @date 1/16/2020
  */
 @Slf4j
 @Component

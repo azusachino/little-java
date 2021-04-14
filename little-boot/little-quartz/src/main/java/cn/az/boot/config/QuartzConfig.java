@@ -7,7 +7,6 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * @author Liz
- * @date 1/8/2020
  */
 @Configuration
 public class QuartzConfig {
@@ -15,8 +14,9 @@ public class QuartzConfig {
     @Bean
     public JobDetail simpleJobDetail() {
         return JobBuilder.newJob(QuartzTask.class).withIdentity("quartzTaskJob").storeDurably()
-                .build();
+            .build();
     }
+
     @Bean
     public Trigger simpleJobTrigger() {
         //定义每 5 秒执行一次

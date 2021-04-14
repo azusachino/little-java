@@ -18,7 +18,6 @@ import java.util.stream.Collectors;
 
 /**
  * @author Liz
- * @date 1/8/2020
  */
 @Service
 public class UserService implements UserDetailsService {
@@ -32,10 +31,11 @@ public class UserService implements UserDetailsService {
     public void init() {
         String password = passwordEncoder.encode("123");
         userList = Arrays.asList(
-             new User("az",password, AuthorityUtils.commaSeparatedStringToAuthorityList("admin")),
-             new User("ac",password, AuthorityUtils.commaSeparatedStringToAuthorityList("client")),
-             new User("ab",password, AuthorityUtils.commaSeparatedStringToAuthorityList("admin")));
+            new User("az", password, AuthorityUtils.commaSeparatedStringToAuthorityList("admin")),
+            new User("ac", password, AuthorityUtils.commaSeparatedStringToAuthorityList("client")),
+            new User("ab", password, AuthorityUtils.commaSeparatedStringToAuthorityList("admin")));
     }
+
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
         List<User> resultUser = userList.stream().filter(u -> u.getUsername().equals(s)).collect(Collectors.toList());
@@ -45,7 +45,6 @@ public class UserService implements UserDetailsService {
             return resultUser.get(0);
         }
     }
-
 
 
 }

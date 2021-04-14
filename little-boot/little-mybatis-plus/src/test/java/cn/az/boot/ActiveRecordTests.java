@@ -15,9 +15,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 public class ActiveRecordTests {
 
     /*
-    * entity should extend Model<T>
-    * override pkVal() as the id
-    * */
+     * entity should extend Model<T>
+     * override pkVal() as the id
+     * */
     @Test
     public void aInsert() {
         User user = new User();
@@ -33,7 +33,7 @@ public class ActiveRecordTests {
     public void bDelete() {
         Assert.assertTrue(new User().setId(3L).deleteById());
         Assert.assertTrue(new User().delete(new QueryWrapper<User>()
-                .lambda().eq(User::getName, "az1")));
+            .lambda().eq(User::getName, "az1")));
     }
 
 
@@ -41,7 +41,7 @@ public class ActiveRecordTests {
     public void cUpdate() {
         Assert.assertTrue(new User().setId(1L).setEmail("ab@c.c").updateById());
         Assert.assertTrue(new User().update(new UpdateWrapper<User>().lambda()
-                .set(User::getAge, 3).eq(User::getId, 2)));
+            .set(User::getAge, 3).eq(User::getId, 2)));
     }
 
 

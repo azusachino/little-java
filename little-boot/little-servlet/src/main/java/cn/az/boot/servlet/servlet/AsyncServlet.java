@@ -16,9 +16,9 @@ import static javax.servlet.http.HttpServletResponse.SC_SERVICE_UNAVAILABLE;
  * @author az
  */
 @WebServlet(
-        asyncSupported = true, // 激活异步特性
-        name = "asyncServlet", // Servlet 名字
-        urlPatterns = "/async-servlet"
+    asyncSupported = true, // 激活异步特性
+    name = "asyncServlet", // Servlet 名字
+    urlPatterns = "/async-servlet"
 )
 public class AsyncServlet extends HttpServlet {
 
@@ -39,7 +39,7 @@ public class AsyncServlet extends HttpServlet {
 
                 @Override
                 public void onTimeout(AsyncEvent event) {
-                    HttpServletResponse servletResponse = (HttpServletResponse)event.getSuppliedResponse();
+                    HttpServletResponse servletResponse = (HttpServletResponse) event.getSuppliedResponse();
                     servletResponse.setStatus(SC_SERVICE_UNAVAILABLE);
                     println("执行超时");
                 }

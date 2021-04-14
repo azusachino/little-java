@@ -1,6 +1,5 @@
 package cn.az.java.basic.demo;
 
-import java.util.Map;
 import java.util.logging.Logger;
 
 public class ModularDemo {

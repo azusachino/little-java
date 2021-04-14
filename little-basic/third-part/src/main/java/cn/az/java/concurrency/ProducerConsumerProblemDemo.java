@@ -38,7 +38,7 @@ public class ProducerConsumerProblemDemo {
         private Random random = new Random();
 
         public void produce() {
-            for (;;) { // 永久执行
+            for (; ; ) { // 永久执行
                 synchronized (this) {
                     try {
                         // 当数据超过上限 MAX_SIZE，停止生产
@@ -60,7 +60,7 @@ public class ProducerConsumerProblemDemo {
         }
 
         public void consume() {
-            for (;;) { // 永久执行
+            for (; ; ) { // 永久执行
                 synchronized (this) {
                     try {
                         // 当数据没有时，停止消费

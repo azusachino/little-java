@@ -8,14 +8,14 @@ public class AcquireAndReleaseDemo {
     public static void main(String[] args) {
         //　Lock　机制
         // 获得 Acquire
-            // Thread 进入 synchronized -> 获得锁 | Lock.lock()
+        // Thread 进入 synchronized -> 获得锁 | Lock.lock()
         // 释放 Release
-            // 1. 当 Thread#holdsLock(obj)，调用 Object#wait() 时候
-            // 2. Thread park -> LockSupport.park(Object)
-            // 3. Condition#await()
-            // 4. 运行期异常，Thread 消亡
-            // 5. Java 9 自旋 Thread.onSpinWait();
-            // 6. Thread.yield();
+        // 1. 当 Thread#holdsLock(obj)，调用 Object#wait() 时候
+        // 2. Thread park -> LockSupport.park(Object)
+        // 3. Condition#await()
+        // 4. 运行期异常，Thread 消亡
+        // 5. Java 9 自旋 Thread.onSpinWait();
+        // 6. Thread.yield();
 
         // 所谓的公平（Fair）和非公平（NonFair、unfair）
         // 公平（Fair）线程 FIFO

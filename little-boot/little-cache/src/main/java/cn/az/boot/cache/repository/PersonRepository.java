@@ -7,7 +7,6 @@ import org.springframework.data.repository.NoRepositoryBean;
  * The interface Person repository.
  *
  * @author az
- * @date 2020 -03-11
  */
 @NoRepositoryBean
 public interface PersonRepository {

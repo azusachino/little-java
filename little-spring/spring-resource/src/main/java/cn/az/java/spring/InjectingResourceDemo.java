@@ -27,10 +27,10 @@ import java.util.stream.Stream;
 /**
  * 注入 {@link Resource} 对象示例
  *
+ * @author az
  * @see Resource
  * @see Value
  * @see AnnotationConfigApplicationContext
- * @author az
  */
 public class InjectingResourceDemo {
 

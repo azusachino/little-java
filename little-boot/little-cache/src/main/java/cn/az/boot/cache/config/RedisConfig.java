@@ -2,7 +2,6 @@ package cn.az.boot.cache.config;
 
 import cn.az.boot.cache.entity.Person;
 import io.lettuce.core.support.LettuceFactoryBeanSupport;
-import io.lettuce.core.support.RedisClientFactoryBean;
 import org.springframework.beans.factory.FactoryBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

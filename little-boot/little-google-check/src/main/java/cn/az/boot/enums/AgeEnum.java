@@ -2,9 +2,6 @@ package cn.az.boot.enums;
 
 import com.baomidou.mybatisplus.core.enums.IEnum;
 import lombok.AllArgsConstructor;
-import lombok.Data;
-
-import java.io.Serializable;
 
 /**
  * The enum Age enum.
@@ -13,7 +10,7 @@ import java.io.Serializable;
  * @version 12 /16/2019
  */
 @AllArgsConstructor
-public enum  AgeEnum implements IEnum<Integer> {
+public enum AgeEnum implements IEnum<Integer> {
     /**
      * Twentity age enum.
      */
@@ -21,12 +18,11 @@ public enum  AgeEnum implements IEnum<Integer> {
     /**
      * Thirty age enum.
      */
-    THIRTY(30,"三十岁"),
+    THIRTY(30, "三十岁"),
     /**
      * Forty age enum.
      */
-    FORTY(40, "四十岁")
-        ;
+    FORTY(40, "四十岁");
 
     private final Integer value;
     private final String name;

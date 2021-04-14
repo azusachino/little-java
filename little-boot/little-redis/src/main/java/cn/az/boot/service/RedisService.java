@@ -22,7 +22,7 @@ public class RedisService {
         this.jedisPool = jedisPool;
     }
 
-    private <T> T execute(Function<Jedis,T> j) throws RedisConnectionFailureException {
+    private <T> T execute(Function<Jedis, T> j) throws RedisConnectionFailureException {
         try (Jedis jedis = jedisPool.getResource()) {
             return j.apply(jedis);
         } catch (Exception e) {

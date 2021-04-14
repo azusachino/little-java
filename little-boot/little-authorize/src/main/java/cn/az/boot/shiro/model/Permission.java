@@ -10,7 +10,6 @@ import java.util.List;
  * <h3>MySpringBoot</h3>
  *
  * @author : azchino
- * @date : 2019-07-20 17:30
  **/
 @Data
 @Entity

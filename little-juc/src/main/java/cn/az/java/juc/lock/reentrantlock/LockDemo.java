@@ -5,6 +5,7 @@ import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * 描述: 演示ReentrantLock的基本用法，演示被打断
+ *
  * @author az
  */
 public class LockDemo {

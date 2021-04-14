@@ -6,6 +6,7 @@ import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * 描述: 演示公平和不公平两种情况
+ *
  * @author az
  */
 public class FairLock {

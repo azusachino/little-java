@@ -61,8 +61,8 @@ public class AnnotationBeanDefinitionDemo {
     public static void registerUserBeanDefinition(BeanDefinitionRegistry registry, String beanName) {
         BeanDefinitionBuilder beanDefinitionBuilder = genericBeanDefinition(User.class);
         beanDefinitionBuilder
-                .addPropertyValue("id", 1L)
-                .addPropertyValue("name", "小马哥");
+            .addPropertyValue("id", 1L)
+            .addPropertyValue("name", "小马哥");
 
         // 判断如果 beanName 参数存在时
         if (StringUtils.hasText(beanName)) {

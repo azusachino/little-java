@@ -18,7 +18,6 @@ import org.springframework.core.env.Environment;
 
 /**
  * @author az
- * @date 2020/3/14
  */
 @Configuration
 @EnableConfigurationProperties(Person.class)

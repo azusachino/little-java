@@ -20,8 +20,8 @@ public class ModuleReflectionDemo {
         ModuleDescriptor moduleDescriptor = module.getDescriptor();
 
         moduleDescriptor.requires().forEach(requires -> {
-                    System.out.printf("requires 模块名称 %s，修饰符定义： %s \n", requires.name(), requires.modifiers());
-                }
+                System.out.printf("requires 模块名称 %s，修饰符定义： %s \n", requires.name(), requires.modifiers());
+            }
         );
 
         moduleDescriptor.exports().forEach(exports -> {

@@ -7,7 +7,6 @@ import javax.jms.*;
 
 /**
  * @author az
- * @date 2020/4/19
  */
 public class ActiveMqDemo {
 

@@ -7,7 +7,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 /**
  * @author Liz
- * @date 1/10/2020
  */
 @ControllerAdvice
 public class CommonExceptionHandler {

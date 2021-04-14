@@ -1,6 +1,5 @@
 package cn.az.boot.shiro.config;
 
-import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
 import org.springframework.context.annotation.Bean;
@@ -12,7 +11,6 @@ import java.util.LinkedHashMap;
  * <h3>MySpringBoot</h3>
  *
  * @author : azchino
- * @date : 2019-07-20 10:22
  **/
 @Configuration
 public class ShiroConfig {

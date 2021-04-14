@@ -4,7 +4,6 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * @author az
- * @date 2020/4/1
  */
 public class DataLoader {
 
@@ -46,7 +45,7 @@ public class DataLoader {
             Thread.sleep(milliseconds);
             long costTime = System.currentTimeMillis() - startTime;
             System.out.printf("[线程 : %s] %s 耗时 : %d 毫秒\n",
-                    Thread.currentThread().getName(), source, costTime);
+                Thread.currentThread().getName(), source, costTime);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }

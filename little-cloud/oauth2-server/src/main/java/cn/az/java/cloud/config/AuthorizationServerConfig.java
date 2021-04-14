@@ -13,7 +13,6 @@ import javax.annotation.Resource;
 
 /**
  * @author Liz
- * @date 1/8/2020
  */
 @Configuration
 @EnableAuthorizationServer
@@ -31,18 +30,18 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
         endpoints.authenticationManager(authenticationManager)
-                .userDetailsService(userService);
+            .userDetailsService(userService);
     }
 
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         clients.inMemory()
-                .withClient("admin")
-                .secret(passwordEncoder.encode("admin123"))
-                .accessTokenValiditySeconds(3600)
-                .refreshTokenValiditySeconds(864000)
-                .redirectUris("https://cn.bing.com")
-                .scopes("all")
-                .authorizedGrantTypes("authorization_code","password");
+            .withClient("admin")
+            .secret(passwordEncoder.encode("admin123"))
+            .accessTokenValiditySeconds(3600)
+            .refreshTokenValiditySeconds(864000)
+            .redirectUris("https://cn.bing.com")
+            .scopes("all")
+            .authorizedGrantTypes("authorization_code", "password");
     }
 }

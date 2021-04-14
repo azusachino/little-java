@@ -24,7 +24,7 @@ public class Truncate extends AbstractMethod {
         String sql = "";
         String method = "Truncate";
 
-        SqlSource sqlSource= languageDriver.createSqlSource(configuration, sql, modelClass);
+        SqlSource sqlSource = languageDriver.createSqlSource(configuration, sql, modelClass);
         return addDeleteMappedStatement(mapperClass, method, sqlSource);
     }
 }

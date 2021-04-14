@@ -3,7 +3,6 @@ package cn.az.java.juc.collections.predecessor;
 import java.util.Hashtable;
 
 /**
- *
  * @author az
  */
 public class HashtableDemo {

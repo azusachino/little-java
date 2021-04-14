@@ -12,7 +12,6 @@ import java.util.stream.Stream;
 
 /**
  * @author az
- * @date 4/4/2020
  */
 public class CountExample {
 
@@ -31,18 +30,18 @@ public class CountExample {
         final CountDownLatch cdl = new CountDownLatch(total);
 
         Stream.iterate(1, i -> i + 1).limit(total)
-                .forEach(i -> {
-                    service.submit(() -> {
-                        try {
-                            semaphore.acquire();
-                            add();
-                            semaphore.release();
-                        } catch (Exception e) {
-                            log.error(e);
-                        }
-                        cdl.countDown();
-                    });
+            .forEach(i -> {
+                service.submit(() -> {
+                    try {
+                        semaphore.acquire();
+                        add();
+                        semaphore.release();
+                    } catch (Exception e) {
+                        log.error(e);
+                    }
+                    cdl.countDown();
                 });
+            });
         cdl.await();
         log.info("count: " + count.get());
 

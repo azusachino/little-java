@@ -62,13 +62,14 @@ public class AnnotationApplicationContextAsIocContainerDemo {
     }
 
     @Bean
-    public SuperUser superUser(){
+    public SuperUser superUser() {
         SuperUser superUser = new SuperUser();
         superUser.setId(2L);
         superUser.setName("CHINO");
         superUser.setAddress("JP");
         return superUser;
     }
+
     private static void lookupCollectionByType(BeanFactory beanFactory) {
         if (beanFactory instanceof ListableBeanFactory) {
             ListableBeanFactory listableBeanFactory = (ListableBeanFactory) beanFactory;

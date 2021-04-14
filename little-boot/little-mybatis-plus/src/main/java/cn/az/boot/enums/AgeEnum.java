@@ -10,7 +10,7 @@ import lombok.Getter;
  * @version 12 /13/2019
  */
 @Getter
-public enum  AgeEnum implements IEnum<Integer> {
+public enum AgeEnum implements IEnum<Integer> {
 
     /**
      * Instantiates a new One.

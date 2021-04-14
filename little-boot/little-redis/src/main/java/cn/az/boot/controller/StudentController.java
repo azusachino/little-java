@@ -7,7 +7,6 @@ import cn.az.boot.utils.JsonUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -51,7 +50,7 @@ public class StudentController {
         } else {
             Optional<? extends Student> o2 = studentService.findById(id);
             return o2.map(student -> ResponseEntity.ok(JsonUtil.toString(student).orElse("")))
-                    .orElseGet(() -> ResponseEntity.status(HttpStatus.I_AM_A_TEAPOT).body("find nothing"));
+                .orElseGet(() -> ResponseEntity.status(HttpStatus.I_AM_A_TEAPOT).body("find nothing"));
         }
     }
 }

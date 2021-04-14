@@ -1,6 +1,6 @@
 logging:
-    level:
-        cn.az.boot.controller: info
-        cn.az.boot.service: info
-    file:
-        path: ./logs
+  level:
+    cn.az.boot.controller: info
+    cn.az.boot.service: info
+  file:
+    path: ./logs

@@ -24,7 +24,7 @@ public class ConfigClientController {
      * @return the string
      */
     @GetMapping("/config")
-    public String getConfigInfo(){
+    public String getConfigInfo() {
         return configInfo;
     }
 }

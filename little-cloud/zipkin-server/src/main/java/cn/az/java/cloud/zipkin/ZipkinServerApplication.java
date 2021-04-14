@@ -6,7 +6,6 @@ import zipkin2.server.internal.EnableZipkinServer;
 
 /**
  * @author az
- * @date 2020/4/19
  */
 @EnableZipkinServer
 @SpringBootApplication

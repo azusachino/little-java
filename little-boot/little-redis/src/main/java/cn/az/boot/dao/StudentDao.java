@@ -9,6 +9,6 @@ import org.springframework.stereotype.Repository;
  * @version 2019/12/09
  */
 @Repository
-public interface StudentDao extends CrudRepository<Student,String> {
+public interface StudentDao extends CrudRepository<Student, String> {
 
 }

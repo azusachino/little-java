@@ -4,7 +4,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         https://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="userFactoryServiceLoader" class="org.springframework.beans.factory.serviceloader.ServiceLoaderFactoryBean">
-        <property name="serviceType" value="cn.az.java.spring.factory.DefaultUserFactory" />
-    </bean>
+  <bean id="userFactoryServiceLoader" class="org.springframework.beans.factory.serviceloader.ServiceLoaderFactoryBean">
+    <property name="serviceType" value="cn.az.java.spring.factory.DefaultUserFactory"/>
+  </bean>
 </beans>

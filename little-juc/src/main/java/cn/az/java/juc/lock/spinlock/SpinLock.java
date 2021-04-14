@@ -4,6 +4,7 @@ import java.util.concurrent.atomic.AtomicReference;
 
 /**
  * 描述: 自旋锁
+ *
  * @author az
  */
 public class SpinLock {

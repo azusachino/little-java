@@ -18,7 +18,7 @@ public class ConsumerDemo {
 
     }
 
-    public  static void print(Consumer<? super CharSequence> cs, String message ){
+    public static void print(Consumer<? super CharSequence> cs, String message) {
         cs.accept(message);
     }
 

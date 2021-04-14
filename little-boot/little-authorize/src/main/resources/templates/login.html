@@ -17,23 +17,23 @@
 </div>
 </body>
 <script th:inline="javascript">
-    function login() {
-        let username = $("input[name='username']").val();
-        let password = $("input[name='password']").val();
-        let rememberMe = $("input[name='rememberMe']").is(':checked');
-        $.ajax({
-            type: "post",
-            url: "/login",
-            data: {"username": username, "password": password, "rememberMe": rememberMe},
-            dataType: "json",
-            success: function (data) {
-                if (data.code === 200) {
-                    location.href = "/index";
-                } else {
-                    alert(data.message);
-                }
-            }
-        });
-    }
+  function login() {
+    let username = $("input[name='username']").val();
+    let password = $("input[name='password']").val();
+    let rememberMe = $("input[name='rememberMe']").is(':checked');
+    $.ajax({
+      type: "post",
+      url: "/login",
+      data: {"username": username, "password": password, "rememberMe": rememberMe},
+      dataType: "json",
+      success: function (data) {
+        if (data.code === 200) {
+          location.href = "/index";
+        } else {
+          alert(data.message);
+        }
+      }
+    });
+  }
 </script>
 </html>

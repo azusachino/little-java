@@ -63,7 +63,7 @@ public class MergeSort<T extends Comparable<T>> implements Sort<T> {
 
         int k = low; // k 临时保存低位索引
         int i = 0, j = 0;
-        for (; i < n1 && j < n2; k++){
+        for (; i < n1 && j < n2; k++) {
             // 如果 a1 与 a2 比较
             if (a1[i].compareTo(a2[j]) < 1) {  // <=
                 values[k] = a1[i]; // 低位数值

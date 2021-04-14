@@ -1,10 +1,10 @@
 package cn.az.boot.shiro.config;
 
 import cn.az.boot.shiro.common.Constants;
-import cn.az.boot.shiro.service.UserService;
 import cn.az.boot.shiro.model.Permission;
 import cn.az.boot.shiro.model.Role;
 import cn.az.boot.shiro.model.User;
+import cn.az.boot.shiro.service.UserService;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
@@ -21,7 +21,6 @@ import java.util.Set;
  * <h3>MySpringBoot</h3>
  *
  * @author : azchino
- * @date : 2019-07-20 17:43
  */
 public class ShiroRealm extends AuthorizingRealm {
 

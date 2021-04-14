@@ -11,7 +11,6 @@ import java.time.format.DateTimeFormatter;
 
 /**
  * @author Liz
- * @date 1/8/2020
  */
 @Slf4j
 public class QuartzTask extends QuartzJobBean {
@@ -22,7 +21,7 @@ public class QuartzTask extends QuartzJobBean {
 
     @Override
     protected void executeInternal(JobExecutionContext jobExecutionContext) {
-        log.info(LocalDateTime.now().format(DateTimeFormatter.BASIC_ISO_DATE) + " : {}","QuartzTask activated");
+        log.info(LocalDateTime.now().format(DateTimeFormatter.BASIC_ISO_DATE) + " : {}", "QuartzTask activated");
         notifyService.sendMsg();
     }
 }

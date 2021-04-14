@@ -5,7 +5,6 @@ import cn.az.boot.service.domain.UserIdRequest;
 import cn.az.boot.service.domain.UserResponse;
 import cn.az.boot.service.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;

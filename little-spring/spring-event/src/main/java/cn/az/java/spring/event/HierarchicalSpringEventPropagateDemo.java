@@ -48,7 +48,7 @@ public class HierarchicalSpringEventPropagateDemo {
         public void onApplicationEvent(@NonNull ApplicationContextEvent event) {
             if (processedEvents.add(event)) {
                 System.out.printf("监听到 Spring 应用上下文[ ID : %s ] 事件 :%s\n", event.getApplicationContext().getId(),
-                        event.getClass().getSimpleName());
+                    event.getClass().getSimpleName());
             }
         }
     }

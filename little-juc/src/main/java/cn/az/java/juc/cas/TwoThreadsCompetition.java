@@ -30,6 +30,6 @@ public class TwoThreadsCompetition implements Runnable {
 
     @Override
     public void run() {
-        System.out.println(Thread.currentThread().getName() +" : "+ compareAndSwap(0, 1));
+        System.out.println(Thread.currentThread().getName() + " : " + compareAndSwap(0, 1));
     }
 }

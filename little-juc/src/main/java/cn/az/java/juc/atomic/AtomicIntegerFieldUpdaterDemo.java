@@ -4,6 +4,7 @@ import java.util.concurrent.atomic.AtomicIntegerFieldUpdater;
 
 /**
  * 描述：     演示AtomicIntegerFieldUpdater的用法
+ *
  * @author az
  */
 public class AtomicIntegerFieldUpdaterDemo implements Runnable {
@@ -12,7 +13,7 @@ public class AtomicIntegerFieldUpdaterDemo implements Runnable {
     static Candidate peter;
 
     public static final AtomicIntegerFieldUpdater<Candidate> scoreUpdater = AtomicIntegerFieldUpdater
-            .newUpdater(Candidate.class, "score");
+        .newUpdater(Candidate.class, "score");
 
     @Override
     public void run() {

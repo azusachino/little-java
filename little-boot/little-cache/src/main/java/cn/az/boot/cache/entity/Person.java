@@ -6,7 +6,6 @@ import java.io.Serializable;
 
 /**
  * @author az
- * @date 2020-03-11
  */
 @Data
 public class Person implements Serializable {

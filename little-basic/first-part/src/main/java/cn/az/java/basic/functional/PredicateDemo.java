@@ -1,7 +1,6 @@
 package cn.az.java.basic.functional;
 
 import java.io.File;
-import java.io.FileFilter;
 import java.util.function.Predicate;
 
 public class PredicateDemo {

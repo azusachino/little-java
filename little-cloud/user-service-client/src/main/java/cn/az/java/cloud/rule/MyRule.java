@@ -9,6 +9,7 @@ import java.util.List;
 
 /**
  * extends {@link AbstractLoadBalancerRule} or implements {@link com.netflix.loadbalancer.IRule}
+ *
  * @author az
  * @since 2020-04-15
  */

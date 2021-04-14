@@ -1,9 +1,16 @@
 package cn.az.java.juc.future;
 
-import java.util.concurrent.*;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 
 /**
  * 描述：     演示get的超时方法，需要注意超时后处理，调用future.cancel()。演示cancel传入true和false的区别，代表是否中断正在执行的任务。
+ *
  * @author az
  */
 public class Timeout {
@@ -21,8 +28,8 @@ public class Timeout {
         @Override
         public String toString() {
             return "Ad{" +
-                    "name='" + name + '\'' +
-                    '}';
+                "name='" + name + '\'' +
+                '}';
         }
     }
 

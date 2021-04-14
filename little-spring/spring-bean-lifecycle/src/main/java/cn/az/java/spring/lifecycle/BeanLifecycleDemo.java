@@ -27,10 +27,10 @@ import org.springframework.context.annotation.CommonAnnotationBeanPostProcessor;
 /**
  * Bean的完整生命周期展示
  *
+ * @author az
  * @see InstantiationAwareBeanPostProcessor
  * @see DestructionAwareBeanPostProcessor
  * @see CommonAnnotationBeanPostProcessor
- * @author az
  */
 public class BeanLifecycleDemo {
 

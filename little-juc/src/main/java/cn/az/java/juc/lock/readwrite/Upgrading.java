@@ -4,12 +4,13 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 /**
  * 描述: 演示ReentrantReadWriteLock可以降级，不能升级
+ *
  * @author az
  */
 public class Upgrading {
 
     private static ReentrantReadWriteLock reentrantReadWriteLock = new ReentrantReadWriteLock(
-            false);
+        false);
     private static ReentrantReadWriteLock.ReadLock readLock = reentrantReadWriteLock.readLock();
     private static ReentrantReadWriteLock.WriteLock writeLock = reentrantReadWriteLock.writeLock();
 

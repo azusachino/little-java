@@ -1,4 +1,4 @@
-# little-cloud 
+# little-cloud
 
 这是一个学习SpringCloud的仓库
 
@@ -9,8 +9,8 @@
 
 ## 19.12.12 (both collecting hystrix running info)
 
-- hystrix-dashboard 
-- turbine-service 
+- hystrix-dashboard
+- turbine-service
 
 ## 19.12.13
 

@@ -5,7 +5,6 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.web.bind.annotation.*;
 import springfox.documentation.annotations.ApiIgnore;
 
 import java.util.ArrayList;
@@ -30,7 +29,7 @@ public class UserController {
 
     @ApiOperation(value = "getUserList", notes = "getUserList")
     @GetMapping("/list")
-    public  List<User> getUserList() {
+    public List<User> getUserList() {
         List<User> list = new ArrayList<>();
         User user1 = new User();
         user1.setId(1L);
@@ -65,8 +64,8 @@ public class UserController {
 
     @ApiOperation(value = "updateUser", notes = "updateUserById")
     @ApiImplicitParams({
-            @ApiImplicitParam(name = "id", value = "userId", required = true, dataType = "Long", paramType = "path"),
-            @ApiImplicitParam(name = "user", value = "userEntity", required = true, dataType = "User") })
+        @ApiImplicitParam(name = "id", value = "userId", required = true, dataType = "Long", paramType = "path"),
+        @ApiImplicitParam(name = "user", value = "userEntity", required = true, dataType = "User")})
     @PutMapping("/{id}")
     public Map<String, Object> updateUser(@PathVariable(value = "id") Long id, @RequestBody User user) {
         Map<String, Object> map = new HashMap<>();

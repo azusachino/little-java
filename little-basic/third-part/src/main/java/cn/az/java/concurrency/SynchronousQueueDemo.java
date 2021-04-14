@@ -1,6 +1,11 @@
 package cn.az.java.concurrency;
 
-import java.util.concurrent.*;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.SynchronousQueue;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -65,7 +70,7 @@ public class SynchronousQueueDemo {
     @Override
     public boolean equals(Object object)
 //            throws Exception // 错误（编译时）：超越父类 Object equals(Object) 方法签名
-            throws RuntimeException // 非 checked 异常时没有以上限制
+        throws RuntimeException // 非 checked 异常时没有以上限制
     {
 
         return false;

@@ -3,10 +3,10 @@ package cn.az.boot.config;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
 import org.springframework.lang.NonNull;
-import org.springframework.web.accept.ContentNegotiationManager;
 import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.config.annotation.*;
+import org.springframework.web.servlet.config.annotation.AsyncSupportConfigurer;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -22,10 +22,10 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(@NonNull CorsRegistry registry) {
         registry.addMapping("/**")
-                .allowedHeaders("*")
-                .allowedOrigins("*")
-                .allowedMethods("*")
-                .maxAge(3600L);
+            .allowedHeaders("*")
+            .allowedOrigins("*")
+            .allowedMethods("*")
+            .maxAge(3600L);
     }
 
     /**
@@ -41,8 +41,8 @@ public class WebConfig implements WebMvcConfigurer {
     public void addViewControllers(ViewControllerRegistry registry) {
         // 通过修改registry添加controller层
         registry.addViewController("/hello")
-                .setStatusCode(HttpStatus.OK)
-                .setViewName("hello.html");
+            .setStatusCode(HttpStatus.OK)
+            .setViewName("hello.html");
     }
 
     /**

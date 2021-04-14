@@ -1,7 +1,6 @@
 package cn.az.java.collection;
 
 import java.util.Map;
-import java.util.Objects;
 
 /**
  * @author az

@@ -31,8 +31,6 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- *
- *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
@@ -47,7 +45,6 @@ public class UserIdRequest {
 
     /**
      * 获取userId属性的值。
-     *
      */
     public long getUserId() {
         return userId;
@@ -55,7 +52,6 @@ public class UserIdRequest {
 
     /**
      * 设置userId属性的值。
-     *
      */
     public void setUserId(long value) {
         this.userId = value;
@@ -63,7 +59,6 @@ public class UserIdRequest {
 
     /**
      * 获取timestamp属性的值。
-     *
      */
     public long getTimestamp() {
         return timestamp;
@@ -71,7 +66,6 @@ public class UserIdRequest {
 
     /**
      * 设置timestamp属性的值。
-     *
      */
     public void setTimestamp(long value) {
         this.timestamp = value;

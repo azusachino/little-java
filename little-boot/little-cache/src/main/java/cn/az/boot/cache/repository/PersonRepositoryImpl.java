@@ -17,7 +17,6 @@ import java.util.Map;
  * The type Person repository.
  *
  * @author az
- * @date 2020-03-11
  */
 @Repository
 public class PersonRepositoryImpl implements PersonRepository {

@@ -9,13 +9,12 @@ import java.util.Collections;
 
 /**
  * @author Liz
- * @date 1/9/2020
  */
 public class JwtTokenEnhancer implements TokenEnhancer {
 
     @Override
     public OAuth2AccessToken enhance(OAuth2AccessToken oAuth2AccessToken, OAuth2Authentication oAuth2Authentication) {
-        ((DefaultOAuth2AccessToken) oAuth2AccessToken).setAdditionalInformation(Collections.singletonMap("enhance","info"));
+        ((DefaultOAuth2AccessToken) oAuth2AccessToken).setAdditionalInformation(Collections.singletonMap("enhance", "info"));
         return oAuth2AccessToken;
     }
 }

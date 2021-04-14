@@ -47,7 +47,7 @@ public class Dummy {
     @Override
     public String toString() {
         return "Dummy{" +
-                "name='" + name + '\'' +
-                '}';
+            "name='" + name + '\'' +
+            '}';
     }
 }

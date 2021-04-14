@@ -6,7 +6,6 @@ import javax.sql.DataSource;
 
 /**
  * @author az
- * @date 2020-03-09
  */
 public class MyVendorDatabaseIdProvider implements DatabaseIdProvider {
 

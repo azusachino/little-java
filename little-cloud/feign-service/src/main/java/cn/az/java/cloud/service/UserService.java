@@ -3,7 +3,6 @@ package cn.az.java.cloud.service;
 import cn.az.java.cloud.domain.RestResponse;
 import cn.az.java.cloud.domain.User;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.*;
 
 /**
  * @author azusachino

@@ -4,12 +4,13 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 /**
  * 描述: 演示非公平和公平的ReentrantReadWriteLock的策略
+ *
  * @author az
  */
 public class NonfairBargeDemo {
 
     private static ReentrantReadWriteLock reentrantReadWriteLock = new ReentrantReadWriteLock(
-            true);
+        true);
 
     private static ReentrantReadWriteLock.ReadLock readLock = reentrantReadWriteLock.readLock();
     private static ReentrantReadWriteLock.WriteLock writeLock = reentrantReadWriteLock.writeLock();

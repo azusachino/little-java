@@ -20,7 +20,7 @@ public class MySqlInjector extends DefaultSqlInjector {
         List<AbstractMethod> abstractMethods = super.getMethodList(mapperClass);
         abstractMethods.add(new Truncate());
         abstractMethods.add(new InsertBatchSomeColumn(t ->
-                t.isLogicDelete() && t.isVersion()
+            t.isLogicDelete() && t.isVersion()
         ));
         return abstractMethods;
     }

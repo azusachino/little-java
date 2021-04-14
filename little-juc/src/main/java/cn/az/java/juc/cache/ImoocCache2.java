@@ -8,6 +8,7 @@ import java.util.Map;
 
 /**
  * 描述：     用装饰者模式，给计算器自动添加缓存功能
+ *
  * @author az
  */
 public class ImoocCache2<A, V> implements Computable<A, V> {
@@ -33,7 +34,7 @@ public class ImoocCache2<A, V> implements Computable<A, V> {
 
     public static void main(String[] args) throws Exception {
         ImoocCache2<String, Integer> expensiveComputer = new ImoocCache2<>(
-                new ExpensiveFunction());
+            new ExpensiveFunction());
         Integer result = expensiveComputer.compute("666");
         System.out.println("第一次计算结果：" + result);
         result = expensiveComputer.compute("666");

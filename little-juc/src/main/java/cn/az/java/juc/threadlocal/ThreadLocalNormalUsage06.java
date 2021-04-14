@@ -51,7 +51,8 @@ public class ThreadLocalNormalUsage06 {
             this.name = name;
         }
 
-        public User() { }
+        public User() {
+        }
     }
 
 }

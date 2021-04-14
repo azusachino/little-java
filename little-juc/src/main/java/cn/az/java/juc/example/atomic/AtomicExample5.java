@@ -12,7 +12,7 @@ import java.util.concurrent.atomic.AtomicIntegerFieldUpdater;
 public class AtomicExample5 {
 
     private static AtomicIntegerFieldUpdater<AtomicExample5> updater =
-            AtomicIntegerFieldUpdater.newUpdater(AtomicExample5.class, "count");
+        AtomicIntegerFieldUpdater.newUpdater(AtomicExample5.class, "count");
 
     @Getter
     public volatile int count = 100;

@@ -2,7 +2,11 @@ package cn.az.java.juc.threadlocal;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.concurrent.*;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 /**
  * 描述: 1000个打印日期的任务，用线程池来执行
@@ -13,7 +17,7 @@ public class ThreadLocalNormalUsage02 {
 
     public static void main(String[] args) {
         ExecutorService threadPool = new ThreadPoolExecutor(10, 10, 60,
-                TimeUnit.SECONDS, new ArrayBlockingQueue<>(30), Executors.privilegedThreadFactory());
+            TimeUnit.SECONDS, new ArrayBlockingQueue<>(30), Executors.privilegedThreadFactory());
 
         for (int i = 0; i < 1000; i++) {
             int finalI = i;

@@ -8,7 +8,6 @@ import java.util.UUID;
 
 /**
  * @author Liz
- * @date 1/8/2020
  */
 @Data
 public class User {

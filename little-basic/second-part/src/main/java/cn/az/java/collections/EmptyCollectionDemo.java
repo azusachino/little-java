@@ -19,7 +19,7 @@ public class EmptyCollectionDemo {
 
 
     public static List<String> getIdsList(String name) {
-        if(name ==null || name.length() < 1){
+        if (name == null || name.length() < 1) {
             return Collections.emptyList();
         }
         // 只读 empty List

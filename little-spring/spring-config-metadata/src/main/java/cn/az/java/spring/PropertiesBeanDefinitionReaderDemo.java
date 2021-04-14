@@ -26,6 +26,7 @@ import org.springframework.core.io.support.EncodedResource;
 
 /**
  * {@link PropertiesBeanDefinitionReader} 示例
+ *
  * @author az
  */
 public class PropertiesBeanDefinitionReaderDemo {

@@ -4,7 +4,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.EnvironmentAware;
 import org.springframework.context.annotation.ImportResource;
-import org.springframework.core.env.*;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -15,7 +14,7 @@ import java.util.Map;
  */
 @SpringBootApplication
 @ImportResource(locations = {
-        "META-INF/spring/context.xml"
+    "META-INF/spring/context.xml"
 })
 public class LittleConfigureApplication implements EnvironmentAware {
 

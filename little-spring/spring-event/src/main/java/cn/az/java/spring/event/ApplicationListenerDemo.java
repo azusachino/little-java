@@ -1,6 +1,5 @@
 package cn.az.java.spring.event;
 
-import org.springframework.context.*;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.event.ContextClosedEvent;
 import org.springframework.context.event.ContextRefreshedEvent;
@@ -45,7 +44,8 @@ public class ApplicationListenerDemo implements ApplicationEventPublisherAware {
 
     @Override
     public void setApplicationEventPublisher(ApplicationEventPublisher applicationEventPublisher) {
-        applicationEventPublisher.publishEvent(new ApplicationEvent("Hello,World") {});
+        applicationEventPublisher.publishEvent(new ApplicationEvent("Hello,World") {
+        });
 
         // 发送 PayloadApplicationEvent
         applicationEventPublisher.publishEvent("Hello,World");

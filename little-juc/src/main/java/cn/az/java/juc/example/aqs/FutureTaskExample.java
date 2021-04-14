@@ -2,7 +2,6 @@ package cn.az.java.juc.example.aqs;
 
 import lombok.extern.slf4j.Slf4j;
 
-import java.util.concurrent.Callable;
 import java.util.concurrent.FutureTask;
 
 /**

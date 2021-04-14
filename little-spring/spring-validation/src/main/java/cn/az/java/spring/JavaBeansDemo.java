@@ -24,7 +24,7 @@ public class JavaBeansDemo {
         //                    propertyDescriptor.getReadMethod(); // Getter 方法
         //                    propertyDescriptor.getWriteMethod(); // Setter 方法
         Stream.of(beanInfo.getPropertyDescriptors())
-                .forEach(System.out::println);
+            .forEach(System.out::println);
 
         // 输出 User 定义的方法 MethodDescriptor
         Stream.of(beanInfo.getMethodDescriptors()).forEach(System.out::println);

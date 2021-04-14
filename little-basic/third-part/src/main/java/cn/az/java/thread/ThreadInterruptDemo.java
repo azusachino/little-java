@@ -29,7 +29,7 @@ public class ThreadInterruptDemo {
                 // 当前 interrupted 状态被清除 == false
                 e.printStackTrace();
                 System.out.printf("线程 [Id : %s] 当前 interrupted 状态 = %s\n",
-                        Thread.currentThread().getId(), Thread.currentThread().isInterrupted());
+                    Thread.currentThread().getId(), Thread.currentThread().isInterrupted());
                 return;
             }
         }

@@ -14,7 +14,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 public class WebConfiguration {
 
     @Bean
-    public InternalResourceViewResolver viewResolver(){
+    public InternalResourceViewResolver viewResolver() {
         InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
         viewResolver.setPrefix("/WEB-INF/");
         viewResolver.setSuffix(".jsp");

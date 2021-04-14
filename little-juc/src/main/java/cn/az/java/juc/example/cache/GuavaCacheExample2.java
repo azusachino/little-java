@@ -15,10 +15,10 @@ public class GuavaCacheExample2 {
     public static void main(String[] args) {
 
         Cache<String, Integer> cache = CacheBuilder.newBuilder()
-                .maximumSize(10) // 最多存放10个数据
-                .expireAfterWrite(10, TimeUnit.SECONDS) // 缓存10秒
-                .recordStats() // 开启记录状态数据功能
-                .build();
+            .maximumSize(10) // 最多存放10个数据
+            .expireAfterWrite(10, TimeUnit.SECONDS) // 缓存10秒
+            .recordStats() // 开启记录状态数据功能
+            .build();
 
         log.info("{}", cache.getIfPresent("key1")); // null
         cache.put("key1", 1);

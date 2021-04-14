@@ -8,6 +8,7 @@ import java.util.concurrent.Callable;
 
 /**
  * 内置类实例
+ *
  * @author az
  */
 public class InnerClassDemo {
@@ -59,7 +60,7 @@ public class InnerClassDemo {
         @Override
         public void propertyChange(PropertyChangeEvent evt) {
 
-            new KeyListener(){
+            new KeyListener() {
                 @Override
                 public void keyTyped(KeyEvent e) {
 

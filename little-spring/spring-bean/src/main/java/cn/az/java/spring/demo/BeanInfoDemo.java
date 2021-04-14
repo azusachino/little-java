@@ -24,13 +24,13 @@ public class BeanInfoDemo {
         BeanInfo beanInfo = Introspector.getBeanInfo(Person.class, Object.class);
 
         Stream.of(beanInfo.getPropertyDescriptors())
-                .forEach(p -> {
-                    String propertyName = p.getName();
-                    if ("id".equals(propertyName)) {
-                        p.setPropertyEditorClass(StringToIntegerPropertyEditor.class);
-                    }
-                    log.error(p.toString());
-                });
+            .forEach(p -> {
+                String propertyName = p.getName();
+                if ("id".equals(propertyName)) {
+                    p.setPropertyEditorClass(StringToIntegerPropertyEditor.class);
+                }
+                log.error(p.toString());
+            });
 
     }
 

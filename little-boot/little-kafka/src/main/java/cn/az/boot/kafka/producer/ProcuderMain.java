@@ -5,7 +5,6 @@ import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.clients.producer.RecordMetadata;
 import org.apache.kafka.common.serialization.StringSerializer;
-import org.springframework.kafka.support.SendResult;
 
 import java.util.Properties;
 import java.util.concurrent.Future;
@@ -25,7 +24,7 @@ public class ProcuderMain {
     }
 
     @SneakyThrows
-    public static void main1(){
+    public static void main1() {
         Properties properties = new Properties();
 
         properties.setProperty("bootstrap.servers", "localhost:9092");

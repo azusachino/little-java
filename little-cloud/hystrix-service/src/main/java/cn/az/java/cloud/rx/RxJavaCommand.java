@@ -23,21 +23,21 @@ public class RxJavaCommand {
         List<Integer> values = Arrays.asList(1, 2, 3);
         //发布多个数据
         Observable.from(values)
-                // 在 newThread 线程执行
-                .subscribeOn(Schedulers.newThread())
-                .subscribe(value -> {
-                    if (value > 2) {
-                        throw new IllegalStateException("数据不应许大于 2");
-                    }
-                    //消费数据
-                    println("消费数据：" + value);
-                }, e -> {
-                    // 当异常情况，中断执行
-                    println("发生异常 , " + e.getMessage());
-                }, () -> {
-                    // 当整体流程完成时
-                    println("流程执行完成");
-                });
+            // 在 newThread 线程执行
+            .subscribeOn(Schedulers.newThread())
+            .subscribe(value -> {
+                if (value > 2) {
+                    throw new IllegalStateException("数据不应许大于 2");
+                }
+                //消费数据
+                println("消费数据：" + value);
+            }, e -> {
+                // 当异常情况，中断执行
+                println("发生异常 , " + e.getMessage());
+            }, () -> {
+                // 当整体流程完成时
+                println("流程执行完成");
+            });
 
         // 等待线程执行完毕
         Thread.sleep(100);
@@ -48,10 +48,10 @@ public class RxJavaCommand {
         List<Integer> values = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9);
         //发布多个数据
         Observable.from(values)
-                // 在 computation 线程执行
-                .subscribeOn(Schedulers.computation())
-                // 订阅并且消费数据
-                .subscribe(RxJavaCommand::println)
+            // 在 computation 线程执行
+            .subscribeOn(Schedulers.computation())
+            // 订阅并且消费数据
+            .subscribe(RxJavaCommand::println)
         ;
 
         // 等待线程执行完毕
@@ -63,10 +63,10 @@ public class RxJavaCommand {
 
         // 仅能发布单个数据
         Single.just("Hello,World")
-                // 在 I/O 线程执行
-                .subscribeOn(Schedulers.io())
-                // 订阅并且消费数据
-                .subscribe(RxJavaCommand::println)
+            // 在 I/O 线程执行
+            .subscribeOn(Schedulers.io())
+            // 订阅并且消费数据
+            .subscribe(RxJavaCommand::println)
         ;
     }
 

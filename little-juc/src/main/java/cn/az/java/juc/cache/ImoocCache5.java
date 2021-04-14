@@ -8,6 +8,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * 描述：     缩小了synchronized的粒度，提高性能，但是依然并发不安全
+ *
  * @author az
  */
 public class ImoocCache5<A, V> implements Computable<A, V> {
@@ -33,7 +34,7 @@ public class ImoocCache5<A, V> implements Computable<A, V> {
 
     public static void main(String[] args) throws Exception {
         ImoocCache5<String, Integer> expensiveComputer = new ImoocCache5<>(
-                new ExpensiveFunction());
+            new ExpensiveFunction());
         Integer result = expensiveComputer.compute("666");
         System.out.println("第一次计算结果：" + result);
         result = expensiveComputer.compute("666");

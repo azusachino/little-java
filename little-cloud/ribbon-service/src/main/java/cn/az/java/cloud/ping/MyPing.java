@@ -11,7 +11,6 @@ import java.net.URI;
 
 /**
  * @author az
- * @date 2020/4/12
  */
 public class MyPing implements IPing {
 
@@ -24,12 +23,12 @@ public class MyPing implements IPing {
 //                .buildAndExpand(host, port).toUri();
 
         URI uri = UriComponentsBuilder.newInstance()
-                .scheme("http")
-                .host(host)
-                .port(port)
-                .path("/actuator/health")
-                .build()
-                .toUri();
+            .scheme("http")
+            .host(host)
+            .port(port)
+            .path("/actuator/health")
+            .build()
+            .toUri();
         RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<?> res = restTemplate.getForEntity(uri, String.class);
         return HttpStatus.OK.equals(res.getStatusCode());

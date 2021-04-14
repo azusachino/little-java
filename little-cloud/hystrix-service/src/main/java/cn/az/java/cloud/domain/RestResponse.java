@@ -8,7 +8,6 @@ import java.util.HashMap;
  * The type Rest response.
  *
  * @author : azusachino
- * @date : 2019/9/15
  */
 public class RestResponse extends HashMap<String, Object> {
 
@@ -39,7 +38,7 @@ public class RestResponse extends HashMap<String, Object> {
      * @return the object
      */
     public Object code() {
-        return this.getOrDefault("code","no code for you");
+        return this.getOrDefault("code", "no code for you");
     }
 
     /**
@@ -58,7 +57,7 @@ public class RestResponse extends HashMap<String, Object> {
      * @return the object
      */
     public Object msg() {
-        return this.getOrDefault("msg","no msg for you");
+        return this.getOrDefault("msg", "no msg for you");
     }
 
     /**
@@ -78,7 +77,7 @@ public class RestResponse extends HashMap<String, Object> {
      * @return the object
      */
     public Object data() {
-        return this.getOrDefault("data","no data for you");
+        return this.getOrDefault("data", "no data for you");
     }
 
     @Override

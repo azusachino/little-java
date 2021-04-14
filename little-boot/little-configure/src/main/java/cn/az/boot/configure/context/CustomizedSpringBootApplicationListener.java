@@ -13,9 +13,9 @@ import java.util.Map;
 
 /**
  * {@link ApplicationListener}
+ *
  * @author az
  * @see ApplicationEnvironmentPreparedEvent
- * @date 2020/3/14
  */
 public class CustomizedSpringBootApplicationListener implements ApplicationListener<ApplicationEnvironmentPreparedEvent>, Ordered {
 

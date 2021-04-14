@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 
 /**
  * @author az
- * @date 2020/4/2
  */
 @Service
 public class HelloService2Impl implements HelloService {

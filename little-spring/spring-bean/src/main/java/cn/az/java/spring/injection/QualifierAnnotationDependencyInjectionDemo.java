@@ -16,8 +16,8 @@
  */
 package cn.az.java.spring.injection;
 
-import cn.az.java.spring.injection.annotation.UserGroup;
 import cn.az.java.spring.domain.User;
+import cn.az.java.spring.injection.annotation.UserGroup;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;

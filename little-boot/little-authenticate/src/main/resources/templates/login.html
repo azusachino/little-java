@@ -16,22 +16,22 @@
 </div>
 </body>
 <script th:inline="javascript">
-    function login() {
-        let username = $("input[name='username']").val();
-        let password = $("input[name='password']").val();
-        $.ajax({
-            type: "post",
-            url: "/login",
-            data: {"username": username, "password": password},
-            dataType: "json",
-            success: function (r) {
-                if (r.code === 200) {
-                    window.location.href = '/index';
-                } else {
-                    alert(r.message);
-                }
-            }
-        });
-    }
+  function login() {
+    let username = $("input[name='username']").val();
+    let password = $("input[name='password']").val();
+    $.ajax({
+      type: "post",
+      url: "/login",
+      data: {"username": username, "password": password},
+      dataType: "json",
+      success: function (r) {
+        if (r.code === 200) {
+          window.location.href = '/index';
+        } else {
+          alert(r.message);
+        }
+      }
+    });
+  }
 </script>
 </html>

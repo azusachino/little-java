@@ -6,22 +6,23 @@
 </head>
 <body>
 <div>
-    <table>
-      <thead>
-      <tr>
-        <th>QR Form</th></tr>
-      </thead>
-      <tbody>
-      <tr>
-        <td colspan="2"><img th:src="${qr}" alt="qr" src="#"></td>
-      </tr>
-      <tr>
-        <td colspan="2">
-          <button style="box-shadow: 0 0 4px #868282;" type="button" th:href="@{/login}">RETURN</button>
-        </td>
-      </tr>
-      </tbody>
-    </table>
+  <table>
+    <thead>
+    <tr>
+      <th>QR Form</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td colspan="2"><img th:src="${qr}" alt="qr" src="#"></td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <button style="box-shadow: 0 0 4px #868282;" type="button" th:href="@{/login}">RETURN</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
 </div>
 </body>
 </html>

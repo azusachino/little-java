@@ -7,7 +7,6 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.R
 
 /**
  * @author Liz
- * @date 1/8/2020
  */
 @Configuration
 @EnableResourceServer
@@ -16,11 +15,11 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
     @Override
     public void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .anyRequest()
-                .authenticated()
-                .and()
-                .requestMatchers()
-                .antMatchers("/user/**");
+            .anyRequest()
+            .authenticated()
+            .and()
+            .requestMatchers()
+            .antMatchers("/user/**");
 
     }
 }

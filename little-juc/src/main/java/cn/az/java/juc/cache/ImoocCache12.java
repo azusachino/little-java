@@ -19,7 +19,7 @@ public class ImoocCache12 {
      * The Expensive computer.
      */
     static ImoocCache10<String, Integer> expensiveComputer = new ImoocCache10<>(
-            new ExpensiveFunction());
+        new ExpensiveFunction());
     /**
      * The constant countDownLatch.
      */

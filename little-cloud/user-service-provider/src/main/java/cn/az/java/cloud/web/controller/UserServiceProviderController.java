@@ -43,11 +43,11 @@ public class UserServiceProviderController implements UserService {
      * 通过方法继承，URL 映射 ："/user/find/all"
      */
     @HystrixCommand(
-            commandProperties = { // Command 配置
-                    // 设置操作时间为 100 毫秒
-                    @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "100")
-            },
-            fallbackMethod = "fallbackForGetUsers" // 设置 fallback 方法
+        commandProperties = { // Command 配置
+            // 设置操作时间为 100 毫秒
+            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "100")
+        },
+        fallbackMethod = "fallbackForGetUsers" // 设置 fallback 方法
     )
     @Override
     public Collection<Admin> findAll() {
@@ -58,11 +58,11 @@ public class UserServiceProviderController implements UserService {
      * 获取所有用户列表
      */
     @HystrixCommand(
-            commandProperties = { // Command 配置
-                    // 设置操作时间为 100 毫秒
-                    @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "100")
-            },
-            fallbackMethod = "fallbackForGetUsers" // 设置 fallback 方法
+        commandProperties = { // Command 配置
+            // 设置操作时间为 100 毫秒
+            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "100")
+        },
+        fallbackMethod = "fallbackForGetUsers" // 设置 fallback 方法
     )
     @GetMapping("/user/list")
     public Collection<Admin> getUsers() throws InterruptedException {

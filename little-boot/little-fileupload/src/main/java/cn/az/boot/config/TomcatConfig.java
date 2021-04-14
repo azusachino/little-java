@@ -7,7 +7,6 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * @author Liz
- * @date 1/10/2020
  */
 @Configuration
 public class TomcatConfig {
@@ -16,11 +15,11 @@ public class TomcatConfig {
     public TomcatServletWebServerFactory tomcatServletWebServerFactory() {
         TomcatServletWebServerFactory tomcat = new TomcatServletWebServerFactory();
         tomcat.addConnectorCustomizers(
-                connector -> {
-                    if (connector.getProtocolHandler() instanceof AbstractHttp11Protocol<?>) {
-                        ((AbstractHttp11Protocol<?>) connector.getProtocolHandler()).setMaxSwallowSize(-1);
-                    }
+            connector -> {
+                if (connector.getProtocolHandler() instanceof AbstractHttp11Protocol<?>) {
+                    ((AbstractHttp11Protocol<?>) connector.getProtocolHandler()).setMaxSwallowSize(-1);
                 }
+            }
         );
         return tomcat;
     }

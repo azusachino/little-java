@@ -2,7 +2,6 @@ package cn.az.boot.configure.controller;
 
 import cn.az.boot.configure.domain.Person;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.EnvironmentAware;
 import org.springframework.context.annotation.Profile;
@@ -17,7 +16,6 @@ import java.util.Map;
  * The type Person controller.
  *
  * @author az
- * @date 2020/3/14
  */
 @RestController
 public class PersonController implements EnvironmentAware {

@@ -4,7 +4,6 @@ import org.springframework.util.SimpleIdGenerator;
 
 /**
  * @author az
- * @date 2020/4/2
  */
 public class UtilDemo {
 

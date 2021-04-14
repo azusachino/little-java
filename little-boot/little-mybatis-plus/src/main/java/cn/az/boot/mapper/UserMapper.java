@@ -31,7 +31,7 @@ public interface UserMapper extends BaseMapper<User> {
      * @param myParam the my param
      * @return the my page
      */
-    MyPage<User> mySelectPage(@Param("page") MyPage<User> myPage, @Param("param")MyParam myParam);
+    MyPage<User> mySelectPage(@Param("page") MyPage<User> myPage, @Param("param") MyParam myParam);
 
     /**
      * User children page my page.
@@ -41,17 +41,17 @@ public interface UserMapper extends BaseMapper<User> {
      */
     @ResultMap("userChildrenMap")
     @Select("<script>select u.id,u.name,u.email,u.age,c.id as \"c_id\",c.name as \"c_name\",c.user_id as \"c_user_id\" " +
-            "from user u " +
-            "left join child c on c.user_id = u.id " +
-            "<where>" +
-            "<if test=\"selectInt != null\"> " +
-            "and u.age = #{selectInt} " +
-            "</if> " +
-            "<if test=\"selectStr != null and selectStr != ''\"> " +
-            "and c.name = #{selectStr} " +
-            "</if> " +
-            "</where>" +
-            "</script>")
+        "from user u " +
+        "left join child c on c.user_id = u.id " +
+        "<where>" +
+        "<if test=\"selectInt != null\"> " +
+        "and u.age = #{selectInt} " +
+        "</if> " +
+        "<if test=\"selectStr != null and selectStr != ''\"> " +
+        "and c.name = #{selectStr} " +
+        "</if> " +
+        "</where>" +
+        "</script>")
     MyPage<UserChildren> userChildrenPage(MyPage<UserChildren> myPage);
 
 
@@ -62,7 +62,7 @@ public interface UserMapper extends BaseMapper<User> {
      * @param param  the param
      * @return the my page
      */
-    MyPage<User> mySelectPageMap(@Param("pg") MyPage<User> myPage, @Param("map") Map<?,?> param);
+    MyPage<User> mySelectPageMap(@Param("pg") MyPage<User> myPage, @Param("map") Map<?, ?> param);
 
     /**
      * My select map list.
@@ -70,7 +70,7 @@ public interface UserMapper extends BaseMapper<User> {
      * @param param the param
      * @return the list
      */
-    List<User> mySelectMap(Map<?,?> param);
+    List<User> mySelectMap(Map<?, ?> param);
 
     /**
      * My page select list.
@@ -95,5 +95,5 @@ public interface UserMapper extends BaseMapper<User> {
      * @param map       the map
      * @return the list
      */
-    List<User> rowBoundList(RowBounds rowBounds, Map<?,?> map);
+    List<User> rowBoundList(RowBounds rowBounds, Map<?, ?> map);
 }

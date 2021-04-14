@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @author Liz
- * @date 1/8/2020
  */
 @RestController
 @RequestMapping("/user")

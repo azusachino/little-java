@@ -18,7 +18,7 @@ import javax.annotation.Resource;
  * @since 08/13/20
  */
 public class InjectingApplicationEventPublisherDemo implements ApplicationEventPublisherAware,
-        ApplicationContextAware, BeanPostProcessor {
+    ApplicationContextAware, BeanPostProcessor {
 
     @Resource
     private ApplicationEventPublisher applicationEventPublisher;

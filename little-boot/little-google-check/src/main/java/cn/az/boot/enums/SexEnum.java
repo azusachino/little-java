@@ -21,12 +21,11 @@ public enum SexEnum implements IEnum<Integer> {
     /**
      * Female sex enum.
      */
-    FEMALE(1,"女"),
+    FEMALE(1, "女"),
     /**
      * Secret sex enum.
      */
-    SECRET(2, "保密")
-    ;
+    SECRET(2, "保密");
 
     private final Integer value;
     private final String name;

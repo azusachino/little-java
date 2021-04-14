@@ -4,7 +4,12 @@ import cn.az.java.juc.cache.computable.Computable;
 import cn.az.java.juc.cache.computable.MayFail;
 
 import java.util.Map;
-import java.util.concurrent.*;
+import java.util.concurrent.Callable;
+import java.util.concurrent.CancellationException;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
+import java.util.concurrent.FutureTask;
 
 /**
  * 描述：     利用Future，避免重复计算
@@ -51,7 +56,7 @@ public class ImoocCache9<A, V> implements Computable<A, V> {
 
     public static void main(String[] args) {
         ImoocCache9<String, Integer> expensiveComputer = new ImoocCache9<>(
-                new MayFail());
+            new MayFail());
         new Thread(() -> {
             try {
                 Integer result = expensiveComputer.compute("666");

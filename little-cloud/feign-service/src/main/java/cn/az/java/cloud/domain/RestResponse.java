@@ -8,7 +8,6 @@ import java.util.HashMap;
  * The type Rest response.
  *
  * @author azusachino
- * @date 2019/9/15
  */
 public class RestResponse extends HashMap<String, Object> {
 

@@ -21,17 +21,17 @@ public class MyPing extends AbstractLoadBalancerPing {
         int port = server.getPort();
         RestTemplate restTemplate = new RestTemplate();
         return HttpStatus.OK
-                .equals(restTemplate
-                        .getForEntity(UriComponentsBuilder
-                                        .newInstance()
-                                        .scheme("http")
-                                        .host(host)
-                                        .port(port)
-                                        .path("/acuator/health")
-                                        .build()
-                                        .toUri(),
-                                String.class
-                        ).getStatusCode());
+            .equals(restTemplate
+                .getForEntity(UriComponentsBuilder
+                        .newInstance()
+                        .scheme("http")
+                        .host(host)
+                        .port(port)
+                        .path("/acuator/health")
+                        .build()
+                        .toUri(),
+                    String.class
+                ).getStatusCode());
     }
 
     @Override

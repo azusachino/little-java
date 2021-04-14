@@ -1,6 +1,11 @@
 package cn.az.java.juc.threadpool;
 
-import java.util.concurrent.*;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.RejectedExecutionHandler;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -36,7 +41,7 @@ public class PauseableThreadPool extends ThreadPoolExecutor {
                                TimeUnit unit, BlockingQueue<Runnable> workQueue,
                                ThreadFactory threadFactory, RejectedExecutionHandler handler) {
         super(corePoolSize, maximumPoolSize, keepAliveTime, unit, workQueue, threadFactory,
-                handler);
+            handler);
     }
 
     @Override
@@ -75,7 +80,7 @@ public class PauseableThreadPool extends ThreadPoolExecutor {
 
     public static void main(String[] args) throws InterruptedException {
         PauseableThreadPool pauseableThreadPool = new PauseableThreadPool(10, 20, 10l,
-                TimeUnit.SECONDS, new LinkedBlockingQueue<>());
+            TimeUnit.SECONDS, new LinkedBlockingQueue<>());
         Runnable runnable = () -> {
             System.out.println("我被执行");
             try {

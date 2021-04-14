@@ -1,7 +1,7 @@
 package cn.az.java.cloud.fallback;
 
-import cn.az.java.cloud.domain.Admin;
 import cn.az.java.cloud.api.UserService;
+import cn.az.java.cloud.domain.Admin;
 
 import java.util.Collection;
 import java.util.Collections;

@@ -38,7 +38,6 @@ public class BeanInitializationDemo {
      * Spring 应用上下文已启动...
      * cn.az.spring.factory.DefaultUserFactory@7692d9cc
      * Spring 应用上下文准备关闭...</p>
-     *
      */
     public static void main(String[] args) {
         // 创建 BeanFactory 容器

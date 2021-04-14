@@ -21,7 +21,7 @@ public class AsyncController {
     private AsyncService asyncService;
 
     @GetMapping("async")
-    public String testAsync() throws Exception{
+    public String testAsync() throws Exception {
         long start = System.currentTimeMillis();
         log.info("async start");
         Future<String> stringFuture = asyncService.asyncMethod();

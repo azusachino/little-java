@@ -20,7 +20,6 @@ import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.Aware;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.BeanFactoryAware;
-import org.springframework.context.*;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.util.StringValueResolver;
 
@@ -30,8 +29,8 @@ import org.springframework.util.StringValueResolver;
  * @author az
  */
 public class AwareInterfaceDependencyInjectionDemo implements BeanFactoryAware,
-        ApplicationContextAware, MessageSourceAware,
-        ApplicationEventPublisherAware, EmbeddedValueResolverAware {
+    ApplicationContextAware, MessageSourceAware,
+    ApplicationEventPublisherAware, EmbeddedValueResolverAware {
 
     private static BeanFactory beanFactory;
 

@@ -1,8 +1,8 @@
 <!DOCTYPE configuration
-        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
-        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-  <properties resource="application.properties" />
+  <properties resource="application.properties"/>
 
   <settings>
     <setting name="cacheEnabled" value="true"/>
@@ -33,8 +33,8 @@
 
   <mappers>
     <mapper class="cn.az.boot.mybatis.dao.UserMapper"/>
-<!--    <package name="cn.az.boot.mybatis.dao"/>-->
-    <mapper resource="mapper/UserMapper.xml" />
+    <!--    <package name="cn.az.boot.mybatis.dao"/>-->
+    <mapper resource="mapper/UserMapper.xml"/>
 
   </mappers>
 

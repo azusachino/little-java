@@ -2,7 +2,6 @@ package cn.az.boot.socket.websocket;
 
 import lombok.SneakyThrows;
 
-import javax.websocket.*;
 import javax.websocket.server.PathParam;
 import javax.websocket.server.ServerEndpoint;
 import java.util.Map;
@@ -10,7 +9,6 @@ import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * @author az
- * @date 2020/3/12
  */
 @ServerEndpoint("/chat-room/{username}")
 public class ChatRoomServerEndPoint {
@@ -29,7 +27,7 @@ public class ChatRoomServerEndPoint {
 
     @OnMessage
     public void onMessage(@PathParam("username") String username, Session s, String message) {
-        sendTextAll("user[" + username + "]: " +message);
+        sendTextAll("user[" + username + "]: " + message);
     }
 
     @OnClose

@@ -5,7 +5,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  * @author az
- * @date 2020/4/2
  */
 @SpringBootApplication
 public class LittleDemoApplication {

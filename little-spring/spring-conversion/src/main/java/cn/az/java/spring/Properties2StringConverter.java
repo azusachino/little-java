@@ -17,7 +17,7 @@ public class Properties2StringConverter implements ConditionalGenericConverter {
     @Override
     public boolean matches(TypeDescriptor sourceType, TypeDescriptor targetType) {
         return Properties.class.equals(sourceType.getObjectType())
-                && String.class.equals(targetType.getObjectType());
+            && String.class.equals(targetType.getObjectType());
     }
 
     @Override

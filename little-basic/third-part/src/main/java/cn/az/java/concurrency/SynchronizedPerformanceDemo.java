@@ -3,7 +3,6 @@ package cn.az.java.concurrency;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
-import java.util.function.Consumer;
 
 public class SynchronizedPerformanceDemo {
 

@@ -9,7 +9,6 @@ import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 
 /**
  * @author az
- * @date 2020/3/14
  */
 @Configuration
 @EnableWebSecurity
@@ -18,15 +17,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication().withUser("abc").password("123456").roles("ADMIN")
-                .and()
-                .withUser("az").password("123").roles("user");
+            .and()
+            .withUser("az").password("123").roles("user");
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().csrfTokenRepository(new CookieCsrfTokenRepository())
-                .requireCsrfProtectionMatcher(
-                        request -> request.getMethod().matches("POST") && request.getContextPath().startsWith("/login"));
+            .requireCsrfProtectionMatcher(
+                request -> request.getMethod().matches("POST") && request.getContextPath().startsWith("/login"));
 
         http.headers().addHeaderWriter((request, response) -> {
 
@@ -37,13 +36,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
         // authorization
         http.authorizeRequests()
-                .anyRequest()
-                .fullyAuthenticated()
-                .and()
-                .formLogin()
-                .loginPage("/login")
-                .failureForwardUrl("/err")
-                .permitAll()
-                .and().logout().permitAll();
+            .anyRequest()
+            .fullyAuthenticated()
+            .and()
+            .formLogin()
+            .loginPage("/login")
+            .failureForwardUrl("/err")
+            .permitAll()
+            .and().logout().permitAll();
     }
 }

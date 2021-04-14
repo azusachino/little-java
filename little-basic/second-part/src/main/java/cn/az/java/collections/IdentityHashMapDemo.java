@@ -46,7 +46,7 @@ public class IdentityHashMapDemo {
         System.out.printf("%s.hashCode() == %d \n", a, a.hashCode());
 
         System.out.printf("System.identityHashCode(%s) == System.identityHashCode(%s) == %s \n", a, b,
-                System.identityHashCode(a) == System.identityHashCode(b));
+            System.identityHashCode(a) == System.identityHashCode(b));
 
         System.out.printf("%s.hashCode() == %s.hashCode() == %s \n", a, b, a.hashCode() == b.hashCode());
     }
@@ -79,7 +79,7 @@ public class IdentityHashMapDemo {
         if (o == null || getClass() != o.getClass()) return false;
         IdentityHashMapDemo that = (IdentityHashMapDemo) o;
         return age == that.age &&
-                Objects.equals(name, that.name);
+            Objects.equals(name, that.name);
     }
 
     @Override

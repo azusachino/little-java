@@ -5,10 +5,7 @@ import cn.az.boot.entity.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
 
 /**
  * @author azusachino
@@ -31,7 +28,7 @@ public class StudentService {
 
 
     public Student save(Student student) {
-       return studentDao.save(student);
+        return studentDao.save(student);
     }
 
     public Optional<Student> findById(String id) {

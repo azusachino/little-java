@@ -23,12 +23,12 @@ public class GenericTypeDemo {
     public static void main(String[] args) {
 
         Converter<Integer, String> stringConverter =
-                new Converter<Integer, String>() {
-                    @Override
-                    public String convert(Integer source) {
-                        return String.valueOf(source);
-                    }
-                };
+            new Converter<Integer, String>() {
+                @Override
+                public String convert(Integer source) {
+                    return String.valueOf(source);
+                }
+            };
 
         new Converter<String, Integer>() {
 

@@ -2,7 +2,6 @@ package cn.az.boot.management.mbean;
 
 /**
  * @author az
- * @date 2020/3/14
  */
 public interface SimpleDataMBean {
 
@@ -11,6 +10,7 @@ public interface SimpleDataMBean {
      * Setter
      * Property
      * 属性
+     *
      * @param data
      */
     void setData(String data);
@@ -18,6 +18,7 @@ public interface SimpleDataMBean {
     /**
      * Getter
      * 属性
+     *
      * @return
      */
     String getData();
@@ -26,8 +27,8 @@ public interface SimpleDataMBean {
     /**
      * 展示数据
      * 操作(Operation)
-     * @return
      *
+     * @return
      */
     String displayData();
 }

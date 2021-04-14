@@ -22,6 +22,6 @@ public class HelloWorldThreadDemo {
 
     static void helloWorld() {
         System.out.printf("Thread[id : %d] - Hello World\n",
-                Thread.currentThread().getId());
+            Thread.currentThread().getId());
     }
 }

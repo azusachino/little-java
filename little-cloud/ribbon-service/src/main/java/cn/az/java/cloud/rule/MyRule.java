@@ -9,7 +9,6 @@ import java.util.Objects;
 
 /**
  * @author az
- * @date 2020/4/12
  */
 public class MyRule implements IRule {
 

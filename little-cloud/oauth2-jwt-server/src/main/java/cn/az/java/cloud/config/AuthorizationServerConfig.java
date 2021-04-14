@@ -20,7 +20,6 @@ import java.util.List;
 
 /**
  * @author Liz
- * @date 1/8/2020
  */
 @Configuration
 @EnableAuthorizationServer
@@ -50,10 +49,10 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
         List<TokenEnhancer> delegates = Arrays.asList(jwtTokenEnhancer, jwtAccessTokenConverter);
         tokenEnhancerChain.setTokenEnhancers(delegates);
         endpoints.authenticationManager(authenticationManager)
-                .userDetailsService(userService)
-                .tokenStore(tokenStore)
-                .accessTokenConverter(jwtAccessTokenConverter)
-                .tokenEnhancer(tokenEnhancerChain);
+            .userDetailsService(userService)
+            .tokenStore(tokenStore)
+            .accessTokenConverter(jwtAccessTokenConverter)
+            .tokenEnhancer(tokenEnhancerChain);
     }
 
     @Override
@@ -64,14 +63,14 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         clients.inMemory()
-                .withClient("admin")
-                .secret(passwordEncoder.encode("admin123"))
-                .accessTokenValiditySeconds(3600)
-                .refreshTokenValiditySeconds(864000)
-                // .redirectUris("https://cn.bing.com")
-                .redirectUris("http://localhost:9501/login")
-                .autoApprove(true)
-                .scopes("all")
-                .authorizedGrantTypes("authorization_code", "password","refresh_token");
+            .withClient("admin")
+            .secret(passwordEncoder.encode("admin123"))
+            .accessTokenValiditySeconds(3600)
+            .refreshTokenValiditySeconds(864000)
+            // .redirectUris("https://cn.bing.com")
+            .redirectUris("http://localhost:9501/login")
+            .autoApprove(true)
+            .scopes("all")
+            .authorizedGrantTypes("authorization_code", "password", "refresh_token");
     }
 }

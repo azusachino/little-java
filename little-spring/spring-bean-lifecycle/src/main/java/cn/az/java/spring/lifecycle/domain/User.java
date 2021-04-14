@@ -6,7 +6,6 @@ import java.util.Collection;
 
 /**
  * @author az
- * @date 2020/4/2
  */
 public class User {
 
@@ -63,12 +62,12 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", city=" + city +
-                ", lifeCities=" + lifeCities +
-                ", configFileLocation='" + configFileLocation + '\'' +
-                '}';
+            "id=" + id +
+            ", name='" + name + '\'' +
+            ", city=" + city +
+            ", lifeCities=" + lifeCities +
+            ", configFileLocation='" + configFileLocation + '\'' +
+            '}';
     }
 
 }

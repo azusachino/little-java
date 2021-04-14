@@ -11,7 +11,7 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
 @ComponentScan(basePackages = "cn.az.boot.servlet.controller")
 //@Configuration
 public class DefaultAnnotationConfigDispatcherServletInitializer extends
-        AbstractAnnotationConfigDispatcherServletInitializer {
+    AbstractAnnotationConfigDispatcherServletInitializer {
     @Override
     protected Class<?>[] getRootConfigClasses() { // web.xml
         return new Class[0];
@@ -20,7 +20,7 @@ public class DefaultAnnotationConfigDispatcherServletInitializer extends
     @Override
     protected Class<?>[] getServletConfigClasses() { // DispatcherServlet
         return new Class[]{
-                getClass() // 返回当前类
+            getClass() // 返回当前类
         };
     }
 

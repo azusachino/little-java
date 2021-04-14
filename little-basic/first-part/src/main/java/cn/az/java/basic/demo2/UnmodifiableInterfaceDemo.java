@@ -1,6 +1,8 @@
 package cn.az.java.basic.demo2;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
 
 public class UnmodifiableInterfaceDemo {
 

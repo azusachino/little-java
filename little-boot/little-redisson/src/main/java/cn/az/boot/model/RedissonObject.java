@@ -7,7 +7,6 @@ import java.io.Serializable;
 
 /**
  * @author Liz
- * @date 1/16/2020
  */
 @Data
 @ToString

@@ -10,7 +10,6 @@ import reactor.core.publisher.Mono;
 
 /**
  * @author az
- * @date 2020/4/1
  */
 @SpringBootApplication
 public class LittleReactiveApplication {
@@ -23,7 +22,7 @@ public class LittleReactiveApplication {
     public RouterFunction<ServerResponse> routerFunction() {
 
         RouterFunctions.route()
-                .GET("/hello", req -> ServerResponse.ok().body(Mono.just(req.uri().getPath()), String.class));
+            .GET("/hello", req -> ServerResponse.ok().body(Mono.just(req.uri().getPath()), String.class));
 
         return RouterFunctions.route(req -> {
             String uri = req.uri().getPath();

@@ -13,9 +13,9 @@ public class BeanScopeApplication {
 
     public static void main(String[] args) {
         new SpringApplicationBuilder()
-                .main(BeanScopeApplication.class)
-                .bannerMode(Banner.Mode.OFF)
-                .build(args)
-                .run();
+            .main(BeanScopeApplication.class)
+            .bannerMode(Banner.Mode.OFF)
+            .build(args)
+            .run();
     }
 }

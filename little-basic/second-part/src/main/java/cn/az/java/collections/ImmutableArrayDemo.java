@@ -74,8 +74,8 @@ public class ImmutableArrayDemo {
         @Override
         public String toString() {
             return "User{" +
-                    "id=" + id +
-                    '}';
+                "id=" + id +
+                '}';
         }
     }
 

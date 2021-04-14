@@ -1,7 +1,5 @@
 package cn.az.boot;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import cn.az.boot.entity.User;
 import cn.az.boot.mapper.UserMapper;
 import cn.az.boot.model.MyPage;
@@ -25,6 +23,8 @@ import org.springframework.util.CollectionUtils;
 import javax.annotation.Resource;
 import java.util.List;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 @Slf4j
 @SpringBootTest
 public class PaginationTests {
@@ -34,8 +34,8 @@ public class PaginationTests {
 
     @Test
     void lambdaPagination() {
-        Page<User> page = new Page<>(1,3);
-        IPage<User> res = userMapper.selectPage(page, Wrappers.<User>lambdaQuery().ge(User::getAge,20).orderByAsc(User::getAge));
+        Page<User> page = new Page<>(1, 3);
+        IPage<User> res = userMapper.selectPage(page, Wrappers.<User>lambdaQuery().ge(User::getAge, 20).orderByAsc(User::getAge));
         assertThat(res.getTotal()).isGreaterThan(2L);
         assertThat(res.getRecords().size()).isEqualTo(2);
     }
@@ -43,9 +43,9 @@ public class PaginationTests {
     @Test
     public void test1() {
         log.error("----------------------------------baseMapper 自带分页-------------------------------------------------------");
-        Page<User> page = new Page<>(1,3);
+        Page<User> page = new Page<>(1, 3);
         IPage<User> userIPage = userMapper.selectPage(page, new QueryWrapper<User>()
-        .eq("age",20).eq("name","az"));
+            .eq("age", 20).eq("name", "az"));
         assertThat(page).isSameAs(userIPage);
         log.error("总条数 -------------> {}", userIPage.getTotal());
         log.error("当前页数 -------------> {}", userIPage.getCurrent());
@@ -57,7 +57,8 @@ public class PaginationTests {
         log.error("----------------------------------json 正反序列化-------------------------------------------------------");
         String json = JSON.toJSONString(page);
         log.info("json ----------> {}", json);
-        Page<User> page1 = JSON.parseObject(json, new TypeReference<Page<User>>(){});
+        Page<User> page1 = JSON.parseObject(json, new TypeReference<Page<User>>() {
+        });
         List<User> records1 = page1.getRecords();
         assertThat(records1).isNotEmpty();
         assertThat(records1.get(0).getClass()).isEqualTo(User.class);
@@ -145,7 +146,7 @@ public class PaginationTests {
     public void testSelect() {
         System.out.println("----- selectAll method test ------");
         List<User> users = userMapper.selectList(null);
-        Assert.eq(2,users.size(), ApiErrorCode.FAILED);
+        Assert.eq(2, users.size(), ApiErrorCode.FAILED);
         users.forEach(System.out::println);
     }
 }

@@ -30,7 +30,7 @@ public class UserHystrixCommand extends HystrixCommand<Collection<? super Admin>
      */
     public UserHystrixCommand(String providerServiceName, RestTemplate restTemplate) {
         super(HystrixCommandGroupKey.Factory.asKey(
-                "User-Service-Client"
+            "User-Service-Client"
         ), 100);
         this.providerServiceName = providerServiceName;
         this.restTemplate = restTemplate;

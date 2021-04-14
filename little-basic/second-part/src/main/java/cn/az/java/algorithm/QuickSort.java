@@ -1,7 +1,6 @@
 package cn.az.java.algorithm;
 
 import java.util.Arrays;
-import java.util.stream.Stream;
 
 public class QuickSort<T extends Comparable<T>> implements Sort<T> {
 

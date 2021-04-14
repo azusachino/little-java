@@ -80,7 +80,7 @@ public class CodeGenerator {
             public String outputFile(TableInfo tableInfo) {
                 // 自定义输入文件名称
                 return projectPath + "/little_mybatis_plus/src/main/resources/mapper/" + pc.getModuleName()
-                        + "/" + tableInfo.getEntityName() + "Mapper" + StringPool.DOT_XML;
+                    + "/" + tableInfo.getEntityName() + "Mapper" + StringPool.DOT_XML;
             }
         });
         cfg.setFileOutConfigList(focList);
