@@ -2,7 +2,7 @@
 
 <configuration>
   <!--指定property属性变量-->
-  <property name="log.path" value="/logs/log"/>
+  <property name="log.path" value="E:\\Mount\\logs"/>
   <!-- 日志输出格式
    %d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n
    -->
@@ -78,7 +78,7 @@
   <!--输出到logstash的appender-->
   <appender name="logstash" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
     <!--可以访问的logstash日志收集端口-->
-    <destination>192.168.11.10:4560</destination>
+    <destination>127.0.0.1:5044</destination>
     <queueSize>1048576</queueSize>
     <encoder class="net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder">
       <providers>
