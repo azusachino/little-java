@@ -25,3 +25,8 @@ hs_err_pid*
 
 .idea/
 **/target/
+.vscode/
+**/.project
+**/org.*
+**/.classpath
+**/.factorypath
