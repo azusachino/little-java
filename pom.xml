@@ -25,6 +25,7 @@
     <module>little-boot</module>
     <module>little-cloud</module>
     <module>little-spring</module>
+    <module>little-grpc</module>
   </modules>
 
   <properties>
