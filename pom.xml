@@ -33,7 +33,7 @@
     <maven.compiler.target>11</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <hutool.version>5.5.0</hutool.version>
+    <hutool.version>5.8.11</hutool.version>
     <commons-collections.version>3.2.2</commons-collections.version>
     <guava.version>29.0-jre</guava.version>
     <mybatis-plus.version>3.4.0</mybatis-plus.version>
