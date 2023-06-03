@@ -1,18 +1,16 @@
 package cn.az.boot.es.controller;
 
-import cn.az.boot.es.common.RestResponse;
-import cn.az.boot.es.entity.UserEs;
-import cn.az.boot.es.service.UserService;
-import org.elasticsearch.index.query.QueryBuilders;
-import org.springframework.data.domain.Page;
-import org.springframework.data.elasticsearch.core.query.NativeSearchQueryBuilder;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.annotation.Resource;
-import java.util.ArrayList;
-import java.util.List;
+import cn.az.boot.es.common.RestResponse;
+import cn.az.boot.es.entity.UserEs;
+import cn.az.boot.es.service.UserService;
+import jakarta.annotation.Resource;
 
 /**
  * @author Liz
@@ -26,8 +24,8 @@ public class UserController {
 
     @GetMapping("/create")
     public RestResponse create(@RequestParam("id") Long id,
-                               @RequestParam("username") String username,
-                               @RequestParam("phone") String phone) {
+            @RequestParam("username") String username,
+            @RequestParam("phone") String phone) {
         UserEs user = new UserEs();
         user.setId(id);
         user.setUsername(username);
@@ -46,11 +44,11 @@ public class UserController {
     @GetMapping("/search")
     public RestResponse search(@RequestParam("param") String param) {
         RestResponse response = new RestResponse();
-        NativeSearchQueryBuilder queryBuilder = new NativeSearchQueryBuilder();
-        queryBuilder.withQuery(QueryBuilders.matchQuery("username", param));
-        Page<UserEs> items = userService.search(queryBuilder.build());
-        response.put("total: ", items.getTotalElements());
-        response.put("items: ", items.get().toArray());
+        // NativeSearchQueryBuilder queryBuilder = new NativeSearchQueryBuilder();
+        // queryBuilder.withQuery(QueryBuilders.matchQuery("username", param));
+        // Page<UserEs> items = userService.search(queryBuilder.build());
+        // response.put("total: ", items.getTotalElements());
+        // response.put("items: ", items.get().toArray());
         return response.ok();
     }
 }

@@ -1,7 +1,8 @@
 package cn.az.java.spring.event;
 
-import cn.az.java.spring.event.listener.MySpringEventListener;
-import cn.hutool.core.thread.ExecutorBuilder;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ApplicationEventMulticaster;
 import org.springframework.context.event.ContextClosedEvent;
@@ -9,7 +10,7 @@ import org.springframework.context.event.SimpleApplicationEventMulticaster;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.GenericApplicationContext;
 
-import java.util.concurrent.ExecutorService;
+import cn.az.java.spring.event.listener.MySpringEventListener;
 
 /**
  * @author az
@@ -27,15 +28,14 @@ public class AsyncEventHandlerDemo {
         context.refresh(); // 初始化 ApplicationEventMulticaster
 
         // 依赖查找 ApplicationEventMulticaster
-        ApplicationEventMulticaster applicationEventMulticaster =
-            context.getBean(AbstractApplicationContext.APPLICATION_EVENT_MULTICASTER_BEAN_NAME, ApplicationEventMulticaster.class);
+        ApplicationEventMulticaster applicationEventMulticaster = context.getBean(
+                AbstractApplicationContext.APPLICATION_EVENT_MULTICASTER_BEAN_NAME, ApplicationEventMulticaster.class);
 
         // 判断当前 ApplicationEventMulticaster 是否为 SimpleApplicationEventMulticaster
         if (applicationEventMulticaster instanceof SimpleApplicationEventMulticaster) {
-            SimpleApplicationEventMulticaster simpleApplicationEventMulticaster =
-                (SimpleApplicationEventMulticaster) applicationEventMulticaster;
+            SimpleApplicationEventMulticaster simpleApplicationEventMulticaster = (SimpleApplicationEventMulticaster) applicationEventMulticaster;
             // 切换 taskExecutor
-            ExecutorService taskExecutor = new ExecutorBuilder().build();
+            ExecutorService taskExecutor = Executors.newCachedThreadPool();
             // 同步 -> 异步
             simpleApplicationEventMulticaster.setTaskExecutor(taskExecutor);
 

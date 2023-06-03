@@ -3,7 +3,7 @@ package cn.az.boot.service.repository;
 import cn.az.boot.service.domain.User;
 import org.springframework.stereotype.Repository;
 
-import javax.annotation.PostConstruct;
+import jakarta.annotation.PostConstruct;
 import java.util.HashMap;
 import java.util.Map;
 

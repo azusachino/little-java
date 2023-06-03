@@ -16,17 +16,23 @@
  */
 package cn.az.java.spring.ioc.injection;
 
-import cn.az.java.spring.ioc.domain.User;
-import cn.az.java.spring.ioc.injection.annotation.InjectedUser;
-import cn.az.java.spring.ioc.injection.annotation.MyAutowired;
+import java.util.Map;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor;
 import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Lazy;
+import org.springframework.context.annotation.Scope;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 
-import java.util.Map;
-import java.util.Optional;
+import cn.az.java.spring.ioc.domain.User;
+import cn.az.java.spring.ioc.injection.annotation.InjectedUser;
+import cn.az.java.spring.ioc.injection.annotation.MyAutowired;
 
 /**
  * 注解驱动的依赖注入处理过程

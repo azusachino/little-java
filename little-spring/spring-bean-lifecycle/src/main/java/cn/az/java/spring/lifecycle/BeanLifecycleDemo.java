@@ -53,7 +53,7 @@ public class BeanLifecycleDemo {
         //		setOrder(Ordered.LOWEST_PRECEDENCE - 3);
         //		setInitAnnotationType(PostConstruct.class);
         //		setDestroyAnnotationType(PreDestroy.class);
-        //		ignoreResourceType("javax.xml.ws.WebServiceContext");
+        //		ignoreResourceType("jakarta.xml.ws.WebServiceContext");
         //	}
         beanFactory.addBeanPostProcessor(new CommonAnnotationBeanPostProcessor());
 

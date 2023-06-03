@@ -1,15 +1,5 @@
 package cn.az.boot.util;
 
-import sun.misc.BASE64Decoder;
-import sun.misc.BASE64Encoder;
-
-import javax.crypto.BadPaddingException;
-import javax.crypto.Cipher;
-import javax.crypto.IllegalBlockSizeException;
-import javax.crypto.KeyGenerator;
-import javax.crypto.NoSuchPaddingException;
-import javax.crypto.SecretKey;
-import javax.crypto.spec.SecretKeySpec;
 import java.nio.charset.StandardCharsets;
 import java.security.InvalidKeyException;
 import java.security.Key;
@@ -29,6 +19,17 @@ import java.security.spec.X509EncodedKeySpec;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+
+import javax.crypto.BadPaddingException;
+import javax.crypto.Cipher;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.KeyGenerator;
+import javax.crypto.NoSuchPaddingException;
+import javax.crypto.SecretKey;
+import javax.crypto.spec.SecretKeySpec;
+
+import cn.hutool.core.codec.Base64Decoder;
+import cn.hutool.core.codec.Base64Encoder;
 
 /**
  * 常见的加密解密算法工具类
@@ -53,7 +54,7 @@ public class EncryptUtil {
      * @throws Exception the exception
      */
     public static String decryptByBASE64(String key) throws Exception {
-        return parseByte2HexStr((new BASE64Decoder()).decodeBuffer(key));
+        return parseByte2HexStr(Base64Decoder.decode(key));
     }
 
     /**
@@ -63,7 +64,7 @@ public class EncryptUtil {
      * @return string
      */
     public static String encryptByBASE64(String hexStr) {
-        return (new BASE64Encoder()).encodeBuffer(Objects.requireNonNull(parseHexStr2Byte(hexStr)));
+        return Base64Encoder.encode(Objects.requireNonNull(parseHexStr2Byte(hexStr)));
     }
 
     /**
@@ -106,7 +107,7 @@ public class EncryptUtil {
             // 利用用户密码作为随机数初始化出
             kgen.init(128, new SecureRandom(password.getBytes()));
             // 128位的key生产者
-            //加密没关系，SecureRandom是生成安全随机数序列，password.getBytes()是种子，只要种子相同，序列就一样，所以解密只要有password就行
+            // 加密没关系，SecureRandom是生成安全随机数序列，password.getBytes()是种子，只要种子相同，序列就一样，所以解密只要有password就行
             // 根据用户密码，生成一个密钥
             SecretKey secretKey = kgen.generateKey();
             // 返回基本编码格式的密钥，如果此密钥不支持编码，则返回 null
@@ -124,7 +125,7 @@ public class EncryptUtil {
 
             return parseByte2HexStr(result);
         } catch (NoSuchPaddingException | NoSuchAlgorithmException
-            | InvalidKeyException | IllegalBlockSizeException | BadPaddingException e) {
+                | InvalidKeyException | IllegalBlockSizeException | BadPaddingException e) {
             e.printStackTrace();
         }
         return null;
@@ -157,7 +158,8 @@ public class EncryptUtil {
             byte[] result = cipher.doFinal(Objects.requireNonNull(parseHexStr2Byte(hexStr)));
             // 明文
             return new String(result);
-        } catch (NoSuchAlgorithmException | NoSuchPaddingException | InvalidKeyException | BadPaddingException | IllegalBlockSizeException e) {
+        } catch (NoSuchAlgorithmException | NoSuchPaddingException | InvalidKeyException | BadPaddingException
+                | IllegalBlockSizeException e) {
             e.printStackTrace();
         }
         return null;
@@ -405,20 +407,22 @@ public class EncryptUtil {
         System.out.println("AES Decrypt:" + decryptByAES(encryptByAES("123qwe", "123456"), "123456"));
 
         System.out.println("Key:" + parseByte2HexStr("test123".getBytes(StandardCharsets.UTF_8)));
-        System.out.println("BASE64 Encrypt:" + encryptByBASE64(parseByte2HexStr("test123".getBytes(StandardCharsets.UTF_8))));
-        System.out.println("BASE64 Decrypt:" + decryptByBASE64(encryptByBASE64(parseByte2HexStr("test123".getBytes()))));
+        System.out.println(
+                "BASE64 Encrypt:" + encryptByBASE64(parseByte2HexStr("test123".getBytes(StandardCharsets.UTF_8))));
+        System.out
+                .println("BASE64 Decrypt:" + decryptByBASE64(encryptByBASE64(parseByte2HexStr("test123".getBytes()))));
 
         System.out.println("MD5 Encrypt:" + encryptByMD5(parseByte2HexStr("test123".getBytes())));
         System.out.println("SHA Encrypt:" + encryptBySHA(parseByte2HexStr("test123".getBytes())));
 
         Map<String, Object> keyMap = initKey();
-        //甲方构建密钥对儿，将公钥公布给乙方，将私钥保留。
+        // 甲方构建密钥对儿，将公钥公布给乙方，将私钥保留。
         String publicKey = getPublicKey(keyMap);
         System.out.println("公钥:" + publicKey);
         String privateKey = getPrivateKey(keyMap);
         System.out.println("私钥:" + publicKey);
 
-        //甲方使用私钥加密数据，然后用私钥对加密后的数据签名，发送给乙方签名以及加密后的数据；乙方使用公钥、签名来验证待解密数据是否有效，如果有效使用公钥对数据解密。
+        // 甲方使用私钥加密数据，然后用私钥对加密后的数据签名，发送给乙方签名以及加密后的数据；乙方使用公钥、签名来验证待解密数据是否有效，如果有效使用公钥对数据解密。
         String originalHexData = parseByte2HexStr("ABCefg".getBytes(StandardCharsets.UTF_8));
         System.out.println("甲方原始数据:" + originalHexData);
         String encryptData = encryptByPrivateKey(originalHexData, privateKey);
@@ -428,7 +432,7 @@ public class EncryptUtil {
         System.out.println("乙方数字签名检验:" + verify(encryptData, publicKey, signData));
         System.out.println("乙方解密数据:" + decryptByPublicKey(encryptData, publicKey));
 
-        //乙方使用公钥加密数据，向甲方发送经过加密后的数据；甲方获得加密数据，通过私钥解密。
+        // 乙方使用公钥加密数据，向甲方发送经过加密后的数据；甲方获得加密数据，通过私钥解密。
         String originalHexData2 = parseByte2HexStr("abcEFG".getBytes(StandardCharsets.UTF_8));
         System.out.println("乙方原始数据:" + originalHexData2);
         String encryptData2 = encryptByPublicKey(originalHexData2, publicKey);

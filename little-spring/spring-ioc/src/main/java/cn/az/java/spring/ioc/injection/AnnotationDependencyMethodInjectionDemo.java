@@ -22,7 +22,7 @@ import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 /**
  * 基于 Java 注解的依赖方法注入示例

@@ -3,8 +3,8 @@ package cn.az.boot.validation.bean.validator;
 import cn.az.boot.validation.bean.constraints.PersonNamePrefix;
 import cn.az.boot.validation.domain.Person;
 
-import javax.validation.ConstraintValidator;
-import javax.validation.ConstraintValidatorContext;
+import jakarta.validation.ConstraintValidator;
+import jakarta.validation.ConstraintValidatorContext;
 import java.util.Objects;
 
 /**

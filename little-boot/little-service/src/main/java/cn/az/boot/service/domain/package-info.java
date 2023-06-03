@@ -5,5 +5,5 @@
 // 生成时间: 2017.08.19 时间 09:18:44 PM CST
 //
 
-@javax.xml.bind.annotation.XmlSchema(namespace = "http://segmentfault.com/schemas", elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED)
+@jakarta.xml.bind.annotation.XmlSchema(namespace = "http://segmentfault.com/schemas", elementFormDefault = jakarta.xml.bind.annotation.XmlNsForm.QUALIFIED)
 package cn.az.boot.service.domain;

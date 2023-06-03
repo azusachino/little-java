@@ -5,7 +5,7 @@
   <parent>
     <groupId>cn.az.java</groupId>
     <artifactId>little-spring</artifactId>
-    <version>1.0.0</version>
+    <version>${revision}</version>
     <relativePath/>
   </parent>
   <modelVersion>4.0.0</modelVersion>
@@ -16,11 +16,6 @@
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>javax.servlet</groupId>
-      <artifactId>servlet-api</artifactId>
-      <version>2.5</version>
     </dependency>
   </dependencies>
 </project>

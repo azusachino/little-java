@@ -1,6 +1,5 @@
 package cn.az.java.spring.event;
 
-import cn.az.java.spring.event.listener.MySpringEventListener;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.context.ApplicationContext;
@@ -8,17 +7,17 @@ import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.ApplicationEventPublisherAware;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.lang.NonNull;
 
-import javax.annotation.PostConstruct;
-import javax.annotation.Resource;
+import cn.az.java.spring.event.listener.MySpringEventListener;
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.Resource;
 
 /**
  * @author az
  * @since 08/13/20
  */
 public class InjectingApplicationEventPublisherDemo implements ApplicationEventPublisherAware,
-    ApplicationContextAware, BeanPostProcessor {
+        ApplicationContextAware, BeanPostProcessor {
 
     @Resource
     private ApplicationEventPublisher applicationEventPublisher;
@@ -28,8 +27,9 @@ public class InjectingApplicationEventPublisherDemo implements ApplicationEventP
 
     @PostConstruct
     public void init() {
-        //# 3
-        applicationEventPublisher.publishEvent(new MySpringEvent("The event from @Autowired ApplicationEventPublisher"));
+        // # 3
+        applicationEventPublisher
+                .publishEvent(new MySpringEvent("The event from @Autowired ApplicationEventPublisher"));
         // #4
         applicationContext.publishEvent(new MySpringEvent("The event from @Autowired ApplicationContext"));
     }
@@ -58,7 +58,7 @@ public class InjectingApplicationEventPublisherDemo implements ApplicationEventP
     }
 
     @Override
-    public void setApplicationContext(@NonNull ApplicationContext applicationContext) throws BeansException { // #2
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException { // #2
         applicationEventPublisher.publishEvent(new MySpringEvent("The event from ApplicationContextAware"));
     }
 }

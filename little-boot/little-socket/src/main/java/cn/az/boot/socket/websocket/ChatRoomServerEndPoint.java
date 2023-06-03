@@ -1,11 +1,16 @@
 package cn.az.boot.socket.websocket;
 
-import lombok.SneakyThrows;
-
-import javax.websocket.server.PathParam;
-import javax.websocket.server.ServerEndpoint;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+
+import jakarta.websocket.OnClose;
+import jakarta.websocket.OnMessage;
+import jakarta.websocket.OnOpen;
+import jakarta.websocket.RemoteEndpoint;
+import jakarta.websocket.Session;
+import jakarta.websocket.server.PathParam;
+import jakarta.websocket.server.ServerEndpoint;
+import lombok.SneakyThrows;
 
 /**
  * @author az

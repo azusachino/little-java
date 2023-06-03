@@ -1,15 +1,21 @@
 package cn.az.boot.controller;
 
+import java.util.Objects;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
 import cn.az.boot.entity.Student;
 import cn.az.boot.service.RedisService;
 import cn.az.boot.service.StudentService;
 import cn.az.boot.utils.JsonUtil;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-
-import java.util.Objects;
-import java.util.Optional;
 
 /**
  * @author azusachino
@@ -50,7 +56,7 @@ public class StudentController {
         } else {
             Optional<? extends Student> o2 = studentService.findById(id);
             return o2.map(student -> ResponseEntity.ok(JsonUtil.toString(student).orElse("")))
-                .orElseGet(() -> ResponseEntity.status(HttpStatus.I_AM_A_TEAPOT).body("find nothing"));
+                    .orElseGet(() -> ResponseEntity.status(HttpStatus.I_AM_A_TEAPOT).body("find nothing"));
         }
     }
 }

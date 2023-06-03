@@ -1,15 +1,15 @@
 package cn.az.boot.management.mbean;
 
+import java.lang.management.ManagementFactory;
+
 import javax.management.MBeanServer;
 import javax.management.MalformedObjectNameException;
 import javax.management.ObjectName;
-import java.lang.management.ManagementFactory;
 
 /**
  * @author az
  */
 public class MBeanDemo {
-
 
     public static void main(String[] args) throws Exception {
 

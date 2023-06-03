@@ -5,8 +5,8 @@
 
   <parent>
     <groupId>cn.az.java</groupId>
-    <artifactId>little-java</artifactId>
-    <version>1.0.0</version>
+    <artifactId>little-basic</artifactId>
+    <version>${revision}</version>
     <relativePath/>
   </parent>
 

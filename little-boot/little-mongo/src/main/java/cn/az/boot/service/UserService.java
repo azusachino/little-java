@@ -1,7 +1,8 @@
 package cn.az.boot.service;
 
-import cn.az.boot.dao.UserDao;
-import cn.az.boot.domain.User;
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -10,12 +11,12 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
-import org.springframework.data.repository.support.PageableExecutionUtils;
+import org.springframework.data.support.PageableExecutionUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
-import java.util.List;
-import java.util.Optional;
+import cn.az.boot.dao.UserDao;
+import cn.az.boot.domain.User;
 
 /**
  * @author azusachino
@@ -49,19 +50,18 @@ public class UserService {
 
     public void deleteUser(String id) {
         this.userDao.findById(id)
-            .ifPresent(user -> this.userDao.delete(user));
+                .ifPresent(user -> this.userDao.delete(user));
     }
 
     public void updateUser(String id, User user) {
         this.userDao.findById(id)
-            .ifPresent(
-                u -> {
-                    u.setName(user.getName());
-                    u.setAge(user.getAge());
-                    u.setDescription(user.getDescription());
-                    this.userDao.save(u);
-                }
-            );
+                .ifPresent(
+                        u -> {
+                            u.setName(user.getName());
+                            u.setAge(user.getAge());
+                            u.setDescription(user.getDescription());
+                            this.userDao.save(u);
+                        });
     }
 
     public List<User> getUserByAge(Integer from, Integer to) {

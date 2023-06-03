@@ -1,7 +1,7 @@
 package cn.az.boot.jpa.entity.listener;
 
-import javax.persistence.PostPersist;
-import javax.persistence.PrePersist;
+import jakarta.persistence.PostPersist;
+import jakarta.persistence.PrePersist;
 
 /**
  * @author az

@@ -3,8 +3,8 @@ package cn.az.boot.jpa.service;
 import cn.az.boot.jpa.entity.Customer;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 
 /**
  * @author az

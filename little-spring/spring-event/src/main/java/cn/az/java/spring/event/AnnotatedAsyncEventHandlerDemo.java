@@ -1,19 +1,23 @@
 package cn.az.java.spring.event;
 
+import org.springframework.boot.autoconfigure.condition.ConditionalOnCloudPlatform;
+import org.springframework.boot.cloud.CloudPlatform;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.context.event.EventListener;
 import org.springframework.core.task.SimpleAsyncTaskExecutor;
 import org.springframework.core.task.TaskExecutor;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.EnableAsync;
 
-
 /**
  * @author az
  * @since 08/13/20
  */
 @EnableAsync
+@Configuration
+@ConditionalOnCloudPlatform(CloudPlatform.CLOUD_FOUNDRY)
 public class AnnotatedAsyncEventHandlerDemo {
 
     public static void main(String[] args) {
@@ -35,8 +39,10 @@ public class AnnotatedAsyncEventHandlerDemo {
     }
 
     @Bean
-    public TaskExecutor taskExecutor() {
-        //org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'org.springframework.core.task.TaskExecutor' available
+    TaskExecutor taskExecutor() {
+        // org.springframework.beans.factory.NoSuchBeanDefinitionException: No
+        // qualifying bean of type 'org.springframework.core.task.TaskExecutor'
+        // available
         return new SimpleAsyncTaskExecutor();
     }
 }

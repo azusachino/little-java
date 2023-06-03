@@ -5,7 +5,7 @@ import cn.az.boot.jpa.repository.TravelRepository;
 import cn.az.boot.jpa.service.TravelService;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 import java.util.List;
 
 /**

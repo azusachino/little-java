@@ -1,21 +1,28 @@
 package cn.az.boot.shiro.config;
 
-import cn.az.boot.shiro.common.Constants;
-import cn.az.boot.shiro.model.Permission;
-import cn.az.boot.shiro.model.Role;
-import cn.az.boot.shiro.model.User;
-import cn.az.boot.shiro.service.UserService;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.authc.*;
+import org.apache.shiro.authc.AuthenticationException;
+import org.apache.shiro.authc.AuthenticationInfo;
+import org.apache.shiro.authc.AuthenticationToken;
+import org.apache.shiro.authc.IncorrectCredentialsException;
+import org.apache.shiro.authc.LockedAccountException;
+import org.apache.shiro.authc.SimpleAuthenticationInfo;
+import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 
-import javax.annotation.Resource;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import cn.az.boot.shiro.common.Constants;
+import cn.az.boot.shiro.model.Permission;
+import cn.az.boot.shiro.model.Role;
+import cn.az.boot.shiro.model.User;
+import cn.az.boot.shiro.service.UserService;
+import jakarta.annotation.Resource;
 
 /**
  * <h3>MySpringBoot</h3>
@@ -69,4 +76,3 @@ public class ShiroRealm extends AuthorizingRealm {
         return new SimpleAuthenticationInfo(user, password, getName());
     }
 }
-

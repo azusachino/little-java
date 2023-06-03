@@ -3,7 +3,7 @@ package cn.az.boot.jpa.entity;
 import cn.az.boot.jpa.entity.listener.CustomerListener;
 import lombok.Data;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.List;
 
 /**

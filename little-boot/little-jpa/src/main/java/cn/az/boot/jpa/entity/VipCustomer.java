@@ -3,8 +3,8 @@ package cn.az.boot.jpa.entity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-import javax.persistence.Entity;
-import javax.persistence.Inheritance;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Inheritance;
 
 /**
  * @author az

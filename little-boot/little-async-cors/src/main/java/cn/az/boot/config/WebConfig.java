@@ -1,16 +1,19 @@
 package cn.az.boot.config;
 
+import java.io.IOException;
+import java.util.List;
+
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
 import org.springframework.lang.NonNull;
 import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.config.annotation.AsyncSupportConfigurer;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import java.util.List;
+import jakarta.servlet.http.HttpServletResponse;
 
 /**
  * @author azusachino
@@ -22,10 +25,10 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(@NonNull CorsRegistry registry) {
         registry.addMapping("/**")
-            .allowedHeaders("*")
-            .allowedOrigins("*")
-            .allowedMethods("*")
-            .maxAge(3600L);
+                .allowedHeaders("*")
+                .allowedOrigins("*")
+                .allowedMethods("*")
+                .maxAge(3600L);
     }
 
     /**
@@ -41,19 +44,21 @@ public class WebConfig implements WebMvcConfigurer {
     public void addViewControllers(ViewControllerRegistry registry) {
         // 通过修改registry添加controller层
         registry.addViewController("/hello")
-            .setStatusCode(HttpStatus.OK)
-            .setViewName("hello.html");
+                .setStatusCode(HttpStatus.OK)
+                .setViewName("hello.html");
     }
 
     /**
      * Configure exception resolvers.
-     * <p>The given list starts out empty. If it is left empty, the framework
+     * <p>
+     * The given list starts out empty. If it is left empty, the framework
      * configures a default set of resolvers, see
      * .
      * Or if any exception resolvers are added to the list, then the application
      * effectively takes over and must provide, fully initialized, exception
      * resolvers.
-     * <p>Alternatively you can use
+     * <p>
+     * Alternatively you can use
      * {@link #extendHandlerExceptionResolvers(List)} which allows you to extend
      * or modify the list of exception resolvers configured by default.
      *

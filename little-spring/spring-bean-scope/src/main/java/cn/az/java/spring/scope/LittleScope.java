@@ -1,12 +1,12 @@
 package cn.az.java.spring.scope;
 
-import com.google.common.collect.Maps;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
+
 import org.springframework.beans.factory.ObjectFactory;
 import org.springframework.beans.factory.config.Scope;
 import org.springframework.core.NamedThreadLocal;
-
-import java.util.Map;
-import java.util.Objects;
 
 /**
  * @author az
@@ -19,7 +19,7 @@ public class LittleScope implements Scope {
     public final NamedThreadLocal<Map<String, Object>> DATA = new NamedThreadLocal<Map<String, Object>>(SCOPE_NAME) {
         @Override
         protected Map<String, Object> initialValue() {
-            return Maps.newHashMap();
+            return new HashMap<>();
         }
     };
 

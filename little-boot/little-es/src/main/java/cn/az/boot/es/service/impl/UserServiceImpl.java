@@ -1,13 +1,13 @@
 package cn.az.boot.es.service.impl;
 
-import cn.az.boot.es.entity.UserEs;
-import cn.az.boot.es.repository.UserRepository;
-import cn.az.boot.es.service.UserService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.elasticsearch.core.query.Query;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
+import cn.az.boot.es.entity.UserEs;
+import cn.az.boot.es.repository.UserRepository;
+import cn.az.boot.es.service.UserService;
+import jakarta.annotation.Resource;
 
 /**
  * @author Liz
@@ -48,6 +48,7 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public Page<UserEs> search(Query query) {
-        return userRepository.search(query);
+        // return userRepository.search(query);
+        return null;
     }
 }

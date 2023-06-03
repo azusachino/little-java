@@ -7,7 +7,7 @@
   <parent>
     <groupId>cn.az.java</groupId>
     <artifactId>little-java</artifactId>
-    <version>1.0.0</version>
+    <version>${revision}</version>
     <relativePath/>
   </parent>
 
@@ -16,11 +16,11 @@
   <packaging>pom</packaging>
   <description>learn java basic</description>
 
-  <modules>
+  <!--  <modules>
     <module>first-part</module>
     <module>second-part</module>
     <module>third-part</module>
     <module>fourth-part</module>
-  </modules>
+    </modules> -->
 
 </project>

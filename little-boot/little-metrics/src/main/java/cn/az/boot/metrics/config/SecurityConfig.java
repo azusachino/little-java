@@ -14,11 +14,11 @@ import org.springframework.security.web.SecurityFilterChain;
 public class SecurityConfig {
 
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+    SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         // any request match endpoint check role
-        http.requestMatcher(EndpointRequest.toAnyEndpoint())
-            .authorizeRequests(r -> r.anyRequest()
-                .hasRole("ENDPOINT_ADMIN"));
+        http.securityMatcher(EndpointRequest.toAnyEndpoint())
+                .authorizeRequests(r -> r.anyRequest()
+                        .hasRole("ENDPOINT_ADMIN"));
         http.httpBasic();
         return http.build();
     }

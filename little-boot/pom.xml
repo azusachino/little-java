@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
     <groupId>cn.az.java</groupId>
     <artifactId>little-java</artifactId>
-    <version>1.0.0</version>
-    <relativePath/>
+    <version>${revision}</version>
+    <relativePath />
   </parent>
 
   <artifactId>little-boot</artifactId>
@@ -44,7 +45,6 @@
     <module>little-security</module>
     <module>little-service</module>
     <module>little-socket</module>
-    <module>little-swagger</module>
     <module>little-test</module>
     <module>little-validation</module>
     <module>little-thymeleaf</module>
@@ -55,5 +55,17 @@
     <module>little-metrics</module>
     <module>little-elk</module>
   </modules>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.mysql</groupId>
+      <artifactId>mysql-connector-j</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+  </dependencies>
 
 </project>

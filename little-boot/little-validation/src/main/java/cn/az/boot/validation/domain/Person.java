@@ -4,8 +4,8 @@ import cn.az.boot.validation.bean.constraints.PersonNamePrefix;
 import lombok.Data;
 import org.hibernate.validator.constraints.Range;
 
-import javax.validation.GroupSequence;
-import javax.validation.constraints.NotNull;
+import jakarta.validation.GroupSequence;
+import jakarta.validation.constraints.NotNull;
 
 /**
  * Person

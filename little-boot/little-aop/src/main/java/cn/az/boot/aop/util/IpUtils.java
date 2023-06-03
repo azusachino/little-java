@@ -1,6 +1,6 @@
 package cn.az.boot.aop.util;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 /**
  * @author Liz

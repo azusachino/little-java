@@ -1,8 +1,12 @@
 package cn.az.boot.app.run;
 
-import lombok.extern.slf4j.Slf4j;
+import java.time.Duration;
+
 import org.springframework.boot.SpringApplicationRunListener;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.core.annotation.Order;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * @author az
@@ -12,7 +16,8 @@ import org.springframework.core.annotation.Order;
 public class HelloWorldRunListener implements SpringApplicationRunListener {
 
     @Override
-    public void starting() {
-        log.warn("Hello World Listener...");
+    public void started(ConfigurableApplicationContext context, Duration timeTaken) {
+        log.info("starting...");
     }
+
 }

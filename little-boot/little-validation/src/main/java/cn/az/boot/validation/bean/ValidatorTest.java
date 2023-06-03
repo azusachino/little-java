@@ -4,7 +4,7 @@ import cn.az.boot.validation.config.ValidatorConfig;
 import cn.az.boot.validation.domain.Person;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import javax.validation.Validator;
+import jakarta.validation.Validator;
 
 /**
  * @author az

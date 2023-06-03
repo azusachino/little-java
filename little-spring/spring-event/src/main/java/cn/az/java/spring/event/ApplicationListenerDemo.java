@@ -1,12 +1,16 @@
 package cn.az.java.spring.event;
 
+import org.springframework.context.ApplicationEvent;
+import org.springframework.context.ApplicationEventPublisher;
+import org.springframework.context.ApplicationEventPublisherAware;
+import org.springframework.context.ApplicationListener;
+import org.springframework.context.PayloadApplicationEvent;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.event.ContextClosedEvent;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.context.event.ContextStartedEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.core.annotation.Order;
-import org.springframework.lang.NonNull;
 import org.springframework.scheduling.annotation.Async;
 
 /**
@@ -35,9 +39,9 @@ public class ApplicationListenerDemo implements ApplicationEventPublisherAware {
         // 启动 Spring 应用上下文
         context.refresh(); // ContextRefreshedEvent
         // 启动 Spring 上下文
-        context.start();  // ContextStartedEvent
+        context.start(); // ContextStartedEvent
         // 停止 Spring 上下文
-        context.stop();  // ContextStoppedEvent
+        context.stop(); // ContextStoppedEvent
         // 关闭 Spring 应用上下文
         context.close(); // ContextClosedEvent
     }
@@ -57,7 +61,8 @@ public class ApplicationListenerDemo implements ApplicationEventPublisherAware {
         /**
          * Create a new PayloadApplicationEvent.
          *
-         * @param source  the object on which the event initially occurred (never {@code null})
+         * @param source  the object on which the event initially occurred (never
+         *                {@code null})
          * @param payload the payload object (never {@code null})
          */
         public MyPayloadApplicationEvent(Object source, String payload) {
@@ -73,7 +78,7 @@ public class ApplicationListenerDemo implements ApplicationEventPublisherAware {
     static class MyApplicationListener implements ApplicationListener<ContextRefreshedEvent> {
 
         @Override
-        public void onApplicationEvent(@NonNull ContextRefreshedEvent event) {
+        public void onApplicationEvent(ContextRefreshedEvent event) {
             println("MyApplicationListener - 接收到 Spring 事件：" + event);
         }
     }

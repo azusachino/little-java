@@ -6,7 +6,7 @@
   <parent>
     <groupId>cn.az.java</groupId>
     <artifactId>little-boot</artifactId>
-    <version>1.0.0</version>
+    <version>${revision}</version>
     <relativePath/>
   </parent>
 
@@ -32,11 +32,6 @@
     <dependency>
       <groupId>redis.clients</groupId>
       <artifactId>jedis</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>mysql</groupId>
-      <artifactId>mysql-connector-java</artifactId>
-      <scope>runtime</scope>
     </dependency>
     <dependency>
       <groupId>com.alibaba</groupId>

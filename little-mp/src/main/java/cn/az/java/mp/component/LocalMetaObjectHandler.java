@@ -1,15 +1,17 @@
 package cn.az.java.mp.component;
 
-import cn.az.java.mp.entity.User;
-import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
-import com.baomidou.mybatisplus.core.handlers.StrictFill;
-import com.baomidou.mybatisplus.core.metadata.TableInfo;
-import org.apache.ibatis.reflection.MetaObject;
-import org.springframework.stereotype.Component;
-
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.apache.ibatis.reflection.MetaObject;
+import org.springframework.stereotype.Component;
+
+import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
+import com.baomidou.mybatisplus.core.handlers.StrictFill;
+import com.baomidou.mybatisplus.core.metadata.TableInfo;
+
+import cn.az.java.mp.entity.User;
 
 /**
  * @author az
@@ -25,9 +27,9 @@ public class LocalMetaObjectHandler implements MetaObjectHandler {
      */
     @Override
     public void insertFill(MetaObject metaObject) {
-        List<StrictFill> strictFills = new ArrayList<>();
-        strictFills.add(StrictFill.of("create_time", LocalDateTime.class, LocalDateTime::now));
-        strictUpdateFill(new TableInfo(User.class), metaObject, strictFills);
+        // List<StrictFill<User, LocalDateTime>> strictFills = new ArrayList<>();
+        // strictFills.add(StrictFill.of("create_time", LocalDateTime.class, LocalDateTime.now()));
+        // this.strictUpdateFill(new TableInfo(User.class), metaObject, strictFills);
     }
 
     /**
@@ -37,8 +39,8 @@ public class LocalMetaObjectHandler implements MetaObjectHandler {
      */
     @Override
     public void updateFill(MetaObject metaObject) {
-        List<StrictFill> strictFills = new ArrayList<>();
-        strictFills.add(StrictFill.of("update_time", LocalDateTime.class, LocalDateTime::now));
-        strictUpdateFill(findTableInfo(metaObject), metaObject, strictFills);
+        // List<StrictFill> strictFills = new ArrayList<>();
+        // strictFills.add(StrictFill.of("update_time", LocalDateTime.class, LocalDateTime::now));
+        // this.strictUpdateFill(findTableInfo(metaObject), metaObject, strictFills);
     }
 }

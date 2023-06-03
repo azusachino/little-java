@@ -19,7 +19,7 @@ package cn.az.java.spring.ioc.source;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import javax.annotation.PostConstruct;
+import jakarta.annotation.PostConstruct;
 
 /**
  * ResolvableDependency 作为依赖来源

@@ -1,12 +1,11 @@
 package cn.az.java.spring.event;
 
+import java.util.LinkedHashSet;
+import java.util.Set;
+
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.event.ApplicationContextEvent;
-import org.springframework.lang.NonNull;
-
-import java.util.LinkedHashSet;
-import java.util.Set;
 
 /**
  * @author az
@@ -45,10 +44,10 @@ public class HierarchicalSpringEventPropagateDemo {
         private final Set<ApplicationContextEvent> processedEvents = new LinkedHashSet<>();
 
         @Override
-        public void onApplicationEvent(@NonNull ApplicationContextEvent event) {
+        public void onApplicationEvent(ApplicationContextEvent event) {
             if (processedEvents.add(event)) {
                 System.out.printf("监听到 Spring 应用上下文[ ID : %s ] 事件 :%s\n", event.getApplicationContext().getId(),
-                    event.getClass().getSimpleName());
+                        event.getClass().getSimpleName());
             }
         }
     }

@@ -16,10 +16,16 @@
  */
 package cn.az.java.spring;
 
-import cn.az.java.spring.ioc.domain.User;
-import org.springframework.beans.factory.annotation.Value;
-
 import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Import;
+import org.springframework.context.annotation.ImportResource;
+import org.springframework.context.annotation.PropertySource;
+
+import cn.az.java.spring.ioc.domain.User;
 
 /**
  * 基于 Java 注解 Spring IoC 容器元信息配置示例

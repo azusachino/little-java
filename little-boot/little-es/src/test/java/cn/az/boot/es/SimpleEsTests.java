@@ -1,23 +1,19 @@
 package cn.az.boot.es;
 
-import cn.az.boot.es.entity.Book;
-import org.elasticsearch.index.query.QueryBuilders;
+import java.time.LocalDate;
+import java.util.UUID;
+
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.elasticsearch.core.ElasticsearchOperations;
-import org.springframework.data.elasticsearch.core.SearchHit;
-import org.springframework.data.elasticsearch.core.SearchHits;
 import org.springframework.data.elasticsearch.core.mapping.IndexCoordinates;
 import org.springframework.data.elasticsearch.core.query.IndexQuery;
 import org.springframework.data.elasticsearch.core.query.IndexQueryBuilder;
-import org.springframework.data.elasticsearch.core.query.NativeSearchQuery;
-import org.springframework.data.elasticsearch.core.query.NativeSearchQueryBuilder;
 
-import java.time.LocalDate;
-import java.util.UUID;
+import cn.az.boot.es.entity.Book;
 
 /**
  * @author ycpang
@@ -31,7 +27,6 @@ public class SimpleEsTests {
     @Autowired
     private ElasticsearchOperations elasticsearchOperations;
 
-
     private final static String ID = UUID.randomUUID().toString();
 
     @Test
@@ -44,27 +39,21 @@ public class SimpleEsTests {
     @Test
     public void add() {
         Book book = Book.builder()
-            .id(ID)
-            .isbn("12345")
-            .name("The Stupid Book")
-            .publishDate(LocalDate.of(2008, 1, 2))
-            .build();
+                .id(ID)
+                .isbn("12345")
+                .name("The Stupid Book")
+                .publishDate(LocalDate.of(2008, 1, 2))
+                .build();
         IndexQuery indexQuery = new IndexQueryBuilder()
-            .withId(ID)
-            .withObject(book)
-            .build();
+                .withId(ID)
+                .withObject(book)
+                .build();
         String doc = elasticsearchOperations.index(indexQuery, IndexCoordinates.of("index_test"));
         LOGGER.info("docId: {}", doc);
     }
 
     @Test
     public void search() {
-        NativeSearchQuery searchQuery = new NativeSearchQueryBuilder()
-            .withQuery(QueryBuilders.matchQuery("name", "Stupid"))
-            .build();
-        SearchHits<Book> searchHits = elasticsearchOperations.search(searchQuery, Book.class);
-        for (SearchHit<Book> sh : searchHits) {
-            LOGGER.warn(String.valueOf(sh));
-        }
+
     }
 }

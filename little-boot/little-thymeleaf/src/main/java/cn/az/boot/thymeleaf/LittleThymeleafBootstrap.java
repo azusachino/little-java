@@ -1,16 +1,17 @@
 package cn.az.boot.thymeleaf;
 
-import lombok.SneakyThrows;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+
 import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.core.io.DefaultResourceLoader;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
 import org.thymeleaf.context.Context;
-import org.thymeleaf.spring5.SpringTemplateEngine;
+import org.thymeleaf.spring6.SpringTemplateEngine;
 
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
+import lombok.SneakyThrows;
 
 /**
  * @author az
@@ -36,7 +37,7 @@ public class LittleThymeleafBootstrap {
         IOUtils.copy(fis, baos);
         String result = baos.toString("UTF-8");
         // template content
-        //String result = "<p th:text=\"${message}\"></p>";
+        // String result = "<p th:text=\"${message}\"></p>";
 
         System.out.println(templateEngine.process(result, context));
     }

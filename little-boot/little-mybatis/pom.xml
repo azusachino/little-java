@@ -6,7 +6,7 @@
   <parent>
     <groupId>cn.az.java</groupId>
     <artifactId>little-boot</artifactId>
-    <version>1.0.0</version>
+    <version>${revision}</version>
     <relativePath/>
   </parent>
 
@@ -20,10 +20,6 @@
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>mysql</groupId>
-      <artifactId>mysql-connector-java</artifactId>
     </dependency>
     <dependency>
       <groupId>org.mybatis.spring.boot</groupId>

@@ -3,8 +3,8 @@ package cn.az.java.spring.domain;
 import org.springframework.beans.factory.BeanNameAware;
 import org.springframework.core.io.Resource;
 
-import javax.annotation.PostConstruct;
-import javax.annotation.PreDestroy;
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Properties;

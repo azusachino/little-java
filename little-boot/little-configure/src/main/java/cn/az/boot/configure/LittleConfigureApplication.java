@@ -1,20 +1,25 @@
 package cn.az.boot.configure;
 
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.EnvironmentAware;
 import org.springframework.context.annotation.ImportResource;
-
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import org.springframework.core.env.ConfigurableEnvironment;
+import org.springframework.core.env.Environment;
+import org.springframework.core.env.MapPropertySource;
+import org.springframework.core.env.MutablePropertySources;
+import org.springframework.core.env.PropertySource;
 
 /**
  * @author az
  */
 @SpringBootApplication
 @ImportResource(locations = {
-    "META-INF/spring/context.xml"
+        "META-INF/spring/context.xml"
 })
 public class LittleConfigureApplication implements EnvironmentAware {
 
@@ -23,7 +28,6 @@ public class LittleConfigureApplication implements EnvironmentAware {
         application.setAdditionalProfiles("prod");
         application.run(args);
     }
-
 
     @Override
     public void setEnvironment(Environment environment) {

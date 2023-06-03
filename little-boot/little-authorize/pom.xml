@@ -6,7 +6,7 @@
   <parent>
     <groupId>cn.az.java</groupId>
     <artifactId>little-boot</artifactId>
-    <version>1.0.0</version>
+    <version>${revision}</version>
     <relativePath/>
   </parent>
 
@@ -16,10 +16,6 @@
   <description>shiro with authorize</description>
 
   <dependencies>
-    <dependency>
-      <groupId>org.projectlombok</groupId>
-      <artifactId>lombok</artifactId>
-    </dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
@@ -43,10 +39,6 @@
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-data-redis</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>mysql</groupId>
-      <artifactId>mysql-connector-java</artifactId>
     </dependency>
   </dependencies>
 

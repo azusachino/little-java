@@ -4,7 +4,7 @@
 //import redis.clients.jedis.Jedis;
 //import redis.clients.jedis.JedisPool;
 //
-//import javax.annotation.Resource;
+//import jakarta.annotation.Resource;
 //
 //// http://redis.cn/
 //@Component

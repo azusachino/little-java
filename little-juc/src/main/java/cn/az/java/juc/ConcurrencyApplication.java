@@ -7,14 +7,14 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 
-import javax.servlet.Filter;
+import jakarta.servlet.Filter;
 
 /**
  * @author az
  */
 @SpringBootApplication
-//@EnableHystrixDashboard
-//@EnableCircuitBreaker
+// @EnableHystrixDashboard
+// @EnableCircuitBreaker
 public class ConcurrencyApplication extends WebMvcConfigurationSupport {
 
     public static void main(String[] args) {
@@ -31,6 +31,6 @@ public class ConcurrencyApplication extends WebMvcConfigurationSupport {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new HttpInterceptor()).addPathPatterns("/**");
+        // registry.addInterceptor(new HttpInterceptor()).addPathPatterns("/**");
     }
 }

@@ -1,11 +1,13 @@
 package cn.az.java.spring.demo;
 
-import cn.az.java.spring.domain.User;
-import cn.az.java.spring.scope.LittleScope;
-import cn.hutool.core.util.RandomUtil;
+import java.util.Random;
+
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Scope;
+
+import cn.az.java.spring.domain.User;
+import cn.az.java.spring.scope.LittleScope;
 
 /**
  * @author az
@@ -13,11 +15,13 @@ import org.springframework.context.annotation.Scope;
  */
 public class LittleScopeDemo {
 
+    public static final Random R = new Random();
+
     @Bean
     @Scope(LittleScope.SCOPE_NAME)
     public User u() {
         User u = new User();
-        u.setId(RandomUtil.randomLong());
+        u.setId(R.nextLong());
         return u;
     }
 

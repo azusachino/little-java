@@ -1,12 +1,8 @@
 package cn.az.boot.util;
 
-import com.google.zxing.*;
-import com.google.zxing.client.j2se.BufferedImageLuminanceSource;
-import com.google.zxing.common.BitMatrix;
-import com.google.zxing.common.HybridBinarizer;
-
-import javax.imageio.ImageIO;
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Graphics2D;
+import java.awt.Image;
 import java.awt.geom.AffineTransform;
 import java.awt.image.AffineTransformOp;
 import java.awt.image.BufferedImage;
@@ -14,6 +10,22 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+
+import javax.imageio.ImageIO;
+
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.Binarizer;
+import com.google.zxing.BinaryBitmap;
+import com.google.zxing.LuminanceSource;
+import com.google.zxing.MultiFormatReader;
+import com.google.zxing.MultiFormatWriter;
+import com.google.zxing.NotFoundException;
+import com.google.zxing.ReaderException;
+import com.google.zxing.Result;
+import com.google.zxing.WriterException;
+import com.google.zxing.client.j2se.BufferedImageLuminanceSource;
+import com.google.zxing.common.BitMatrix;
+import com.google.zxing.common.HybridBinarizer;
 
 /**
  * The type Qr code util.
@@ -94,13 +106,12 @@ public class QrCodeUtil {
      * @throws IOException     the io exception
      */
     public static byte[] createQrCodeToBytes(String content)
-        throws WriterException, IOException {
+            throws WriterException, IOException {
         BufferedImage image = createQrCode(content);
         ByteArrayOutputStream os = new ByteArrayOutputStream();
         ImageIO.write(image, FORMAT, os);
         return os.toByteArray();
     }
-
 
     /**
      * 把一个String编码成二维码的BufferedImage.
@@ -123,7 +134,8 @@ public class QrCodeUtil {
      * @return buffered image
      * @throws WriterException the writer exception
      */
-    public static BufferedImage createQrCodeWithIcon(String content, String iconPath) throws WriterException, IOException {
+    public static BufferedImage createQrCodeWithIcon(String content, String iconPath)
+            throws WriterException, IOException {
         BitMatrix matrix = WRITER.encode(content, BarcodeFormat.QR_CODE, QRCODE_WIDTH, QRCODE_HEIGHT);
         // 读取Icon图像
         BufferedImage scaleImage = scaleImage(iconPath, ICON_HEIGHT, ICON_WIDTH, true);
@@ -154,10 +166,14 @@ public class QrCodeUtil {
                     pixels[y * QRCODE_WIDTH + x] = iconPixels[indexX][indexY];
                 }
                 // 在图片四周形成边框
-                else if ((x > minX - frameWidth && x < minX + frameWidth && y > minY - frameWidth && y < maxY + frameWidth)
-                    || (x > maxX - frameWidth && x < maxX + frameWidth && y > minY - frameWidth && y < maxY + frameWidth)
-                    || (x > minX - frameWidth && x < maxX + frameWidth && y > minY - frameWidth && y < minY + frameWidth)
-                    || (x > minX - frameWidth && x < maxX + frameWidth && y > maxY - frameWidth && y < maxY + frameWidth)) {
+                else if ((x > minX - frameWidth && x < minX + frameWidth && y > minY - frameWidth
+                        && y < maxY + frameWidth)
+                        || (x > maxX - frameWidth && x < maxX + frameWidth && y > minY - frameWidth
+                                && y < maxY + frameWidth)
+                        || (x > minX - frameWidth && x < maxX + frameWidth && y > minY - frameWidth
+                                && y < minY + frameWidth)
+                        || (x > minX - frameWidth && x < maxX + frameWidth && y > maxY - frameWidth
+                                && y < maxY + frameWidth)) {
                     pixels[y * QRCODE_WIDTH + x] = WHITE;
                 } else {
                     // 这里是其他不属于图标的内容。即为二维码没有被图标遮盖的内容，用矩阵的值来显示颜色。
@@ -184,7 +200,6 @@ public class QrCodeUtil {
         BufferedImage image = ImageIO.read(is);
         return parseImage(image);
     }
-
 
     /**
      * 从一个图片文件中解码出二维码中的内容。
@@ -267,7 +282,8 @@ public class QrCodeUtil {
      * @param hasFiller    比例不对时是否需要补白：true为补白; false为不补白;
      * @throws IOException i
      */
-    private static BufferedImage scaleImage(String srcImageFile, int height, int width, boolean hasFiller) throws IOException {
+    private static BufferedImage scaleImage(String srcImageFile, int height, int width, boolean hasFiller)
+            throws IOException {
         // 缩放比例
         double ratio;
         File file = new File(srcImageFile);
@@ -281,22 +297,22 @@ public class QrCodeUtil {
                 ratio = (new Integer(width)).doubleValue() / srcImage.getWidth();
             }
             AffineTransformOp op = new AffineTransformOp(
-                AffineTransform.getScaleInstance(ratio, ratio), null);
+                    AffineTransform.getScaleInstance(ratio, ratio), null);
             destImage = op.filter(srcImage, null);
         }
         // 补白
         if (hasFiller) {
             BufferedImage image = new BufferedImage(
-                width, height, BufferedImage.TYPE_INT_RGB);
+                    width, height, BufferedImage.TYPE_INT_RGB);
             Graphics2D graphic = image.createGraphics();
             graphic.setColor(Color.white);
             graphic.fillRect(0, 0, width, height);
             if (width == destImage.getWidth(null)) {
                 graphic.drawImage(destImage, 0, (height - destImage.getHeight(null)) / 2,
-                    destImage.getWidth(null), destImage.getHeight(null), Color.white, null);
+                        destImage.getWidth(null), destImage.getHeight(null), Color.white, null);
             } else {
                 graphic.drawImage(destImage, (width - destImage.getWidth(null)) / 2, 0,
-                    destImage.getWidth(null), destImage.getHeight(null), Color.white, null);
+                        destImage.getWidth(null), destImage.getHeight(null), Color.white, null);
             }
             graphic.dispose();
             destImage = image;

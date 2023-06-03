@@ -6,7 +6,7 @@
   <parent>
     <groupId>cn.az.java</groupId>
     <artifactId>little-spring</artifactId>
-    <version>1.0.0</version>
+    <version>${revision}</version>
     <relativePath/>
   </parent>
 

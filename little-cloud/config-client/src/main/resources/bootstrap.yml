@@ -1,8 +1,0 @@
-spring:
-  application:
-    name: segmentfault
-  cloud:
-    config:
-      profile: prod
-      label: master
-      uri: http://127.0.0.1:9090/
